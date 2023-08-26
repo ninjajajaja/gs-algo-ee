@@ -144,17 +144,17 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	/**
 	 * Current damping factor
 	 */
-	protected double dampingFactor;
+	public double dampingFactor;
 
 	/**
 	 * Current numeric precision
 	 */
-	protected double precision;
+	public double precision;
 
 	/**
 	 * Current rank attribute
 	 */
-	protected String rankAttribute;
+	public String rankAttribute;
 
 	/**
 	 * Our graph
@@ -179,7 +179,7 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	/**
 	 * total iteration count
 	 */
-	protected int iterationCount;
+	public int iterationCount;
 
 	/**
 	 * Verbose mode
@@ -216,15 +216,6 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	// parameters
 
 	/**
-	 * Returns the current damping factor.
-	 * 
-	 * @return The current damping factor
-	 */
-	public double getDampingFactor() {
-		return dampingFactor;
-	}
-
-	/**
 	 * Sets the damping factor.
 	 * 
 	 * @param dampingFactor
@@ -243,15 +234,6 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	}
 
 	/**
-	 * Returns the currently used numeric precision
-	 * 
-	 * @return The precision
-	 */
-	public double getPrecision() {
-		return precision;
-	}
-
-	/**
 	 * Sets the numeric precision. Precision values close to zero lead to more
 	 * accurate results, but slower convergence
 	 * 
@@ -266,15 +248,6 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 			throw new IllegalArgumentException("Precision is too small");
 		this.precision = precision;
 		upToDate = false;
-	}
-
-	/**
-	 * Returns the current rank attribute
-	 * 
-	 * @return The current rank attribute
-	 */
-	public String getRankAttribute() {
-		return rankAttribute;
 	}
 
 	/**
@@ -433,18 +406,5 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	public double getRank(Node node) {
 		compute();
 		return node.getNumber(rankAttribute);
-	}
-
-	/**
-	 * Returns the total number of iterations.
-	 * 
-	 * This number accumulates the number of iterations performed by each call
-	 * to {@link #compute()}. It is reset to zero in the calls to
-	 * {@link #init(Graph)}.
-	 * 
-	 * @return The number of iterations
-	 */
-	public int getIterationCount() {
-		return iterationCount;
 	}
 }

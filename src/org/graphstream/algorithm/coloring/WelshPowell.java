@@ -77,7 +77,7 @@ import org.graphstream.graph.Node;
  * <p>
  * After computation (using {@link #compute()}, the algorithm result for the
  * computation, the chromatic number, is accessible with the
- * {@link #getChromaticNumber()} method. Colors (of "Integer" type) are stored
+ * {@link #chromaticNumber} method. Colors (of "Integer" type) are stored
  * in the graph as attributes (one for each node). By default the attribute name
  * is "WelshPowell.color", but you can optional choose the attribute name.
  * </p>
@@ -177,7 +177,7 @@ public class WelshPowell implements Algorithm {
 	/**
 	 * The algorithm's result : the chromatic number.
 	 */
-	protected int chromaticNumber;
+	public int chromaticNumber;
 
 	// Constructors
 
@@ -198,18 +198,6 @@ public class WelshPowell implements Algorithm {
 	 * 
 	 */
 	public WelshPowell() {
-	}
-
-	// Accessors
-
-	/**
-	 * Return the last computed result of the algorithm.
-	 * 
-	 * @return The number of colors.
-	 * @see #compute()
-	 */
-	public int getChromaticNumber() {
-		return chromaticNumber;
 	}
 
 	// Commands

@@ -127,7 +127,7 @@ public class Kruskal extends AbstractSpanningTree {
 	/**
 	 * Attribute where the weights of the edges are stored
 	 */
-	protected String weightAttribute;
+	public String weightAttribute;
 
 	/**
 	 * List of the tree edges. Used by the iterator.
@@ -137,7 +137,7 @@ public class Kruskal extends AbstractSpanningTree {
 	/**
 	 * The weight of the spanning tree
 	 */
-	protected double treeWeight;
+	public double treeWeight;
 
 	/**
 	 * Create a new Kruskal's algorithm. Uses the default weight attribute and
@@ -198,15 +198,6 @@ public class Kruskal extends AbstractSpanningTree {
 	}
 
 	/**
-	 * Get weight attribute used to compare edges.
-	 * 
-	 * @return weight attribute
-	 */
-	public String getWeightAttribute() {
-		return weightAttribute;
-	}
-
-	/**
 	 * Set the weight attribute.
 	 * 
 	 * @param newWeightAttribute
@@ -261,14 +252,6 @@ public class Kruskal extends AbstractSpanningTree {
 		treeEdges.clear();
 	}
 
-	/**
-	 * Returns the total weight of the minimum spanning tree
-	 * 
-	 * @return The sum of the weights of the edges in the spanning tree
-	 */
-	public double getTreeWeight() {
-		return treeWeight;
-	}
 
 	// helpers
 

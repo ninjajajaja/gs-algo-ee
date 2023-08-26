@@ -133,22 +133,22 @@ public class Centroid implements Algorithm {
 	/**
 	 * Attribute in which APSPInfo are stored.
 	 */
-	protected String apspInfoAttribute;
+	public String apspInfoAttribute;
 
 	/**
 	 * Attribute to store centroid information.
 	 */
-	protected String centroidAttribute;
+	public String centroidAttribute;
 
 	/**
 	 * Value of the attribute if node is in the centroid.
 	 */
-	protected Object isInCentroid;
+	public Object isInCentroid;
 
 	/**
 	 * Value of the attribute if node is not in the centroid.
 	 */
-	protected Object isNotInCentroid;
+	public Object isNotInCentroid;
 
 	/**
 	 * Build a new centroid algorithm with default parameters.
@@ -270,15 +270,6 @@ public class Centroid implements Algorithm {
 	}
 
 	/**
-	 * Get the APSP info attribute name.
-	 * 
-	 * @return the name of the attribute where the APSP informations are stored.
-	 */
-	public String getAPSPInfoAttribute() {
-		return apspInfoAttribute;
-	}
-
-	/**
 	 * Set the APSP info attribute name.
 	 * 
 	 * @param attribute
@@ -288,17 +279,6 @@ public class Centroid implements Algorithm {
 	@Parameter
 	public void setAPSPInfoAttribute(String attribute) {
 		apspInfoAttribute = attribute;
-	}
-
-	/**
-	 * Get the value of the centroid attribute when element is in the centroid.
-	 * Default value is Boolean.TRUE.
-	 * 
-	 * @return the value of elements centroid attribute when this element is in
-	 *         the centroid.
-	 */
-	public Object getIsInCentroidValue() {
-		return isInCentroid;
 	}
 
 	/**
@@ -315,17 +295,6 @@ public class Centroid implements Algorithm {
 	}
 
 	/**
-	 * Get the value of the centroid attribute when element is not in the
-	 * centroid. Default value is Boolean.FALSE.
-	 * 
-	 * @return the value of elements centroid attribute when this element is not
-	 *         in the centroid.
-	 */
-	public Object getIsNotInCentroidValue() {
-		return isNotInCentroid;
-	}
-
-	/**
 	 * Set the value of the centroid attribute when element is not in the
 	 * centroid. On computation, this value is used to set the centroid
 	 * attribute.
@@ -337,17 +306,6 @@ public class Centroid implements Algorithm {
 	@Parameter
 	public void setIsNotInCentroidValue(Object value) {
 		isNotInCentroid = value;
-	}
-
-	/**
-	 * Get the name of the attribute where computation result is stored. Value
-	 * of this attribute can be {@link #getIsInCentroidValue()} if the element
-	 * is in the centroid, {@link #getIsNotInCentroidValue()} else.
-	 * 
-	 * @return the centroid attribute name.
-	 */
-	public String getCentroidAttribute() {
-		return centroidAttribute;
 	}
 
 	/**

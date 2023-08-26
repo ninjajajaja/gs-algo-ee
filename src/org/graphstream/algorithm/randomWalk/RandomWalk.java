@@ -206,43 +206,27 @@ public class RandomWalk extends SinkAdapter implements DynamicAlgorithm {
 		/**
 		 * The name of the attribute used to count the number of pass on an edge.
 		 */
-		protected String passesAttribute = "passes";
+		public String passesAttribute = "passes";
 
 		/**
 		 * The name of the attribute on edges that give their respective importance.
 		 */
-		protected String weightAttribute = null;
+		public String weightAttribute = null;
 
 		/**
 		 * Random number generator.
 		 */
-		protected Random random;
+		public Random random;
 
 		/**
 		 * The node tabu list.
 		 */
-		protected int entityMemory = 0;
+		public int entityMemory = 0;
 
 		/**
 		 * Number of entities that jump at each step.
 		 */
 		protected int jumpCount = 0, goCount = 0, waitCount = 0;
-		
-		public String getPassesAttribute() {
-			return passesAttribute;
-		}
-		
-		public String getWeightAttribute() {
-			return weightAttribute;
-		}
-		
-		public Random getRandom() {
-			return random;
-		}
-		
-		public int getEntityMemory() {
-			return entityMemory;
-		}
 	}
 
 	/**
@@ -263,7 +247,7 @@ public class RandomWalk extends SinkAdapter implements DynamicAlgorithm {
 	/**
 	 * The random seed.
 	 */
-	protected long randomSeed;
+	public long randomSeed;
 
 	/**
 	 * Initial count of entities.
@@ -274,7 +258,7 @@ public class RandomWalk extends SinkAdapter implements DynamicAlgorithm {
 	 * Allow to reduce the amount counted on each edge at each turn. At each turn
 	 * the edges counts are multiplied by the evaporation.
 	 */
-	protected double evaporation = 1;
+	public double evaporation = 1;
 
 	/**
 	 * Compute counts on nodes.
@@ -360,23 +344,6 @@ public class RandomWalk extends SinkAdapter implements DynamicAlgorithm {
 		if(evaporation>=0 && evaporation<1) {
 			this.evaporation = evaporation;
 		}
-	}
-	
-	/**
-	 * The evaporation value.
-	 * @return The evaporation.
-	 */
-	public double getEvaporation() {
-		return evaporation;
-	}
-
-	/**
-	 * The random seed used.
-	 * 
-	 * @return A long integer containing the random seed.
-	 */
-	public long getRandomSeed() {
-		return randomSeed;
 	}
 
 	/**

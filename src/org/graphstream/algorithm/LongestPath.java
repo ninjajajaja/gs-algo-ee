@@ -91,7 +91,7 @@ public class LongestPath implements Algorithm {
         TopologicalSortDFS aTopoSortAlgorithm = new TopologicalSortDFS();
         aTopoSortAlgorithm.init(graph);
         aTopoSortAlgorithm.compute();
-        fillDistanceMap(aTopoSortAlgorithm.getSortedNodes());
+        fillDistanceMap(aTopoSortAlgorithm.sortedNodes);
         longestPathNode = distanceMap.entrySet().stream().max(Map.Entry.comparingByValue()).orElse(null);
         if(longestPathNode == null){
             throw new IllegalStateException("No max node found!");

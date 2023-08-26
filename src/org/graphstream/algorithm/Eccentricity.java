@@ -131,19 +131,19 @@ public class Eccentricity implements Algorithm {
 	/**
 	 * Attribute in which APSPInfo are stored.
 	 */
-	protected String apspInfoAttribute = APSP.APSPInfo.ATTRIBUTE_NAME;
+	public String apspInfoAttribute = APSP.APSPInfo.ATTRIBUTE_NAME;
 	/**
 	 * Attribute to store eccentricity information.
 	 */
-	protected String eccentricityAttribute = "eccentricity";
+	public String eccentricityAttribute = "eccentricity";
 	/**
 	 * Value of the attribute if node is in the eccentricity.
 	 */
-	protected Object isInEccentricity = Boolean.TRUE;
+	public Object isInEccentricity = Boolean.TRUE;
 	/**
 	 * Value of the attribute if node is not in the eccentricity.
 	 */
-	protected Object isNotInEccentricity = Boolean.FALSE;
+	public Object isNotInEccentricity = Boolean.FALSE;
 
 	/**
 	 * Build a new eccentricity algorithm with default parameters.
@@ -264,15 +264,6 @@ public class Eccentricity implements Algorithm {
 	}
 
 	/**
-	 * Get the APSP info attribute name.
-	 * 
-	 * @return the name of the attribute where the APSP informations are stored.
-	 */
-	public String getAPSPInfoAttribute() {
-		return apspInfoAttribute;
-	}
-
-	/**
 	 * Set the APSP info attribute name.
 	 * 
 	 * @param attribute
@@ -282,17 +273,6 @@ public class Eccentricity implements Algorithm {
 	@Parameter
 	public void setAPSPInfoAttribute(String attribute) {
 		apspInfoAttribute = attribute;
-	}
-
-	/**
-	 * Get the value of the eccentricity attribute when element is in the
-	 * eccentricity. Default value is Boolean.TRUE.
-	 * 
-	 * @return the value of elements eccentricity attribute when this element is
-	 *         in the eccentricity.
-	 */
-	public Object getIsInEccentricityValue() {
-		return isInEccentricity;
 	}
 
 	/**
@@ -309,16 +289,6 @@ public class Eccentricity implements Algorithm {
 		isInEccentricity = value;
 	}
 
-	/**
-	 * Get the value of the eccentricity attribute when element is not in the
-	 * eccentricity. Default value is Boolean.FALSE.
-	 * 
-	 * @return the value of elements eccentricity attribute when this element is
-	 *         not in the eccentricity.
-	 */
-	public Object getIsNotInEccentricityValue() {
-		return isNotInEccentricity;
-	}
 
 	/**
 	 * Set the value of the eccentricity attribute when element is not in the
@@ -332,18 +302,6 @@ public class Eccentricity implements Algorithm {
 	@Parameter
 	public void setIsNotInEccentricityValue(Object value) {
 		isNotInEccentricity = value;
-	}
-
-	/**
-	 * Get the name of the attribute where computation result is stored. Value
-	 * of this attribute can be {@link #getIsInEccentricityValue()} if the
-	 * element is in the eccentricity, {@link #getIsNotInEccentricityValue()}
-	 * else.
-	 * 
-	 * @return the eccentricity attribute name.
-	 */
-	public String getEccentricityAttribute() {
-		return eccentricityAttribute;
 	}
 
 	/**

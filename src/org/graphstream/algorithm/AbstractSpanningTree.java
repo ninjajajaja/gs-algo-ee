@@ -123,18 +123,18 @@ public abstract class AbstractSpanningTree implements SpanningTree {
 	 * Attribute which will be used to set is an edge is in the spanning tree or
 	 * not.
 	 */
-	protected String flagAttribute;
+	public String flagAttribute;
 
 	/**
 	 * Value of the <i>flagAttribute</i> if the edge is in the spanning tree.
 	 */
-	protected Object flagOn;
+	public Object flagOn;
 
 	/**
 	 * Value of the <i>flagAttribute</i> if the edge is not in the spanning
 	 * tree.
 	 */
-	protected Object flagOff;
+	public Object flagOff;
 
 	/**
 	 * Create a new SpanningTree algorithm. By default edges are not tagged.
@@ -176,13 +176,6 @@ public abstract class AbstractSpanningTree implements SpanningTree {
 	}
 
 	/* (non-Javadoc)
-	 * @see org.graphstream.algorithm.SpanningTree#getFlagAttribute()
-	 */
-	public String getFlagAttribute() {
-		return flagAttribute;
-	}
-
-	/* (non-Javadoc)
 	 * @see org.graphstream.algorithm.SpanningTree#setFlagAttribute(java.lang.String)
 	 */
 	public void setFlagAttribute(String flagAttribute) {
@@ -190,14 +183,6 @@ public abstract class AbstractSpanningTree implements SpanningTree {
 			throw new IllegalStateException(
 					"Flag attribute can be set only before the algorithm is initialized");
 		this.flagAttribute = flagAttribute;
-	}
-
-
-	/* (non-Javadoc)
-	 * @see org.graphstream.algorithm.SpanningTree#getFlagOn()
-	 */
-	public Object getFlagOn() {
-		return flagOn;
 	}
 
 	/* (non-Javadoc)
@@ -208,13 +193,6 @@ public abstract class AbstractSpanningTree implements SpanningTree {
 			throw new IllegalStateException(
 					"Flag values can be set only before the algorithm is initialized");
 		this.flagOn = flagOn;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.graphstream.algorithm.SpanningTree#getFlagOff()
-	 */
-	public Object getFlagOff() {
-		return flagOff;
 	}
 
 	/* (non-Javadoc)

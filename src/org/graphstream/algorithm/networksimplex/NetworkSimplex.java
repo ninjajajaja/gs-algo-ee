@@ -192,27 +192,27 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	/**
 	 * Name of the attribute used to store the supply of each node
 	 */
-	protected String supplyName;
+	public String supplyName;
 
 	/**
 	 * Name of the attribute used to store the capacity of each arc
 	 */
-	protected String capacityName;
+	public String capacityName;
 
 	/**
 	 * Name of the attribute used to store the cost per unit flow of each arc
 	 */
-	protected String costName;
+	public String costName;
 
 	/**
 	 * Current pricing strategy
 	 */
-	protected PricingStrategy pricingStrategy = PricingStrategy.MOST_NEGATIVE;
+	public PricingStrategy pricingStrategy = PricingStrategy.MOST_NEGATIVE;
 
 	/**
 	 * A reference to the original graph
 	 */
-	protected Graph graph;
+	public Graph graph;
 
 	/**
 	 * Stores the nodes
@@ -242,7 +242,7 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	/**
 	 * The status of the current BFS
 	 */
-	protected SolutionStatus solutionStatus = SolutionStatus.UNDEFINED;
+	public SolutionStatus solutionStatus = SolutionStatus.UNDEFINED;
 
 	/**
 	 * Entering arc for the next pivot. Set to {@code null} if no candidates.
@@ -563,7 +563,7 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * objective value.
 	 */
 	protected void changeFlows() {
-		int delta = (int) cycleFlowChange.getSmall();
+		int delta = (int) cycleFlowChange.small;
 		if (delta == 0)
 			return;
 
@@ -677,46 +677,6 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	// access and modification of algorithm parameters
 
 	/**
-	 * Returns the name of the attribute used to store the supply of each node.
-	 * This name is given as constructor parameter and cannot be modified.
-	 * 
-	 * @return The name of the supply attribute.
-	 */
-	public String getSupplyName() {
-		return supplyName;
-	}
-
-	/**
-	 * Returns the name of the attribute used to store the capacity of each
-	 * edge. This name is given as constructor parameter and cannot be modified.
-	 * 
-	 * @return The name of the capacity attribute.
-	 */
-	public String getCapacityName() {
-		return capacityName;
-	}
-
-	/**
-	 * Returns the name of the attribute used to store the cost per unit flow of
-	 * each edge. This name is given as constructor parameter and cannot be
-	 * modified.
-	 * 
-	 * @return The name of the cost attribute.
-	 */
-	public String getCostName() {
-		return costName;
-	}
-
-	/**
-	 * Returns the currently used pricing strategy.
-	 * 
-	 * @return The pricing strategy
-	 */
-	public PricingStrategy getPricingStrategy() {
-		return pricingStrategy;
-	}
-
-	/**
 	 * Sets the pricing strategy
 	 * 
 	 * @param pricingStrategy
@@ -741,16 +701,6 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 */
 	public void setAnimationDelay(long millis) {
 		animationDelay = millis;
-	}
-
-	/**
-	 * Returns the graph on which the algorithm is applied. This is the graph
-	 * passed in parameter in {@link #init(Graph)}.
-	 * 
-	 * @return The graph on which the algorithm is applied.
-	 */
-	public Graph getGraph() {
-		return graph;
 	}
 
 	/**
@@ -799,24 +749,12 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	// solution access methods
 
 	/**
-	 * If the current solution is up to date, returns the status of the problem.
-	 * Otherwise returns {@link SolutionStatus#UNDEFINED}.
-	 * 
-	 * 
-	 * @return The status of the current solution.
-	 * @see SolutionStatus
-	 */
-	public SolutionStatus getSolutionStatus() {
-		return solutionStatus;
-	}
-
-	/**
 	 * Returns the total cost of the current network flow
 	 * 
 	 * @return The cost of the flow defined by the current solution
 	 */
 	public long getSolutionCost() {
-		return objectiveValue.getSmall();
+		return objectiveValue.small;
 	}
 
 	/**

@@ -170,7 +170,7 @@ public class BetweennessCentrality implements Algorithm {
 	protected static double INFINITY = 1000000.0;
 
 	/** Store the centrality value in this attribute on nodes and edges. */
-	protected String centralityAttributeName = "Cb";
+	public String centralityAttributeName = "Cb";
 
 	/** The predecessors. */
 	protected String predAttributeName = "brandes.P";
@@ -185,7 +185,7 @@ public class BetweennessCentrality implements Algorithm {
 	protected String deltaAttributeName = "brandes.delta";
 
 	/** Name of the attribute used to retrieve weights on edges. */
-	protected String weightAttributeName = "weight";
+	public String weightAttributeName = "weight";
 
 	/** Do not use weights ? */
 	protected boolean unweighted = true;
@@ -240,20 +240,6 @@ public class BetweennessCentrality implements Algorithm {
 		this.centralityAttributeName = centralityAttributeName;
 		this.weightAttributeName = weightAttributeName;
 		this.unweighted = false;
-	}
-
-	/**
-	 * Name of the attribute used to retrieve weights on edges.
-	 */
-	public String getWeightAttributeName() {
-		return weightAttributeName;
-	}
-
-	/**
-	 * Name of the attribute used to store centrality values on nodes.
-	 */
-	public String getCentralityAttributeName() {
-		return centralityAttributeName;
 	}
 
 	/**

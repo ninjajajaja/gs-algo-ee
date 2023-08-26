@@ -50,7 +50,7 @@ public abstract class AbstractCentrality implements Algorithm {
 	/**
 	 * Attribute name where centrality value will be stored.
 	 */
-	protected String centralityAttribute;
+	public String centralityAttribute;
 
 	/**
 	 * Flag indicating if centrality values should be normalized between 0 and
@@ -171,15 +171,6 @@ public abstract class AbstractCentrality implements Algorithm {
 
 			break;
 		}
-	}
-
-	/**
-	 * Getter for {@link #centralityAttribute}.
-	 * 
-	 * @return {@link #centralityAttribute}
-	 */
-	public String getCentralityAttribute() {
-		return centralityAttribute;
 	}
 
 	/**

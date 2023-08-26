@@ -57,7 +57,7 @@ public class TopologicalSortKahn implements Algorithm {
     /**
      * collection containing sorted nodes after calculation
      */
-    private List<Node> sortedNodes;
+    public List<Node> sortedNodes;
 
     /**
      * collection containing all source nodes (inDegree=00)
@@ -156,17 +156,9 @@ public class TopologicalSortKahn implements Algorithm {
         throw new IllegalStateException("graph is no DAG");
     }
 
-    /**
-     * gets sorted list of the given graph
-     * @return topological sorted list of nodes
-     */
-    public List<Node> getSortedNodes() {
-        return sortedNodes;
-    }
-
     @Result
     public String defaultResult() {
-    	return getSortedNodes().toString() ;
+    	return sortedNodes.toString() ;
     }
 
 }

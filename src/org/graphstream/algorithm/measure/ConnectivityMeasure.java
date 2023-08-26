@@ -340,23 +340,13 @@ public class ConnectivityMeasure {
 
 	public static class VertexConnectivityMeasure implements DynamicAlgorithm {
 		protected Graph g;
-		protected int vertexConnectivity;
+		public int vertexConnectivity;
 		protected Sink trigger;
 
 		public VertexConnectivityMeasure() {
 			g = null;
 			vertexConnectivity = -1;
 			trigger = new StepTrigger(this);
-		}
-
-		/**
-		 * Get the last vertex-connectivity of the registered graph compute in
-		 * the last call of {@link #compute()}.
-		 * 
-		 * @return vertex connectivity
-		 */
-		public int getVertexConnectivity() {
-			return vertexConnectivity;
 		}
 
 		/*
@@ -391,23 +381,13 @@ public class ConnectivityMeasure {
 
 	public static class EdgeConnectivityMeasure implements DynamicAlgorithm {
 		protected Graph g;
-		protected int edgeConnectivity;
+		public int edgeConnectivity;
 		protected Sink trigger;
 
 		public EdgeConnectivityMeasure() {
 			g = null;
 			edgeConnectivity = -1;
 			trigger = new StepTrigger(this);
-		}
-
-		/**
-		 * Get the last vertex-connectivity of the registered graph compute in
-		 * the last call of {@link #compute()}.
-		 * 
-		 * @return vertex connectivity
-		 */
-		public int getEdgeConnectivity() {
-			return edgeConnectivity;
 		}
 
 		/*

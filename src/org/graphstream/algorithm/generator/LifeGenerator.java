@@ -43,7 +43,7 @@ public class LifeGenerator extends BaseGenerator {
 			-1, 1, 0, 1, 1, 1 };
 	private static final int[] LINK_WITH = { -1, -1, 0, -1, 1, -1, -1, 0 };
 
-	int width, height;
+	public int width, height;
 	boolean[] cells;
 	boolean[] swap;
 	boolean tore;
@@ -291,12 +291,5 @@ public class LifeGenerator extends BaseGenerator {
 	public boolean isCoordsPushed() {
 		return pushCoords;
 	}
-	
-	public int getWidth() {
-		return width;
-	}
-	
-	public int getHeight() {
-		return height;
-	}
+
 }

@@ -100,8 +100,8 @@ public class FibonacciHeap<K extends Comparable<K>, V> {
 	 * 
 	 */
 	public class Node {
-		protected K key;
-		protected V value;
+		public K key;
+		public V value;
 		protected Node parent;
 		protected Node child;
 		protected Node left;
@@ -150,21 +150,6 @@ public class FibonacciHeap<K extends Comparable<K>, V> {
 				child.concatLists(y);
 		}
 
-		/**
-		 * Returns the key stored in this node.
-		 * @return the key stored in this node
-		 */
-		public K getKey() {
-			return key;
-		}
-
-		/**
-		 * Returns the value stored in this node.
-		 * @return the value stored in this node
-		 */
-		public V getValue() {
-			return value;
-		}
 	}
 
 	protected Node min;

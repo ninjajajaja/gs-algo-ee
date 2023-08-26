@@ -239,7 +239,7 @@ public class APSP extends SinkAdapter implements Algorithm {
 	/**
 	 * The graph to use.
 	 */
-	protected Graph graph;
+	public Graph graph;
 
 	/**
 	 * Does the graph changed between two calls to {@link #compute()}?.
@@ -260,7 +260,7 @@ public class APSP extends SinkAdapter implements Algorithm {
 	 * Name of the attribute on each edge indicating the weight of the edge.
 	 * This attribute must contain a descendant of Number.
 	 */
-	protected String weightAttributeName;
+	public String weightAttributeName;
 	
 	protected Progress progress = null;
 	
@@ -316,24 +316,6 @@ public class APSP extends SinkAdapter implements Algorithm {
 	 */
 	public boolean isDirected() {
 		return directed;
-	}
-
-	/**
-	 * The name of the attribute to use for retrieving edge weights.
-	 * 
-	 * @return An attribute name.
-	 */
-	public String getWeightAttributeName() {
-		return weightAttributeName;
-	}
-
-	/**
-	 * Access to the working graph.
-	 * 
-	 * @return graph being used
-	 */
-	public Graph getGraph() {
-		return graph;
 	}
 
 	// Commands
@@ -563,26 +545,6 @@ public class APSP extends SinkAdapter implements Algorithm {
 				return targets.get(other).distance;
 
 			return -1;
-		}
-
-		/**
-		 * The minimum distance between this node and another.
-		 * XXX this is the minimum value seen during compute not the minimum shortest path XXX
-		 * 
-		 * @return A distance.
-		 */
-		public double getMinimumLength() {
-			return minLength;
-		}
-
-		/**
-		 * The maximum distance between this node and another.
-		 * XXX this is the maximum value seen during compute not the maximum shortest path XXX
-		 * 
-		 * @return A distance.
-		 */
-		public double getMaximumLength() {
-			return maxLength;
 		}
 
 		/**

@@ -387,7 +387,7 @@ public class Dijkstra extends AbstractSpanningTree {
 		while (!heap.isEmpty()) {
 			Node u = heap.extractMin();
 			Data dataU = (Data) u.getAttribute(resultAttribute);
-			dataU.distance = dataU.fn.getKey();
+			dataU.distance = dataU.fn.key;
 			dataU.fn = null;
 			if (dataU.edgeFromParent != null)
 				edgeOn(dataU.edgeFromParent);
@@ -399,7 +399,7 @@ public class Dijkstra extends AbstractSpanningTree {
 				Data dataV = (Data) v.getAttribute(resultAttribute);
 			
 				double tryDist = dataU.distance + getLength(e, v);
-				if (tryDist < dataV.fn.getKey()) {
+				if (tryDist < dataV.fn.key) {
 					dataV.edgeFromParent = e;
 					heap.decreaseKey(dataV.fn, tryDist);
 				}

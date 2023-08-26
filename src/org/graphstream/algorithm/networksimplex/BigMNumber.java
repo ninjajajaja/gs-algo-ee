@@ -38,8 +38,8 @@ package org.graphstream.algorithm.networksimplex;
  * 
  */
 class BigMNumber {
-	protected long small;
-	protected long big;
+	public long small;
+	public long big;
 
 	public BigMNumber() {
 		set(0, 0);
@@ -100,10 +100,6 @@ class BigMNumber {
 		if (small > b.small)
 			return 1;
 		return 0;
-	}
-	
-	public long getSmall() {
-		return small;
 	}
 	
 	@Override
