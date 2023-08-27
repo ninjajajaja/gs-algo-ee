@@ -174,17 +174,6 @@ public abstract class AbstractCentrality implements Algorithm {
 	}
 
 	/**
-	 * Setter for {@link #centralityAttribute}.
-	 * 
-	 * @param centralityAttribute
-	 *            new value of {@link #centralityAttribute}
-	 */
-	@Parameter
-	public void setCentralityAttribute(String centralityAttribute) {
-		this.centralityAttribute = centralityAttribute;
-	}
-
-	/**
 	 * Getter for {@link #normalize}.
 	 * 
 	 * @return {@link #normalize}

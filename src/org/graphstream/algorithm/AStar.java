@@ -188,7 +188,7 @@ public class AStar implements Algorithm {
 	 * heuristic. The heuristic to estimate the distance from the current
 	 * position to the target.
 	 */
-	protected Costs costs = new DefaultCosts();
+	public Costs costs = new DefaultCosts();
 
 	/**
 	 * The open set.
@@ -267,22 +267,6 @@ public class AStar implements Algorithm {
 	public void setTarget(String nodeName) {
 		clearAll();
 		target = nodeName;
-	}
-
-	/**
-	 * Specify how various costs are computed. The costs object is in charge of
-	 * computing the cost of displacement from one node to another (and
-	 * therefore allows to compute the cost from the source node to any node).
-	 * It also allows to compute the heuristic to use for evaluating the cost
-	 * from the current position to the target node. Calling this DOES NOT clear
-	 * the currently computed paths.
-	 * 
-	 * @param costs
-	 *            The cost method to use.
-	 */
-	@Parameter
-	public void setCosts(Costs costs) {
-		this.costs = costs;
 	}
 
 	/*

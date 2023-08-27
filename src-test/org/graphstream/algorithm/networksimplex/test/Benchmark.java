@@ -97,17 +97,17 @@ class Benchmark {
 		
 		dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
 		dijkstra.init(g);
-		dijkstra.setSource(source);
+		dijkstra.source = source;
 		dijkstra.compute();
 		
 		dspF = new DynamicOneToAllShortestPath("length");
-		dspF.setPricingStrategy(PricingStrategy.FIRST_NEGATIVE);
+		dspF.pricingStrategy = PricingStrategy.FIRST_NEGATIVE;
 		dspF.setSource(source.getId());
 		dspF.init(g);
 		dspF.compute();
 		
 		dspM = new DynamicOneToAllShortestPath("length");
-		dspM.setPricingStrategy(PricingStrategy.MOST_NEGATIVE);
+		dspM.pricingStrategy = PricingStrategy.MOST_NEGATIVE;
 		dspM.setSource(source.getId());
 		dspM.init(g);
 		dspM.compute();

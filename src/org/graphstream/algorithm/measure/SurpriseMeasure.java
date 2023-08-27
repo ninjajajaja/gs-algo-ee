@@ -71,12 +71,12 @@ public class SurpriseMeasure implements Algorithm {
 	/**
 	 * Attribute of nodes containing meta index. Default is "meta.index".
 	 */
-	protected String communityAttributeKey;
+	public String communityAttributeKey;
 
 	/**
 	 * Attribute that will contain the result.
 	 */
-	protected String surpriseAttributeKey;
+	public String surpriseAttributeKey;
 
 	/**
 	 * Graph used in the computation.
@@ -183,11 +183,6 @@ public class SurpriseMeasure implements Algorithm {
 	@Result
 	public String defaultResult() {
 		return "Surprise = "+getSurprise();
-	}
-	
-	@Parameter
-	public void setCommunityAttributeKey(String communityAttributeKey) {
-		this.communityAttributeKey = communityAttributeKey;
 	}
 	
 	/**

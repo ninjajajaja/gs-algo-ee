@@ -46,8 +46,8 @@ public class LifeGenerator extends BaseGenerator {
 	public int width, height;
 	boolean[] cells;
 	boolean[] swap;
-	boolean tore;
-	boolean pushCoords;
+	public boolean tore;
+	public boolean pushCoords;
 	double step;
 
 	public LifeGenerator(int width, int height, boolean[] data) {
@@ -276,16 +276,8 @@ public class LifeGenerator extends BaseGenerator {
 		return true;
 	}
 
-	public void setTore(boolean on) {
-		tore = on;
-	}
-
 	public boolean isTore() {
 		return tore;
-	}
-
-	public void setPushCoords(boolean on) {
-		pushCoords = on;
 	}
 
 	public boolean isCoordsPushed() {

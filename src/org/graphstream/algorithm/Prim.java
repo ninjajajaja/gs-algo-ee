@@ -188,7 +188,7 @@ public class Prim extends Kruskal {
 			if (dataU.edgeToTree != null) {
 				treeEdges.add(dataU.edgeToTree);
 				edgeOn(dataU.edgeToTree);
-				treeWeight += dataU.fn.getKey();
+				treeWeight += dataU.fn.key;
 				dataU.edgeToTree = null;
 			}
 			dataU.fn = null;
@@ -200,7 +200,7 @@ public class Prim extends Kruskal {
 					Data dataV = data[v.getIndex()];
 					
 					double w = getWeight(e);
-					if (w < dataV.fn.getKey()) {
+					if (w < dataV.fn.key) {
 						heap.decreaseKey(dataV.fn, w);
 						dataV.edgeToTree = e;
 					}

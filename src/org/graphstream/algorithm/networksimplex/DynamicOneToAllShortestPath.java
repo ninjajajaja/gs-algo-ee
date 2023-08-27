@@ -85,7 +85,7 @@ public class DynamicOneToAllShortestPath extends NetworkSimplex {
 		// instantiate and compute Dijkstra
 		Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, costName);
 		dijkstra.init(graph);
-		dijkstra.setSource(graph.getNode(sourceId));
+		dijkstra.source = graph.getNode(sourceId);
 		dijkstra.compute();
 		
 		// init

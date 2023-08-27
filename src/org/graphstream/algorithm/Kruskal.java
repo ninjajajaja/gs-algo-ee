@@ -197,17 +197,6 @@ public class Kruskal extends AbstractSpanningTree {
 		this.weightAttribute = weightAttribute;
 	}
 
-	/**
-	 * Set the weight attribute.
-	 * 
-	 * @param newWeightAttribute
-	 *            new attribute used
-	 */
-	@Parameter
-	public void setWeightAttribute(String newWeightAttribute) {
-		this.weightAttribute = newWeightAttribute;
-	}
-
 	@Override
 	protected void makeTree() {
 		if (treeEdges == null)

@@ -252,7 +252,7 @@ public class RandomWalk extends SinkAdapter implements DynamicAlgorithm {
 	/**
 	 * Initial count of entities.
 	 */
-	protected int entityCount = 100;
+	public int entityCount = 100;
 
 	/**
 	 * Allow to reduce the amount counted on each edge at each turn. At each turn
@@ -437,17 +437,6 @@ public class RandomWalk extends SinkAdapter implements DynamicAlgorithm {
 	 */
 	public double getPasses(Node node) {
 		return node.getNumber(context.passesAttribute);
-	}
-
-	/**
-	 * Set the number of entities which will be created at the algorithm
-	 * initialization.
-	 * 
-	 * @param entityCount number of entities
-	 */
-	@Parameter
-	public void setEntityCount(int entityCount) {
-		this.entityCount = entityCount;
 	}
 
 	/**

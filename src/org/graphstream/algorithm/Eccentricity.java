@@ -262,59 +262,6 @@ public class Eccentricity implements Algorithm {
 
 		eccentricity.clear();
 	}
-
-	/**
-	 * Set the APSP info attribute name.
-	 * 
-	 * @param attribute
-	 *            the name of the attribute where the APSP informations are
-	 *            stored.
-	 */
-	@Parameter
-	public void setAPSPInfoAttribute(String attribute) {
-		apspInfoAttribute = attribute;
-	}
-
-	/**
-	 * Set the value of the eccentricity attribute when element is in the
-	 * eccentricity. On computation, this value is used to set the eccentricity
-	 * attribute.
-	 * 
-	 * @param value
-	 *            the value of elements eccentricity attribute when this element
-	 *            is in the eccentricity.
-	 */
-	@Parameter
-	public void setIsInEccentricityValue(Object value) {
-		isInEccentricity = value;
-	}
-
-
-	/**
-	 * Set the value of the eccentricity attribute when element is not in the
-	 * eccentricity. On computation, this value is used to set the eccentricity
-	 * attribute.
-	 * 
-	 * @param value
-	 *            the value of elements eccentricity attribute when this element
-	 *            is not in the eccentricity.
-	 */
-	@Parameter
-	public void setIsNotInEccentricityValue(Object value) {
-		isNotInEccentricity = value;
-	}
-
-	/**
-	 * Set the name of the attribute where computation result is stored.
-	 * 
-	 * @param eccentricityAttribute
-	 *            the name of the element attribute where computation result is
-	 *            stored.
-	 */
-	@Parameter
-	public void setEccentricityAttribute(String eccentricityAttribute) {
-		this.eccentricityAttribute = eccentricityAttribute;
-	}
 	
 	@Result
 	public String defaultResult() {

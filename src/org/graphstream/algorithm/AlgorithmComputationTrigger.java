@@ -58,15 +58,6 @@ public class AlgorithmComputationTrigger extends SinkAdapter {
 		this.algo = algo;
 	}
 
-	/**
-	 * Set the trigger mode.
-	 * 
-	 * @param mode the trigger mode
-	 */
-	public void setMode(Mode mode) {
-		this.mode = mode;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 

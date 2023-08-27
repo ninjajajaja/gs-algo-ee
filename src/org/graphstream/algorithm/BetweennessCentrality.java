@@ -81,12 +81,6 @@ import org.graphstream.graph.Node;
  * </p>
  * 
  * <p>
- * The result of the computation is stored on each node inside the "Cb"
- * attribute. You can change the name of this attribute using the dedicated
- * constructor or the {@link #setCentralityAttributeName(String)} method.
- * </p>
- * 
- * <p>
  * As the computing of centrality can take a lot of time, you can provide a
  * progress 'callback' to get notified each time the algorithm finished
  * processing a node (however the centrality values are usable only when the
@@ -280,15 +274,6 @@ public class BetweennessCentrality implements Algorithm {
 	@Parameter
 	public void computeEdgeCentrality(boolean on) {
 		doEdges = on;
-	}
-
-	/**
-	 * Specify the name of the attribute used to store the computed centrality
-	 * values for each node.
-	 */
-	@Parameter
-	public void setCentralityAttributeName(String centralityAttributeName) {
-		this.centralityAttributeName = centralityAttributeName;
 	}
 
 	/**

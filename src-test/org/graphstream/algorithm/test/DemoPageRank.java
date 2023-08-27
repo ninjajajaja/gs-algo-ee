@@ -50,7 +50,7 @@ public class DemoPageRank {
 		generator.addSink(graph);
 
 		PageRank pageRank = new PageRank();
-		pageRank.setVerbose(true);
+		pageRank.verbose = true;
 		pageRank.init(graph);
 
 		generator.begin();

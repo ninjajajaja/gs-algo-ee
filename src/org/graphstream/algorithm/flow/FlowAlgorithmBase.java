@@ -61,15 +61,15 @@ public abstract class FlowAlgorithmBase implements FlowAlgorithm {
 	/**
 	 * Id of the source.
 	 */
-	protected String sourceId;
+	public String sourceId;
 	/**
 	 * Id of the sink.
 	 */
-	protected String sinkId;
+	public String sinkId;
 	/**
 	 * Maximum flow computed by the algorithm.
 	 */
-	protected double maximumFlow;
+	public double maximumFlow;
 
 	public String capacityAttribute;
 
@@ -132,12 +132,12 @@ public abstract class FlowAlgorithmBase implements FlowAlgorithm {
 		this.sourceId = sourceId;
 		this.sinkId = sinkId;
 	}
-	
+
 	@Parameter(true)
 	public void setSourceId(String sourceId) {
 		this.sourceId = sourceId;
 	}
-	
+
 	@Parameter(true)
 	public void setSinkId(String sinkId) {
 		this.sinkId = sinkId;
@@ -345,7 +345,7 @@ public abstract class FlowAlgorithmBase implements FlowAlgorithm {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.graphstream.algorithm.flow.FlowAlgorithm#setCapacityAttribute(java
 	 * .lang.String)
@@ -354,7 +354,7 @@ public abstract class FlowAlgorithmBase implements FlowAlgorithm {
 	public void setCapacityAttribute(String attribute) {
 		capacityAttribute = attribute;
 	}
-	
+
 	@Parameter
 	public void setAllCapacities(double value) {
 		for (int i = 0; i < 2 * n; i++)

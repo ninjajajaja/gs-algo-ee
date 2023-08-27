@@ -126,7 +126,7 @@ public class ConnectivityMeasure {
 				flow.setAllCapacities(1.0);
 				flow.compute();
 
-				k = Math.min(k, (int) flow.getMaximumFlow());
+				k = Math.min(k, (int) flow.maximumFlow);
 			}
 		}
 

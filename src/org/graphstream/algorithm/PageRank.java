@@ -184,7 +184,7 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	/**
 	 * Verbose mode
 	 */
-	protected boolean verbose;
+	public boolean verbose;
 
 	/**
 	 * Creates a new instance.
@@ -267,21 +267,6 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 			throw new IllegalStateException(
 					"this method can be called only before init");
 		this.rankAttribute = rankAttribute;
-	}
-
-	/**
-	 * Switches on or off the verbose mode.
-	 * 
-	 * In verbose mode the algorithm prints at each iteration the number of
-	 * iterations and the L1 norm of the difference between the current and the
-	 * previous rank vectors.
-	 * 
-	 * @param verbose
-	 *            Verbose mode
-	 */
-	@Parameter
-	public void setVerbose(boolean verbose) {
-		this.verbose = verbose;
 	}
 
 	// DynamicAlgorithm implementation

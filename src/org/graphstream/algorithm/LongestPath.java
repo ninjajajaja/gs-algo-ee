@@ -78,7 +78,7 @@ public class LongestPath implements Algorithm {
     /**
      * Attribute where the weights of the edges are stored
      */
-    private String weightAttribute;
+    public String weightAttribute;
 
     public void init(Graph theGraph) {
         graph = theGraph;
@@ -177,10 +177,5 @@ public class LongestPath implements Algorithm {
 
     public String getWeightAttribute() {
         return weightAttribute == null ? DEFAULT_WEIGHT_ATTRIBUTE : weightAttribute;
-    }
-    
-    @Parameter
-    public void setWeightAttribute(String weightAttribute) {
-        this.weightAttribute = weightAttribute;
     }
 }

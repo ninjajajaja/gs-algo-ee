@@ -268,57 +268,6 @@ public class Centroid implements Algorithm {
 
 		centroid.clear();
 	}
-
-	/**
-	 * Set the APSP info attribute name.
-	 * 
-	 * @param attribute
-	 *            the name of the attribute where the APSP informations are
-	 *            stored.
-	 */
-	@Parameter
-	public void setAPSPInfoAttribute(String attribute) {
-		apspInfoAttribute = attribute;
-	}
-
-	/**
-	 * Set the value of the centroid attribute when element is in the centroid.
-	 * On computation, this value is used to set the centroid attribute.
-	 * 
-	 * @param value
-	 *            the value of elements centroid attribute when this element is
-	 *            in the centroid.
-	 */
-	@Parameter
-	public void setIsInCentroidValue(Object value) {
-		isInCentroid = value;
-	}
-
-	/**
-	 * Set the value of the centroid attribute when element is not in the
-	 * centroid. On computation, this value is used to set the centroid
-	 * attribute.
-	 * 
-	 * @param value
-	 *            the value of elements centroid attribute when this element is
-	 *            not in the centroid.
-	 */
-	@Parameter
-	public void setIsNotInCentroidValue(Object value) {
-		isNotInCentroid = value;
-	}
-
-	/**
-	 * Set the name of the attribute where computation result is stored.
-	 * 
-	 * @param centroidAttribute
-	 *            the name of the element attribute where computation result is
-	 *            stored.
-	 */
-	@Parameter
-	public void setCentroidAttribute(String centroidAttribute) {
-		this.centroidAttribute = centroidAttribute;
-	}
 	
 	@Result
 	public String defaultResult() {

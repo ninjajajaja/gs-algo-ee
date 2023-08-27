@@ -129,4 +129,9 @@ public class FordFulkersonAlgorithm extends FlowAlgorithmBase {
 		
 		return findPath(path, s, t)+"";
 	}
+
+	@Override
+	public double getMaximumFlow() {
+		return maximumFlow;
+	}
 }

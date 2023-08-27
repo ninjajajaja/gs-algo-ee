@@ -308,7 +308,7 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * If this delay is positive, sleeps at the end of each pivot and updates UI
 	 * classes
 	 */
-	protected long animationDelay = 0;
+	public long animationDelay = 0;
 
 	/**
 	 * True if pivot is called from sink method. In this case pivot does not
@@ -511,14 +511,6 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 		join = i;
 	}
 
-	/**
-	 * Selects the leaving arc, that is the arc belonging to the cycle with
-	 * minimum allowed flow change. Maintains strongly feasible basis: if there
-	 * are more than one candidates, selects the last visited when traversing
-	 * the cycle in its direction starting from {@link join}. Sets up
-	 * {@link #first}, {@link second}, {@link #cycleFlowChange},
-	 * {@link #oldSubtreeRoot}, {@link #newSubtreeRoot} and {@link #leavingArc}.
-	 */
 	protected void selectLeavingArc() {
 		findJoinNode();
 		if (enteringArc.status == ArcStatus.NONBASIC_LOWER) {
@@ -675,33 +667,6 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	}
 
 	// access and modification of algorithm parameters
-
-	/**
-	 * Sets the pricing strategy
-	 * 
-	 * @param pricingStrategy
-	 *            The new pricing strategy
-	 */
-	public void setPricingStrategy(PricingStrategy pricingStrategy) {
-		this.pricingStrategy = pricingStrategy;
-	}
-
-	/**
-	 * When the animation delay is positive, the algorithm continuously updates
-	 * {@code "ui.class"} and {@code "label"} attributes of the edges and the
-	 * nodes of the graph and sleeps at the beginning of each simplex pivot.
-	 * This feature can be useful for visualizing the algorithm execution. The
-	 * user must provide a stylesheet defining the classes of the graph elements
-	 * as described in {@link #setUIClasses()}. This feature is disabled by
-	 * default.
-	 * 
-	 * @param millis
-	 *            The time in milliseconds to sleep between two simplex pivots.
-	 * @see #setUIClasses()
-	 */
-	public void setAnimationDelay(long millis) {
-		animationDelay = millis;
-	}
 
 	/**
 	 * Sets the log frequency.
@@ -914,13 +879,6 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * edges is set to one of {@code "basic"}, {@code "nonbasic_lower"} or
 	 * {@code "nonbasic_upper"} according to their status (see
 	 * {@link #getStatus(Edge)}.
-	 * </p>
-	 * <p>
-	 * The user must provide a stylesheet defining the visual appearance for
-	 * each of these node and edge classes. Note that if the animation delay is
-	 * positive (see {@link #setAnimationDelay(long)}), there is no need to call
-	 * this method, because in this case the labels and the UI classes of the
-	 * graph elements are set and updated during the algorithm execution.
 	 * </p>
 	 * <p>
 	 * Note that in the case of undirected edges the label and the UI class are

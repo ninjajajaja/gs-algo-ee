@@ -193,7 +193,7 @@ import org.graphstream.stream.SinkAdapter;
  * <p>
  * This algorithm can use directed graphs and only compute paths according to
  * this direction. You can choose to ignore edge orientation by calling
- * {@link #setDirected(boolean)} method with "false" as value (or use the
+ * {@link #directed} method with "false" as value (or use the
  * appropriate constructor).
  * </p>
  * 
@@ -203,7 +203,7 @@ import org.graphstream.stream.SinkAdapter;
  * You can also specify that edges have "weights" or "importance" that value
  * them. You store these values as attributes on the edges. The default name for
  * these attributes is "weight" but you can specify it using the
- * {@link #setWeightAttributeName(String)} method (or by using the appropriate
+ * weightAttributeName (or by using the appropriate
  * constructor). The weight attribute must contain an object that implements
  * java.lang.Number.
  * </p>
@@ -249,7 +249,7 @@ public class APSP extends SinkAdapter implements Algorithm {
 	/**
 	 * If false, do not take edge orientation into account.
 	 */
-	protected boolean directed = true;
+	public boolean directed = true;
 
 	/**
 	 * Default weight attribute
@@ -267,8 +267,8 @@ public class APSP extends SinkAdapter implements Algorithm {
 	/**
 	 * Used by default print result
 	 */
-	private String source = "";
-	private String target = "";
+	public String source = "";
+	public String target = "";
 	
 	// Construction
 
@@ -321,35 +321,12 @@ public class APSP extends SinkAdapter implements Algorithm {
 	// Commands
 
 	/**
-	 * Choose to use or ignore edge orientation.
-	 * 
-	 * @param on
-	 *            If true edge orientation is used.b
-	 */
-	@Parameter
-	public void setDirected(boolean on) {
-		directed = on;
-	}
-
-	/**
 	 * Specify an interface to call in order to indicate the algorithm progress.
 	 * Pass null to remove the progress indicator. The progress indicator will
 	 * be called regularly to indicate the computation progress.
 	 */
 	public void registerProgressIndicator(Progress progress) {
 		this.progress = progress;
-	}
-
-	/**
-	 * Choose the name of the attribute used to retrieve edge weights. Edge
-	 * weights attribute must contain a value that inherit Number.
-	 * 
-	 * @param name
-	 *            The attribute name.
-	 */
-	@Parameter
-	public void setWeightAttributeName(String name) {
-		weightAttributeName = name;
 	}
 
 	/**
@@ -365,16 +342,6 @@ public class APSP extends SinkAdapter implements Algorithm {
 			graphChanged = true;
 			this.graph.addSink(this);
 		}
-	}
-	
-	@Parameter(true)
-	public void setSource(String source) {
-		this.source = source;
-	}
-	
-	@Parameter(true)
-	public void setTarget(String target) {
-		this.target = target;
 	}
 	
 	@Result
