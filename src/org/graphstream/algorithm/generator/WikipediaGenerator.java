@@ -74,8 +74,9 @@ public class WikipediaGenerator extends URLGenerator {
 		acceptOnlyMatchingURL("^https?://" + lang.host + "/wiki/.*$");
 
 		if (articles != null)
-			for (int i = 0; i < articles.length; i++)
-				addArticle(articles[i]);
+			for (String article : articles) {
+				addArticle(article);
+			}
 	}
 
 	public void addArticle(String name) {

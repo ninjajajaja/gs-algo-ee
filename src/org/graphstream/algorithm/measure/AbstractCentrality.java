@@ -143,8 +143,8 @@ public abstract class AbstractCentrality implements Algorithm {
 		case SUM_IS_1:
 			double s = 0;
 
-			for (int idx = 0; idx < count; idx++)
-				s += data[idx];
+			for (double d : data) s+= d;
+
 			for (int idx = 0; idx < count; idx++)
 				graph.getNode(idx).setAttribute(attribute,
 						data[idx] / s);
@@ -154,9 +154,9 @@ public abstract class AbstractCentrality implements Algorithm {
 			double max = data[0];
 			double min = max;
 
-			for (int idx = 1; idx < count; idx++) {
-				max = max < data[idx] ? data[idx] : max;
-				min = min > data[idx] ? data[idx] : min;
+			for (double d : data) {
+				max = max < d ? d : max;
+				min = min > d ? d : min;
 			}
 
 			for (int idx = 0; idx < count; idx++) {

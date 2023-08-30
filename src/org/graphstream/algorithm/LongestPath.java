@@ -149,7 +149,8 @@ public class LongestPath implements Algorithm {
      */
     public Path getLongestPath() {
         Path path = new Path();
-        for (int i = 0; i < longestPath.size()-1; i++) {
+        int longestPathSizeMinusOne = longestPath.size() - 1;
+        for (int i = 0; i < longestPathSizeMinusOne; i++) {
             Node aSourceNode = longestPath.get(i);
             Node aTargetNode = longestPath.get(i+1);
             Optional<Edge> anEdge = graph.edges()

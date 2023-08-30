@@ -147,7 +147,8 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 			int max = internalGraph.getNode(0).getDegree();
 			int maxIndex = 0;
 
-			for (int i = 1; i < internalGraph.getNodeCount(); i++)
+			int internalGraphNodeCount = internalGraph.getNodeCount();
+			for (int i = 1; i < internalGraphNodeCount; i++)
 				if (internalGraph.getNode(i).getDegree() > max) {
 					max = internalGraph.getNode(i).getDegree();
 					maxIndex = i;
@@ -163,7 +164,8 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 		rootLevelBox.add(rootBox);
 		levelBoxes.add(rootLevelBox);
 
-		for (int i = 0; i < roots.size(); i++) {
+		int rootsSize = roots.size();
+		for (int i = 0; i < rootsSize; i++) {
 			Node n = roots.get(i);
 			levels[n.getIndex()] = 0;
 			columns[n.getIndex()] = i;
@@ -198,6 +200,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 		FibonacciHeap<Integer, Box> boxes = new FibonacciHeap<Integer, Box>();
 		boxes.add(0, rootBox);
 
+
 		for (int i = 0; i < internalGraph.getNodeCount(); i++) {
 			Box box = getChildrenBox(internalGraph.getNode(i));
 
@@ -211,8 +214,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 			}
 		}
 
-		for (int i = 0; i < levelBoxes.size(); i++)
-			levelBoxes.get(i).sort();
+		for (LevelBox levelBox : levelBoxes) levelBox.sort();
 
 		while (boxes.size() > 0)
 			renderBox(boxes.extractMin());

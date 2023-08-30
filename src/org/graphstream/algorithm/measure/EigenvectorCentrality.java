@@ -87,7 +87,8 @@ public class EigenvectorCentrality extends AbstractCentrality {
 			for (int idx = 0; idx < n; idx++) {
 				node = graph.getNode(idx);
 
-				for (int i = 0; i < node.getDegree(); i++) {
+				int nodeDegree = node.getDegree();
+				for (int i = 0; i < nodeDegree; i++) {
 					edge = node.getEdge(i);
 					f = 1;
 

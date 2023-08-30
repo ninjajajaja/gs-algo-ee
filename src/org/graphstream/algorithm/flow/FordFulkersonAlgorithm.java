@@ -104,7 +104,8 @@ public class FordFulkersonAlgorithm extends FlowAlgorithmBase {
 
 		double minCf;
 
-		for (int i = 0; i < source.getDegree(); i++) {
+		int sourceDegree = source.getDegree();
+		for (int i = 0; i < sourceDegree; i++) {
 			Edge e = source.getEdge(i);
 			Node o = e.getOpposite(source);
 

@@ -168,10 +168,7 @@ public class SurpriseMeasure implements Algorithm {
 				p++;
 		}
 
-		for (int i = 0; i < communitiesCount.size(); i++) {
-			int k = communitiesCount.get(i);
-			M += k * (k - 1) / 2;
-		}
+		for (int k : communitiesCount) M += k * (k - 1) / 2;
 
 		W = Math.min(M, n);
 		S = cumulativeHypergeometricDistribution(p, W, F, n, M);
