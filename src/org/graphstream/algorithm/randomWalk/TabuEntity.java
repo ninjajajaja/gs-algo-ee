@@ -103,8 +103,7 @@ public class TabuEntity extends Entity {
 			jump();
 		} else {
 			if (context.weightAttribute != null) {
-				if (weights == null || n > weights.length)
-					weights = new double[n];
+				weights = new double[n];
 
 				double sum = 0.0;
 

@@ -188,14 +188,7 @@ public class FixedArrayList<E>
 					E e1 = other.elements.get(i);
 
 					if(e0 != e1) {
-						if(e0 == null && e1 != null)
-							return false;
-
-						if(e0 != null && e1 == null)
-							return false;
-
-						if(! e0.equals(e1))
-							return false;
+						return (e0 != null && e0.equals(e1));
 					}
 				}
 

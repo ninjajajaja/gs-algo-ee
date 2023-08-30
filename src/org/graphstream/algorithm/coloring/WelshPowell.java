@@ -281,7 +281,8 @@ public class WelshPowell implements Algorithm {
 				Node p = sortedNodes.get(i);
 				boolean conflict = false;
 
-				for (int j = 0; !conflict && j < myGroup.size(); j++)
+				int myGroupSize = myGroup.size();;
+				for (int j = 0; !conflict && j < myGroupSize; j++)
 					conflict = p.getEdgeBetween(myGroup.get(j).getIndex()) != null;
 
 				if (conflict)

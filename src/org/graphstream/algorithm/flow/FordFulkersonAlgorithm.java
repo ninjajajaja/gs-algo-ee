@@ -109,9 +109,9 @@ public class FordFulkersonAlgorithm extends FlowAlgorithmBase {
 			Edge e = source.getEdge(i);
 			Node o = e.getOpposite(source);
 
-			if (getCapacity(source, o) - getFlow(source, o) > 0
-					&& !path.contains(o)) {
-				if ((minCf = findPath(path, o, target)) > 0)
+			if (!path.contains(o) &&
+					getCapacity(source, o) - getFlow(source, o) > 0 &&
+				 		(minCf = findPath(path, o, target)) > 0) {
 					return Math.min(minCf,
 							getCapacity(source, o) - getFlow(source, o));
 			}

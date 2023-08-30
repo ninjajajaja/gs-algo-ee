@@ -127,12 +127,8 @@ public class LifeGenerator extends BaseGenerator {
 
 				if (!alive && c == 3)
 					swap[idx] = true;
-				else if (alive && c < 2)
-					swap[idx] = false;
-				else if (alive && c < 4)
+				else if (alive && (c == 2 || c == 3))
 					swap[idx] = true;
-				else if (alive && c > 3)
-					swap[idx] = false;
 			}
 	}
 
@@ -243,14 +239,12 @@ public class LifeGenerator extends BaseGenerator {
 					//
 					// Edge removed
 					//
-					if (alived && nalived
-							&& ((alive && !nalive) || (!alive && nalive)))
+					if (alived && nalived && (alive != nalive))
 						delEdge(x, y, nx, ny);
 					//
 					// Edge added
 					//
-					else if (((!alived && nalived) || (alived && !nalived) || (!alived && !nalived))
-							&& alive && nalive)
+					else if ((!alived || !nalived) && alive && nalive)
 						addEdge(x, y, nx, ny);
 				}
 			}

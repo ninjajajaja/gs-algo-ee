@@ -186,7 +186,7 @@ public class DynamicOneToAllShortestPath extends NetworkSimplex {
 		protected NSNode nextNode;
 
 		protected NodeIterator(NSNode target) {
-			if (target.id.equals(sourceId) || target.parent != root)
+			if (target.parent != root || target.id.equals(sourceId))
 				nextNode = target;
 			else
 				nextNode = root;

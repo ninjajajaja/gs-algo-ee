@@ -105,8 +105,7 @@ public abstract class AbstractCentrality implements Algorithm {
 
 		int count = graph.getNodeCount();
 
-		if (data == null || data.length != count)
-			data = new double[count];
+		data = new double[count];
 
 		computeCentrality();
 		copyValuesTo(centralityAttribute, normalize);
