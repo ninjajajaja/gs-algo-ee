@@ -31,6 +31,7 @@
  */
 package org.graphstream.algorithm.generator;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -349,11 +350,11 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 	/**
 	 * List of addicts.
 	 */
-	protected LinkedList<Addict> addicts;
+	protected ArrayList<Addict> addicts;
 	/**
 	 * List of point-of-interest.
 	 */
-	protected LinkedList<PointOfInterest> pointsOfInterest;
+	protected ArrayList<PointOfInterest> pointsOfInterest;
 
 	private long currentId;
 
@@ -375,8 +376,8 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 		averagePointsOfInterestCount = 3;
 		linksNeededToCreateEdge = 2;
 
-		addicts = new LinkedList<Addict>();
-		pointsOfInterest = new LinkedList<PointOfInterest>();
+		addicts = new ArrayList<Addict>();
+		pointsOfInterest = new ArrayList<PointOfInterest>();
 
 		currentStep = 0;
 	}

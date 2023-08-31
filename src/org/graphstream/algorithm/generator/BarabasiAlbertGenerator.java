@@ -33,7 +33,7 @@
  */
 package org.graphstream.algorithm.generator;
 
-import java.util.ArrayList;
+import gnu.trove.list.array.TIntArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -92,7 +92,7 @@ public class BarabasiAlbertGenerator extends BaseGenerator {
 	/**
 	 * Degree of each node.
 	 */
-	protected ArrayList<Integer> degrees;
+	protected TIntArrayList degrees;
 
 	/**
 	 * The maximum number of links created when a new node is added.
@@ -190,7 +190,7 @@ public class BarabasiAlbertGenerator extends BaseGenerator {
 		addNode("0");
 		addNode("1");
 		addEdge("0_1", "0", "1");
-		degrees = new ArrayList<Integer>();
+		degrees = new TIntArrayList();
 		degrees.add(1);
 		degrees.add(1);
 		sumDeg = 2;

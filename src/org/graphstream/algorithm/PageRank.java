@@ -31,8 +31,7 @@
  */
 package org.graphstream.algorithm;
 
-import java.util.ArrayList;
-import java.util.List;
+import gnu.trove.list.array.TDoubleArrayList;
 
 import org.graphstream.algorithm.util.Parameter;
 import org.graphstream.algorithm.util.Result;
@@ -174,7 +173,7 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	/**
 	 * Used to temporary store the new ranks during an iteration
 	 */
-	protected List<Double> newRanks;
+	protected TDoubleArrayList newRanks;
 
 	/**
 	 * total iteration count
@@ -320,7 +319,7 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 		
 		graph.nodes().forEach(node -> node.setAttribute(rankAttribute, initialRank));
 		
-		newRanks = new ArrayList<Double>(graph.getNodeCount());
+		newRanks = new TDoubleArrayList(graph.getNodeCount());
 		upToDate = false;
 		iterationCount = 0;
 	}
