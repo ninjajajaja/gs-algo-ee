@@ -38,6 +38,7 @@ import static org.graphstream.ui.graphicGraph.GraphPosLengthUtils.nodePosition;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import java.util.Hashtable;
 import org.graphstream.algorithm.util.Parameter;
 import org.graphstream.algorithm.util.Result;
 import org.graphstream.graph.Edge;
@@ -193,12 +194,12 @@ public class AStar implements Algorithm {
 	/**
 	 * The open set.
 	 */
-	protected HashMap<Node, AStarNode> open = new HashMap<Node, AStarNode>();
+	protected Hashtable<Node, AStarNode> open = new Hashtable<Node, AStarNode>();
 
 	/**
 	 * The closed set.
 	 */
-	protected HashMap<Node, AStarNode> closed = new HashMap<Node, AStarNode>();
+	protected Hashtable<Node, AStarNode> closed = new Hashtable<Node, AStarNode>();
 
 	/**
 	 * If found the shortest path is stored here.

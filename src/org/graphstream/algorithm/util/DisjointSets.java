@@ -32,6 +32,7 @@
 package org.graphstream.algorithm.util;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 /**
@@ -99,7 +100,7 @@ public class DisjointSets<E> {
 	 * Creates a new instance containing no sets and no elements
 	 */
 	public DisjointSets() {
-		map = new HashMap<E, Node>();
+		map = new Hashtable<E, Node>();
 	}
 
 	/**
@@ -113,7 +114,7 @@ public class DisjointSets<E> {
 	 *            if this capacity is exceeded.
 	 */
 	public DisjointSets(int initialCapacity) {
-		map = new HashMap<E, Node>(4 * initialCapacity / 3 + 1);
+		map = new Hashtable<E, Node>(4 * initialCapacity / 3 + 1);
 	}
 
 	/**

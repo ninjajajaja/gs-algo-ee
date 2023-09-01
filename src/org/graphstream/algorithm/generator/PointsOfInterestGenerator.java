@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
@@ -183,7 +184,7 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 		Addict(String id) {
 			this.id = id;
 			pointsOfInterest = new LinkedList<PointOfInterest>();
-			neighbor = new HashMap<Addict, AddictNeighbor>();
+			neighbor = new Hashtable<Addict, AddictNeighbor>();
 		}
 
 		/**

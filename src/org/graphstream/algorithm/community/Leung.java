@@ -34,6 +34,7 @@ package org.graphstream.algorithm.community;
 
 import java.util.HashMap;
 
+import java.util.Hashtable;
 import org.graphstream.algorithm.util.Parameter;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
@@ -246,7 +247,7 @@ public class Leung extends EpidemicCommunityAlgorithm {
 		/*
 		 * Reset the scores for each communities
 		 */
-		communityScores = new HashMap<Object, Double>();
+		communityScores = new Hashtable<Object, Double>();
 
 		/*
 		 * Iterate over the nodes that this node "hears"

@@ -41,6 +41,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -823,9 +824,9 @@ public class Toolkit extends
 	 * @return The communities indexed by the value of the marker.
 	 * @complexity O(n) with n the number of nodes.
 	 */
-	public static HashMap<Object, HashSet<Node>> communities(Graph graph,
+	public static Hashtable<Object, HashSet<Node>> communities(Graph graph,
 			String marker) {
-		HashMap<Object, HashSet<Node>> communities = new HashMap<Object, HashSet<Node>>();
+		Hashtable<Object, HashSet<Node>> communities = new Hashtable<Object, HashSet<Node>>();
 
 		graph.nodes().forEach(node -> {
 			Object communityMarker = node.getAttribute(marker);
@@ -860,7 +861,7 @@ public class Toolkit extends
 	 *             number of nodes per community.
 	 */
 	public static double[][] modularityMatrix(Graph graph,
-			HashMap<Object, HashSet<Node>> communities) {
+			Hashtable<Object, HashSet<Node>> communities) {
 		return modularityMatrix(graph, communities, null);
 	}
 
@@ -880,7 +881,7 @@ public class Toolkit extends
 	 *             number of nodes per community.
 	 */
 	public static double[][] modularityMatrix(Graph graph,
-		HashMap<Object, HashSet<Node>> communities, String weightMarker) {
+			Hashtable<Object, HashSet<Node>> communities, String weightMarker) {
 
 		DoubleAccumulator edgeCount = new DoubleAccumulator((x, y) -> x + y, 0);
 		
@@ -1487,7 +1488,7 @@ public class Toolkit extends
 		for (int d = 0; d <= maxDeg; d++)
 			heads.add(null);
 
-		Map<Node, DegenEntry> map = new HashMap<Node, DegenEntry>(
+		Map<Node, DegenEntry> map = new Hashtable<Node, DegenEntry>(
 				4 * (n + 2) / 3);
 		for (Node x : graph) {
 			DegenEntry entry = new DegenEntry();

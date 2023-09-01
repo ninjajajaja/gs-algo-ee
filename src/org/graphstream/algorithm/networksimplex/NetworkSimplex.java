@@ -34,6 +34,7 @@ package org.graphstream.algorithm.networksimplex;
 import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.DoubleAccumulator;
@@ -355,7 +356,7 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * {@link #nodes} and {@link #arcs}.
 	 */
 	protected void cloneGraph() {
-		nodes = new HashMap<String, NSNode>(4 * graph.getNodeCount() / 3 + 2);
+		nodes = new Hashtable<String, NSNode>(4 * graph.getNodeCount() / 3 + 2);
 		for (Node node : graph) {
 			NSNode copy = new NSNode(node);
 			nodes.put(copy.id, copy);
@@ -367,7 +368,7 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 			.filter(edge -> !edge.isDirected())
 			.forEach(edge -> arcCount.accumulate(1));
 
-		arcs = new HashMap<String, NSArc>(4 * (int)arcCount.get() / 3 + 1);
+		arcs = new Hashtable<String, NSArc>(4 * (int)arcCount.get() / 3 + 1);
 		
 		graph.edges().forEach(edge -> {
 			NSArc copy = new NSArc(edge, true);

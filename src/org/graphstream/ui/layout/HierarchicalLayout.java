@@ -37,6 +37,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.LinkedList;
 
 import org.graphstream.algorithm.Prim;
@@ -70,7 +71,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 		}
 	}
 
-	final HashMap<String, Position> nodesPosition;
+	final Hashtable<String, Position> nodesPosition;
 	final ArrayList<String> roots;
 	final Graph internalGraph;
 
@@ -90,7 +91,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 	public HierarchicalLayout() {
 		roots = new ArrayList<String>();
 		// listeners = new LinkedList<LayoutListener>();
-		nodesPosition = new HashMap<String, Position>();
+		nodesPosition = new Hashtable<String, Position>();
 		internalGraph = new AdjacencyListGraph("hierarchical_layout-intern");
 		hi = new Point3();
 		lo = new Point3();

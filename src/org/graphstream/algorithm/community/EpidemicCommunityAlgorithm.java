@@ -33,6 +33,7 @@
 package org.graphstream.algorithm.community;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Objects;
 import java.util.TreeMap;
 
@@ -57,7 +58,7 @@ public class EpidemicCommunityAlgorithm extends DecentralizedCommunityAlgorithm 
 	/**
 	 * Heard communities and their associated scores
 	 */
-	protected HashMap<Object, Double> communityScores;
+	protected Hashtable<Object, Double> communityScores;
 
 	public EpidemicCommunityAlgorithm() {
 		super();
@@ -92,7 +93,7 @@ public class EpidemicCommunityAlgorithm extends DecentralizedCommunityAlgorithm 
 		Object maxCommunity = null;
 		Double maxScore = Double.NEGATIVE_INFINITY;
 
-		TreeMap<Object, Double> scores = new TreeMap<Object, Double>(
+		Hashtable<Object, Double> scores = new Hashtable<Object, Double>(
 				communityScores);
 		for (Object c : scores.keySet()) {
 			Double s = communityScores.get(c);
@@ -127,7 +128,7 @@ public class EpidemicCommunityAlgorithm extends DecentralizedCommunityAlgorithm 
 		/*
 		 * Reset the scores for each communities
 		 */
-		communityScores = new HashMap<>();
+		communityScores = new Hashtable<>();
 
 		/*
 		 * Iterate over the nodes that this node "hears"

@@ -36,6 +36,7 @@ package org.graphstream.algorithm;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Set;
@@ -189,7 +190,7 @@ import org.graphstream.stream.SinkAdapter;
 public class ConnectedComponents extends SinkAdapter
 		implements DynamicAlgorithm, Iterable<ConnectedComponents.ConnectedComponent> {
 	protected HashSet<ConnectedComponent> components;
-	protected HashMap<Node, ConnectedComponent> componentsMap;
+	protected Hashtable<Node, ConnectedComponent> componentsMap;
 	protected Graph graph;
 
 	/**
@@ -260,7 +261,7 @@ public class ConnectedComponents extends SinkAdapter
 		this.graph.addSink(this);
 
 		components = new HashSet<ConnectedComponent>();
-		componentsMap = new HashMap<Node, ConnectedComponent>();
+		componentsMap = new Hashtable<Node, ConnectedComponent>();
 	}
 
 	/*

@@ -34,6 +34,7 @@
 package org.graphstream.algorithm.generator;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.Random;
 import java.util.function.Function;
@@ -89,13 +90,13 @@ public abstract class BaseGenerator extends SourceBase implements Generator {
 	 * List of attributes to put on nodes with a randomly chosen numerical
 	 * value.
 	 */
-	protected Map<String, Function<Random, ?>> nodeAttributes = new HashMap<>();
+	protected Map<String, Function<Random, ?>> nodeAttributes = new Hashtable<>();
 
 	/**
 	 * List of attributes to put on edges with a randomly chosen numerical
 	 * value.
 	 */
-	protected Map<String, Function<Random, ?>> edgeAttributes = new HashMap<>();
+	protected Map<String, Function<Random, ?>> edgeAttributes = new Hashtable<>();
 
 	/**
 	 * The random number generator.

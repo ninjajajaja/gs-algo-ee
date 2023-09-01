@@ -82,7 +82,7 @@ public class LongestPath implements Algorithm {
 
     public void init(Graph theGraph) {
         graph = theGraph;
-        distanceMap = new HashMap<>();
+        distanceMap = new Hashtable<>();
         longestPath = new ArrayList<>();
     }
 

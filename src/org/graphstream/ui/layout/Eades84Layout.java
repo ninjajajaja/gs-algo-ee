@@ -33,6 +33,7 @@ package org.graphstream.ui.layout;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Random;
 
@@ -53,8 +54,8 @@ public class Eades84Layout extends PipeBase implements Layout {
 
 	double M;
 
-	HashMap<String, Spring> springs;
-	HashMap<String, EadesParticle> particles;
+	Hashtable<String, Spring> springs;
+	Hashtable<String, EadesParticle> particles;
 
 	Random random;
 
@@ -78,8 +79,8 @@ public class Eades84Layout extends PipeBase implements Layout {
 
 		is3D = false;
 
-		springs = new HashMap<String, Spring>();
-		particles = new HashMap<String, EadesParticle>();
+		springs = new Hashtable<String, Spring>();
+		particles = new Hashtable<String, EadesParticle>();
 		random = new Random();
 //		listeners = new LinkedList<LayoutListener>();
 
@@ -321,7 +322,7 @@ public class Eades84Layout extends PipeBase implements Layout {
 	}
 
 	protected class EadesParticle {
-		HashMap<EadesParticle, Spring> springs;
+		Hashtable<EadesParticle, Spring> springs;
 		Vector3 dir;
 		Vector3 sum;
 		Point3 pos;
@@ -329,7 +330,7 @@ public class Eades84Layout extends PipeBase implements Layout {
 
 		public EadesParticle(String id) {
 			this.id = id;
-			springs = new HashMap<EadesParticle, Spring>();
+			springs = new Hashtable<EadesParticle, Spring>();
 			dir = new Vector3();
 			sum = new Vector3();
 			pos = new Point3();

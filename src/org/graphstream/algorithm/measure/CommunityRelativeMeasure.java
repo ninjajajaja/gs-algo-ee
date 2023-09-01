@@ -35,6 +35,7 @@ import static org.graphstream.algorithm.Toolkit.communities;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import java.util.Hashtable;
 import org.graphstream.graph.Node;
 
 /**
@@ -54,7 +55,7 @@ public abstract class CommunityRelativeMeasure extends CommunityMeasure {
 	/**
 	 * All reference communities indexed by their marker value.
 	 */
-	protected HashMap<Object, HashSet<Node>> referenceCommunities;
+	protected Hashtable<Object, HashSet<Node>> referenceCommunities;
 
 	public CommunityRelativeMeasure(String marker) {
 		super(marker);

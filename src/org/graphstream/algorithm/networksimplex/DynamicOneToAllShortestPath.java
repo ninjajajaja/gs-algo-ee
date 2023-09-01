@@ -32,6 +32,7 @@
 package org.graphstream.algorithm.networksimplex;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -89,7 +90,7 @@ public class DynamicOneToAllShortestPath extends NetworkSimplex {
 		dijkstra.compute();
 		
 		// init
-		Map<NSNode, NSNode> last = new HashMap<NSNode, NSNode>(4 * (nodes.size() + 1) / 3 + 1);
+		Map<NSNode, NSNode> last = new Hashtable<NSNode, NSNode>(4 * (nodes.size() + 1) / 3 + 1);
 		last.put(root, root);
 		root.thread = root;
 		
