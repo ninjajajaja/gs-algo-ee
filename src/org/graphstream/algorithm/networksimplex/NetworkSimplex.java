@@ -31,6 +31,7 @@
  */
 package org.graphstream.algorithm.networksimplex;
 
+import gnu.trove.set.hash.THashSet;
 import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -384,7 +385,7 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * Creates artificial root and arcs and sets up the initial BFS
 	 */
 	protected void createInitialBFS() {
-		nonBasicArcs = new HashSet<NSArc>(4 * arcs.size() / 3 + 1);
+		nonBasicArcs = new THashSet<NSArc>(4 * arcs.size() / 3 + 1);
 		
 		arcs.values().forEach(arc -> {
 			arc.flow = 0;

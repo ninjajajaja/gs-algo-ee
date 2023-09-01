@@ -30,6 +30,7 @@
  */
 package org.graphstream.algorithm.measure;
 
+import gnu.trove.set.hash.TIntHashSet;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -176,7 +177,7 @@ public class ConnectivityMeasure {
 	public static Node[] getKDisconnectingNodeTuple(Graph g, int k) {
 		LinkedList<Integer> toVisit = new LinkedList<Integer>();
 		boolean[] visited = new boolean[g.getNodeCount()];
-		HashSet<Integer> removed = new HashSet<Integer>();
+		TIntHashSet removed = new TIntHashSet();
 		KIndexesArray karray = new KIndexesArray(k, g.getNodeCount());
 
 		if (k >= g.getNodeCount())
@@ -235,7 +236,7 @@ public class ConnectivityMeasure {
 	public static Edge[] getKDisconnectingEdgeTuple(Graph g, int k) {
 		LinkedList<Integer> toVisit = new LinkedList<Integer>();
 		boolean[] visited = new boolean[g.getNodeCount()];
-		HashSet<Integer> removed = new HashSet<Integer>();
+		TIntHashSet removed = new TIntHashSet();
 		KIndexesArray karray = new KIndexesArray(k, g.getNodeCount());
 
 		int minDegree = Integer.MAX_VALUE;

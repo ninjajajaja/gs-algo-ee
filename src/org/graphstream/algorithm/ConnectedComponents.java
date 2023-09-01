@@ -34,6 +34,7 @@
  */
 package org.graphstream.algorithm;
 
+import gnu.trove.set.hash.THashSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -189,7 +190,7 @@ import org.graphstream.stream.SinkAdapter;
  */
 public class ConnectedComponents extends SinkAdapter
 		implements DynamicAlgorithm, Iterable<ConnectedComponents.ConnectedComponent> {
-	protected HashSet<ConnectedComponent> components;
+	protected THashSet<ConnectedComponent> components;
 	protected Hashtable<Node, ConnectedComponent> componentsMap;
 	protected Graph graph;
 
@@ -260,7 +261,7 @@ public class ConnectedComponents extends SinkAdapter
 		this.graph = graph;
 		this.graph.addSink(this);
 
-		components = new HashSet<ConnectedComponent>();
+		components = new THashSet<ConnectedComponent>();
 		componentsMap = new Hashtable<Node, ConnectedComponent>();
 	}
 
@@ -798,7 +799,7 @@ public class ConnectedComponents extends SinkAdapter
 		 * @return a new set of nodes belonging to this component
 		 */
 		public Set<Node> getNodeSet() {
-			HashSet<Node> nodes = new HashSet<Node>();
+			THashSet<Node> nodes = new THashSet<Node>();
 			
 			nodes().forEach(n -> nodes.add(n));
 			

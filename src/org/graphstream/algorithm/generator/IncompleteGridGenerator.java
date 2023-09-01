@@ -30,6 +30,7 @@
  */
 package org.graphstream.algorithm.generator;
 
+import gnu.trove.set.hash.THashSet;
 import java.util.HashSet;
 
 /**
@@ -72,7 +73,7 @@ public class IncompleteGridGenerator extends BaseGenerator {
 	 * Id of nodes that were connected to a deleted node. These nodes can not be
 	 * deleted. This ensure to produce a connected graph.
 	 */
-	protected HashSet<String> unbreakable = new HashSet<String>();
+	protected THashSet<String> unbreakable = new THashSet<String>();
 
 	/**
 	 * New generator.

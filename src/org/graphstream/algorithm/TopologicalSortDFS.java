@@ -29,6 +29,7 @@
  */
 package org.graphstream.algorithm;
 
+import gnu.trove.set.hash.THashSet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -62,19 +63,19 @@ public class TopologicalSortDFS implements Algorithm{
     /**
      * collection to mark visited nodes
      */
-    private HashSet<Node> markedNodeList;
+    private THashSet<Node> markedNodeList;
 
     /**
      * collection to mark temporary visited node needed to throw exception
      */
-    private HashSet<Node> tempMarkedNodeList;
+    private THashSet<Node> tempMarkedNodeList;
 
     @Override
     public void init(Graph theGraph) {
         graph = theGraph;
         sortedNodes = new ArrayList<>();
-        markedNodeList = new HashSet<>();
-        tempMarkedNodeList = new HashSet<>();
+        markedNodeList = new THashSet<Node>();
+        tempMarkedNodeList = new THashSet<Node>();
     }
 
     @Override

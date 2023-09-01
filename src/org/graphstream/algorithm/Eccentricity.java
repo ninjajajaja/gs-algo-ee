@@ -32,6 +32,7 @@
  */
 package org.graphstream.algorithm;
 
+import gnu.trove.set.hash.THashSet;
 import java.util.HashSet;
 import java.util.StringJoiner;
 import java.util.concurrent.atomic.DoubleAccumulator;
@@ -224,7 +225,7 @@ public class Eccentricity implements Algorithm {
 	 */
 	public void compute() {
 		DoubleAccumulator min = new DoubleAccumulator((x, y) -> y, Double.MAX_VALUE);
-		HashSet<Node> eccentricity = new HashSet<Node>();
+		THashSet<Node> eccentricity = new THashSet<Node>();
 		
 		graph.nodes().forEach(node -> {
 			DoubleAccumulator m = new DoubleAccumulator((x, y) -> y, Double.MIN_VALUE); 

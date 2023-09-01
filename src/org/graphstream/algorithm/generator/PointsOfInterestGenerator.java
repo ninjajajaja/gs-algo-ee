@@ -31,6 +31,7 @@
  */
 package org.graphstream.algorithm.generator;
 
+import gnu.trove.set.hash.THashSet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -85,7 +86,7 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 		Set<Addict> addict;
 
 		PointOfInterest() {
-			addict = new HashSet<Addict>();
+			addict = new THashSet<Addict>();
 		}
 
 		/**

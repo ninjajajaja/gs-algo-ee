@@ -30,6 +30,7 @@
  */
 package org.graphstream.algorithm.generator;
 
+import gnu.trove.set.hash.THashSet;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -62,9 +63,9 @@ public class URLGenerator extends BaseGenerator {
 
 	private static String REGEX = "href=\"([^\"]*)\"";
 
-	protected HashSet<String> urls;
+	protected THashSet<String> urls;
 	protected ArrayList<String> stepUrls;
-	protected HashSet<String> newUrls;
+	protected THashSet<String> newUrls;
 	protected Pattern hrefPattern;
 	protected Mode mode;
 	protected int threads = 2;
@@ -77,9 +78,9 @@ public class URLGenerator extends BaseGenerator {
 	protected final ReentrantLock lock;
 
 	public URLGenerator(String... startFrom) {
-		urls = new HashSet<String>();
+		urls = new THashSet<String>();
 		stepUrls = new ArrayList<String>();
-		newUrls = new HashSet<String>();
+		newUrls = new THashSet<String>();
 		hrefPattern = Pattern.compile(REGEX);
 		mode = Mode.HOST;
 		filters = new ArrayList<URLFilter>();
@@ -348,7 +349,7 @@ public class URLGenerator extends BaseGenerator {
 		URLConnection conn;
 		InputStream stream;
 		BufferedReader reader;
-		HashSet<String> localUrls = new HashSet<String>();
+		THashSet<String> localUrls = new THashSet<String>();
 
 		if (!isValid(url))
 			return;

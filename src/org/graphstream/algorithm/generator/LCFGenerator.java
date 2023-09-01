@@ -30,6 +30,7 @@
  */
 package org.graphstream.algorithm.generator;
 
+import gnu.trove.set.hash.THashSet;
 import java.util.HashSet;
 
 /**
@@ -61,7 +62,7 @@ public class LCFGenerator extends BaseGenerator {
 
 	private int n;
 	private int initialRingSize;
-	private HashSet<String> crossed;
+	private THashSet<String> crossed;
 	protected LCF lcf;
 	protected boolean canBeExtended;
 
@@ -78,7 +79,7 @@ public class LCFGenerator extends BaseGenerator {
 	 */
 	public LCFGenerator(LCF lcf, int initialRingSize, boolean canBeExtended) {
 		this.lcf = lcf;
-		this.crossed = new HashSet<String>();
+		this.crossed = new THashSet<String>();
 		this.initialRingSize = initialRingSize;
 		this.canBeExtended = canBeExtended;
 	}
@@ -134,7 +135,7 @@ public class LCFGenerator extends BaseGenerator {
 	protected void makeLCF() {
 		int i = 0;
 		int r = 0;
-		HashSet<String> added = new HashSet<String>();
+		THashSet<String> added = new THashSet<String>();
 
 		while (r < lcf.repeat && i < n) {
 			for (int k = 0; k < lcf.steps.length && i < n; k++) {
