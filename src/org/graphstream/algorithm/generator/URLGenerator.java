@@ -281,16 +281,14 @@ public class URLGenerator extends BaseGenerator {
 	 */
 	public void addHostFilter(String... hosts) {
 		if (hosts != null) {
-			StringBuilder b = new StringBuilder(
-					"^(\\w+:)?(//)?([\\w-\\d]+[.])?(");
-			b.append(hosts[0]);
+			String filter = "^(\\w+:)?(//)?([\\w-\\d]+[.])?(" + hosts[0];
 
 			for (int i = 1; i < hosts.length; i++)
-				b.append("|").append(hosts[i]);
+				filter += ("|" + hosts[i]);
 
-			b.append(").*");
+			filter += ").*";
 
-			acceptOnlyMatchingURL(b.toString());
+			acceptOnlyMatchingURL(filter);
 		}
 	}
 
