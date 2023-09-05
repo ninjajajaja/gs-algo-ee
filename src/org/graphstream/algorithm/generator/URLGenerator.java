@@ -295,8 +295,9 @@ public class URLGenerator extends BaseGenerator {
 	}
 
 	protected void nextEventsThreaded() {
-		int t = Math.min(threads, stepUrls.size());
-		int byThreads = stepUrls.size() / t;
+		int stepUrlsSize = stepUrls.size();
+		int t = Math.min(threads, stepUrlsSize);
+		int byThreads = stepUrlsSize / t;
 
 		LinkedList<Worker> workers = new LinkedList<Worker>();
 		LinkedList<Thread> workersThreads = new LinkedList<Thread>();
@@ -306,7 +307,7 @@ public class URLGenerator extends BaseGenerator {
 			int stop = (i + 1) * byThreads;
 
 			if (i == t - 1)
-				stop += stepUrls.size() % t;
+				stop += stepUrlsSize % t;
 
 			Worker w = new Worker(start, stop, stepUrls);
 			Thread u = new Thread(w);

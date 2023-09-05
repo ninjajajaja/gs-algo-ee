@@ -628,10 +628,10 @@ public class APSP extends SinkAdapter implements Algorithm {
 
 				for (int i = 0; i < nodePath.size() - 1; ++i) {
 					// XXX XXX complicated ?
-
+					Node nodeI = nodePath.get(i);
 					path.add(
-							nodePath.get(i),
-							nodePath.get(i).getEdgeToward(
+							nodeI,
+							nodeI.getEdgeToward(
 									nodePath.get(i + 1).getId()));
 				}
 

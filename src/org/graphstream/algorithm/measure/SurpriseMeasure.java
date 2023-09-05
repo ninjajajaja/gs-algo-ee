@@ -132,8 +132,10 @@ public class SurpriseMeasure implements Algorithm {
 	public void compute() {
 		HashMap<Object, Integer> communities = new HashMap<Object, Integer>();
 		ArrayList<Integer> communitiesCount = new ArrayList<Integer>();
+		int graphGetNodeCount = graph.getNodeCount();
+		int graphGetEdgeCount = graph.getEdgeCount();
 
-		for (int i = 0; i < graph.getNodeCount(); i++) {
+		for (int i = 0; i < graphGetNodeCount; i++) {
 			Object community = graph.getNode(i).getAttribute(
 					communityAttributeKey);
 
@@ -152,14 +154,14 @@ public class SurpriseMeasure implements Algorithm {
 		if (communities.containsKey(NULL))
 			System.err.printf("[WARNING] Some nodes do not have community.\n");
 
-		double F = graph.getNodeCount() * (graph.getNodeCount() - 1) / 2;
+		double F = graphGetNodeCount * (graphGetNodeCount - 1) / 2;
 		double p = 0;
 		double M = 0;
-		double n = graph.getEdgeCount();
+		double n = graphGetEdgeCount;
 		double W;
 		double S = 0;
 
-		for (int i = 0; i < graph.getEdgeCount(); i++) {
+		for (int i = 0; i < graphGetEdgeCount; i++) {
 			Edge e = graph.getEdge(i);
 			Object idx0 = e.getNode0().getAttribute(communityAttributeKey);
 			Object idx1 = e.getNode1().getAttribute(communityAttributeKey);

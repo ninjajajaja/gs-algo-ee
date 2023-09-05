@@ -52,17 +52,19 @@ public class VariationOfInformation extends NormalizedMutualInformation {
 		int[][] N = confusionMatrix();
 
 		// Get the arrays of the rows and columns sums
-		int[] N_A = new int[referenceCommunities.size()];
-		int[] N_B = new int[communities.size()];
-		for (int i = 0; i < N_A.length; i++) {
+		int n_aLength = referenceCommunities.size();
+		int n_bLength = communities.size();
+		int[] N_A = new int[n_aLength];
+		int[] N_B = new int[n_bLength];
+		for (int i = 0; i < n_aLength; i++) {
 			int ttl = 0;
-			for (int j = 0; j < N_B.length; j++)
+			for (int j = 0; j < n_bLength; j++)
 				ttl += N[i][j];
 			N_A[i] = ttl;
 		}
-		for (int j = 0; j < N_B.length; j++) {
+		for (int j = 0; j < n_bLength; j++) {
 			int ttl = 0;
-			for (int i = 0; i < N_A.length; i++)
+			for (int i = 0; i < n_aLength; i++)
 				ttl += N[i][j];
 			N_A[j] = ttl;
 		}
@@ -75,8 +77,8 @@ public class VariationOfInformation extends NormalizedMutualInformation {
 		 */
 		float voi = 0;
 
-		for (int i = 0; i < N_A.length; i++)
-			for (int j = 0; j < N_B.length; j++)
+		for (int i = 0; i < n_aLength; i++)
+			for (int j = 0; j < n_bLength; j++)
 				voi += N[i][j]
 						* (Math.log((float) N[i][j] / (float) N_B[j]) + Math
 								.log((float) N[i][j] / (float) N_A[i]));

@@ -186,6 +186,8 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	 */
 	protected boolean verbose;
 
+	private int graphNodeCount;
+
 	/**
 	 * Creates a new instance.
 	 * 
@@ -316,11 +318,12 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	public void init(Graph graph) {
 		this.graph = graph;
 		graph.addElementSink(this);
-		double initialRank = 1.0 / graph.getNodeCount();
+		graphNodeCount = graph.getNodeCount();
+		double initialRank = 1.0 / graphNodeCount;
 		
 		graph.nodes().forEach(node -> node.setAttribute(rankAttribute, initialRank));
 		
-		newRanks = new ArrayList<Double>(graph.getNodeCount());
+		newRanks = new ArrayList<Double>(graphNodeCount);
 		upToDate = false;
 		iterationCount = 0;
 	}
@@ -347,7 +350,7 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	public String defaultResult() {
 		graph.nodes().forEach(node -> {
 			double rank = getRank(node);
-			node.setAttribute("ui.size", 5 + Math.sqrt(graph.getNodeCount() * rank * 20));
+			node.setAttribute("ui.size", 5 + Math.sqrt(graphNodeCount * rank * 20));
 			node.setAttribute("ui.label", String.format("%.2f%%", rank * 100));
 		});
 		
@@ -358,14 +361,14 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	public void nodeAdded(String sourceId, long timeId, String nodeId) {
 		// the initial rank of the new node will be 0
 		graph.getNode(nodeId).setAttribute(rankAttribute,
-				graph.getNodeCount() == 1 ? 1.0 : 0.0);
+				graphNodeCount == 1 ? 1.0 : 0.0);
 		upToDate = false;
 	}
 
 	public void nodeRemoved(String sourceId, long timeId, String nodeId) {
 		// removed node will give equal parts of its rank to the others
 		double part = graph.getNode(nodeId).getNumber(rankAttribute)
-				/ (graph.getNodeCount() - 1);
+				/ (graphNodeCount - 1);
 		
 		graph.nodes()
 			.filter(node -> !node.getId().equals(nodeId))
@@ -393,10 +396,10 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	// helpers
 
 	protected void iteration() {
-		double dampingTerm = (1 - dampingFactor) / graph.getNodeCount();
+		double dampingTerm = (1 - dampingFactor) / graphNodeCount;
 		newRanks.clear();
 		double danglingRank = 0;
-		for (int i = 0; i < graph.getNodeCount(); i++) {
+		for (int i = 0; i < graphNodeCount; i++) {
 			Node node = graph.getNode(i);
 			double sum = 0;
 			for (int j = 0; j < node.getInDegree(); j++) {
@@ -407,10 +410,10 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 			if (node.getOutDegree() == 0)
 				danglingRank += node.getNumber(rankAttribute);
 		}
-		danglingRank *= dampingFactor / graph.getNodeCount();
+		danglingRank *= dampingFactor / graphNodeCount;
 
 		normDiff = 0;
-		for (int i = 0; i < graph.getNodeCount(); i++) {
+		for (int i = 0; i < graphNodeCount; i++) {
 			Node node = graph.getNode(i);
 			double currentRank = node.getNumber(rankAttribute);
 			double newRank = newRanks.get(i) + danglingRank;

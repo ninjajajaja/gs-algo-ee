@@ -181,16 +181,17 @@ public class LifeGenerator extends BaseGenerator {
 				alive = cells[x * height + y];
 
 				for (int i = 0; i < LINK_WITH.length; i += 2) {
-
+					int LinkWithIPlusX = LINK_WITH[i] + x;
+					int LinkWithIPlusOnePlusY = LINK_WITH[i+1] + y;
 					if (!tore
-							&& (x + LINK_WITH[i] < 0
-									|| x + LINK_WITH[i] >= width
-									|| y + LINK_WITH[i + 1] < 0 || y
-									+ LINK_WITH[i + 1] >= height))
+							&& (LinkWithIPlusX < 0
+									|| LinkWithIPlusX >= width
+									|| LinkWithIPlusOnePlusY < 0 ||
+							LinkWithIPlusOnePlusY >= height))
 						continue;
 
-					nx = (x + LINK_WITH[i] + width) % width;
-					ny = (y + LINK_WITH[i + 1] + height) % height;
+					nx = (LinkWithIPlusX + width) % width;
+					ny = (LinkWithIPlusOnePlusY + height) % height;
 
 					nalive = cells[nx * height + ny];
 
@@ -226,16 +227,18 @@ public class LifeGenerator extends BaseGenerator {
 				alived = cells[x * height + y];
 
 				for (int i = 0; i < LINK_WITH.length; i += 2) {
+					int LinkWithIPlusX = LINK_WITH[i] + x;
+					int LinkWithIPlusOnePlusY = LINK_WITH[i+1] +y;
 
 					if (!tore
-							&& (x + LINK_WITH[i] < 0
-									|| x + LINK_WITH[i] >= width
-									|| y + LINK_WITH[i + 1] < 0 || y
-									+ LINK_WITH[i + 1] >= height))
+							&& (LinkWithIPlusX < 0
+									|| LinkWithIPlusX >= width
+									|| LinkWithIPlusOnePlusY < 0 ||
+							LinkWithIPlusOnePlusY >= height))
 						continue;
 
-					nx = (x + LINK_WITH[i] + width) % width;
-					ny = (y + LINK_WITH[i + 1] + height) % height;
+					nx = (LinkWithIPlusX + width) % width;
+					ny = (LinkWithIPlusOnePlusY + height) % height;
 
 					nalive = swap[nx * height + ny];
 					nalived = cells[nx * height + ny];

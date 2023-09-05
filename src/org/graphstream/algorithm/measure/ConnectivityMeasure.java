@@ -116,12 +116,13 @@ public class ConnectivityMeasure {
 	public static int getEdgeConnectivity(Graph g) {
 		int k = Integer.MAX_VALUE;
 		EdmondsKarpAlgorithm flow = new EdmondsKarpAlgorithm();
+		int gGetNodeCount = g.getNodeCount();
 
-		if (g.getNodeCount() < 2)
+		if (gGetNodeCount < 2)
 			return 0;
 
-		for (int u = 0; u < g.getNodeCount() - 1; u++) {
-			for (int v = u + 1; v < g.getNodeCount(); v++) {
+		for (int u = 0; u < gGetNodeCount - 1; u++) {
+			for (int v = u + 1; v < gGetNodeCount; v++) {
 				flow.init(g, g.getNode(u).getId(), g.getNode(v).getId());
 				flow.setAllCapacities(1.0);
 				flow.compute();
@@ -175,11 +176,12 @@ public class ConnectivityMeasure {
 	 */
 	public static Node[] getKDisconnectingNodeTuple(Graph g, int k) {
 		LinkedList<Integer> toVisit = new LinkedList<Integer>();
-		boolean[] visited = new boolean[g.getNodeCount()];
+		int gGetNodeCount = g.getNodeCount();
+		boolean[] visited = new boolean[gGetNodeCount];
 		HashSet<Integer> removed = new HashSet<Integer>();
-		KIndexesArray karray = new KIndexesArray(k, g.getNodeCount());
+		KIndexesArray karray = new KIndexesArray(k, gGetNodeCount);
 
-		if (k >= g.getNodeCount())
+		if (k >= gGetNodeCount)
 			return g.nodes().toArray(Node[]::new);
 		
 		do {
@@ -234,9 +236,10 @@ public class ConnectivityMeasure {
 	 */
 	public static Edge[] getKDisconnectingEdgeTuple(Graph g, int k) {
 		LinkedList<Integer> toVisit = new LinkedList<Integer>();
-		boolean[] visited = new boolean[g.getNodeCount()];
+		int gGetNodeCount = g.getNodeCount();
+		boolean[] visited = new boolean[gGetNodeCount];
 		HashSet<Integer> removed = new HashSet<Integer>();
-		KIndexesArray karray = new KIndexesArray(k, g.getNodeCount());
+		KIndexesArray karray = new KIndexesArray(k, gGetNodeCount);
 
 		int minDegree = Integer.MAX_VALUE;
 		Node nodeWithMinDegree = null;
@@ -244,7 +247,7 @@ public class ConnectivityMeasure {
 		if (k >= g.getEdgeCount())
 			return g.edges().toArray(Edge[]::new);
 			
-		for (int i = 0; i < g.getNodeCount(); i++) {
+		for (int i = 0; i < gGetNodeCount; i++) {
 			Node n = g.getNode(i);
 
 			if (n.getDegree() < minDegree) {

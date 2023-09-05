@@ -85,17 +85,19 @@ public class NormalizedMutualInformation extends CommunityRelativeMeasure {
 			int[][] N = confusionMatrix();
 
 			// Get the arrays of the rows and columns sums
-			int[] N_A = new int[referenceCommunities.size()];
-			int[] N_B = new int[communities.size()];
-			for (int i = 0; i < N_A.length; i++) {
+			int n_aLength = referenceCommunities.size();
+			int n_bLength = communities.size();
+			int[] N_A = new int[n_aLength];
+			int[] N_B = new int[n_bLength];
+			for (int i = 0; i < n_aLength; i++) {
 				int ttl = 0;
-				for (int j = 0; j < N_B.length; j++)
+				for (int j = 0; j < n_bLength; j++)
 					ttl += N[i][j];
 				N_A[i] = ttl;
 			}
-			for (int j = 0; j < N_B.length; j++) {
+			for (int j = 0; j < n_bLength; j++) {
 				int ttl = 0;
-				for (int i = 0; i < N_A.length; i++)
+				for (int i = 0; i < n_aLength; i++)
 					ttl += N[i][j];
 				N_B[j] = ttl;
 			}
@@ -109,8 +111,8 @@ public class NormalizedMutualInformation extends CommunityRelativeMeasure {
 
 			// First the numerator
 			float num = 0;
-			for (int i = 0; i < N_A.length; i++) {
-				for (int j = 0; j < N_B.length; j++) {
+			for (int i = 0; i < n_aLength; i++) {
+				for (int j = 0; j < n_bLength; j++) {
 					if (N[i][j] > 0) {
 						num += -2.0 * N[i][j]
 								* Math.log((N[i][j] * n) / (N_A[i] * N_B[j]));
@@ -120,9 +122,9 @@ public class NormalizedMutualInformation extends CommunityRelativeMeasure {
 
 			// Then the denominator
 			float denom = 0;
-			for (int i = 0; i < N_A.length; i++)
+			for (int i = 0; i < n_aLength; i++)
 				denom += N_A[i] * Math.log(N_A[i] / n);
-			for (int j = 0; j < N_B.length; j++)
+			for (int j = 0; j < n_bLength; j++)
 				denom += N_B[j] * Math.log(N_B[j] / n);
 
 			// Update the metric value
