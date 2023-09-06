@@ -175,7 +175,7 @@ public class LobsterGenerator extends BaseGenerator {
 		return String.format("%04d", currentIndex++);
 	}
 
-	protected String getEdgeId(Data d1, Data d2) {
+	public static String getEdgeId(Data d1, Data d2) {
 		if (d1.hashCode() > d2.hashCode()) {
 			Data t = d1;
 			d1 = d2;

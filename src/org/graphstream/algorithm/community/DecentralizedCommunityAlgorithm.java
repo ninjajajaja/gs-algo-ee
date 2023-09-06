@@ -342,7 +342,7 @@ public abstract class DecentralizedCommunityAlgorithm implements
 	}
 	
 	@Result
-	public String defaultMessage() {
+	public static String defaultMessage() {
 		return "Result stored in \"ui.class\" attribute";
 	}
 }

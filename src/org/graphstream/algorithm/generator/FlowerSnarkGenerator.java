@@ -119,7 +119,7 @@ public class FlowerSnarkGenerator extends BaseGenerator {
 		addNode(getNodeId(n, i));
 	}
 
-	protected String getNodeId(N n, int i) {
+	public static String getNodeId(N n, int i) {
 		return String.format("%s%04d", n, i);
 	}
 
@@ -131,7 +131,7 @@ public class FlowerSnarkGenerator extends BaseGenerator {
 		delEdge(getEdgeId(n1, i1, n2, i2));
 	}
 
-	protected String getEdgeId(N n1, int i1, N n2, int i2) {
+	public static String getEdgeId(N n1, int i1, N n2, int i2) {
 		return String.format("%s%s", getNodeId(n1, i1), getNodeId(n2, i2));
 	}
 

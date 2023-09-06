@@ -103,11 +103,11 @@ public class IncompleteGridGenerator extends BaseGenerator {
 		this.holesPerStep = holesPerStep;
 	}
 
-	protected String getNodeId(int x, int y) {
+	public static String getNodeId(int x, int y) {
 		return String.format("%d_%d", x, y);
 	}
 
-	protected String getEdgeId(String n1, String n2) {
+	public static String getEdgeId(String n1, String n2) {
 		if (n1.compareTo(n2) < 0) {
 			String tmp = n2;
 			n2 = n1;

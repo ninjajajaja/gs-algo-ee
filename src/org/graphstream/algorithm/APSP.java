@@ -641,7 +641,7 @@ public class APSP extends SinkAdapter implements Algorithm {
 			return null;
 		}
 
-		protected int expandPath(int pos, APSPInfo source, TargetPath path,
+		public static int expandPath(int pos, APSPInfo source, TargetPath path,
 				ArrayList<Node> nodePath) {
 			// result = will contain the expanded path.
 			// source = A.

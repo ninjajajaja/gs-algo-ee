@@ -241,7 +241,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 		}
 	}
 
-	protected void setBox(Box box, Node node) {
+	public static void setBox(Box box, Node node) {
 		if (node.hasAttribute("box"))
 			getBox(node).remove(node);
 
@@ -449,7 +449,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 	 * 
 	 * @see org.graphstream.ui.layout.Layout#inputPos(java.lang.String)
 	 */
-	public void inputPos(String filename) throws IOException {
+	public static void inputPos(String filename) throws IOException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -469,7 +469,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 	 * 
 	 * @see org.graphstream.ui.layout.Layout#outputPos(java.lang.String)
 	 */
-	public void outputPos(String filename) throws IOException {
+	public static void outputPos(String filename) throws IOException {
 		throw new UnsupportedOperationException();
 	}
 

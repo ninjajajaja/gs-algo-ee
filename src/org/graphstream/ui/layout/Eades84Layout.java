@@ -258,11 +258,11 @@ public class Eades84Layout extends PipeBase implements Layout {
 		}
 	}
 
-	public void inputPos(String filename) throws IOException {
+	public static void inputPos(String filename) throws IOException {
 		throw new RuntimeException("unhandle feature");
 	}
 
-	public void outputPos(String filename) throws IOException {
+	public static void outputPos(String filename) throws IOException {
 		throw new RuntimeException("unhandle feature");
 	}
 

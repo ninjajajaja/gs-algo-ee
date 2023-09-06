@@ -555,7 +555,7 @@ public class BetweennessCentrality implements Algorithm {
 	 * @param node
 	 *            The node.
 	 */
-	protected void updatePriority(PriorityQueue<Node> Q, Node node) {
+	public static void updatePriority(PriorityQueue<Node> Q, Node node) {
 		if (Q.contains(node)) {
 			Q.remove(node);
 			Q.add(node);

@@ -165,7 +165,7 @@ public class RandomFixedDegreeDynamicGraphGenerator extends BaseGenerator {
 				/ (double) internalGraph.getNodeCount();
 	}
 
-	protected String getEdgeId(String src, String trg) {
+	public static String getEdgeId(String src, String trg) {
 		if (src.compareTo(trg) < 0)
 			return String.format("%s_%s", src, trg);
 
