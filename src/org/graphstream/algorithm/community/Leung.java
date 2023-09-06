@@ -182,7 +182,7 @@ public class Leung extends EpidemicCommunityAlgorithm {
 		 * Recall and update the node current community and previous score
 		 */
 		Object previousCommunity = node.getAttribute(marker);
-		Double previousScore = (Double) node.getAttribute(marker + ".score");
+		double previousScore = (double) node.getAttribute(marker + ".score");
 		super.computeNode(node);
 
 		/*
@@ -192,7 +192,7 @@ public class Leung extends EpidemicCommunityAlgorithm {
 		// Handle first iteration
 		if (previousCommunity == null) {
 			previousCommunity = node.getAttribute(marker);
-			previousScore = (Double) node.getAttribute(marker + ".score");
+			previousScore = (double) node.getAttribute(marker + ".score");
 		}
 
 		/*
@@ -201,7 +201,7 @@ public class Leung extends EpidemicCommunityAlgorithm {
 		 * keep the maximum label score
 		 */
 		if ((node.getAttribute(marker).equals(previousCommunity))
-				&& (previousScore.equals(1.0)))
+				&& (previousScore == 1.0))
 			node.setAttribute(marker + ".score", 1.0);
 
 		/*
@@ -209,25 +209,15 @@ public class Leung extends EpidemicCommunityAlgorithm {
 		 * it by decreasing factor
 		 */
 		else {
-			Double maxLabelScore = Double.NEGATIVE_INFINITY;
+			double maxLabelScore = Double.NEGATIVE_INFINITY;
 			
 			// With Stream
 			maxLabelScore = node.enteringEdges()
 					.filter(e -> e.getOpposite(node).hasAttribute(marker)
 							&& e.getOpposite(node).getAttribute(marker).equals(node.getAttribute(marker)))
-					.map(e -> (Double) e.getOpposite(node).getAttribute(marker + ".score"))
+					.map(e -> (double) e.getOpposite(node).getAttribute(marker + ".score"))
 					.max((e1, e2) -> Double.compare(e1, e2))
 					.get();
-			
-			/*// With Iterator
-			for (Edge e : node.getEnteringEdgeSet()) {
-				Node v = e.getOpposite(node);
-				if (v.hasAttribute(marker)	&& v.getAttribute(marker).equals(node.getAttribute(marker))) {
-					if ((Double) v.getAttribute(marker + ".score") > maxLabelScore)
-						maxLabelScore = (Double) v.getAttribute(marker	+ ".score");
-				}
-			}
-			*/
 			node.setAttribute(marker + ".score", maxLabelScore - delta);
 		}
 	}
@@ -260,19 +250,19 @@ public class Leung extends EpidemicCommunityAlgorithm {
 			if (v.hasAttribute(marker)) {
 
 				// Compute the neighbor node current score
-				Double score = (Double) v.getAttribute(marker + ".score")
+				double score = (double) v.getAttribute(marker + ".score")
 						* Math.pow(v.getInDegree(), m);
 
 				/*
 				 * The rest of the formula depends on the weighted status of the
 				 * network
 				 */
-				Double weight;
+				double weight;
 				if (e.hasAttribute(weightMarker))
 					if (e.isDirected()) {
 						Edge e2 = v.getEdgeToward(u.getId());
 						if (e2 != null && e2.hasAttribute(weightMarker))
-							weight = (Double) e.getAttribute(weightMarker)
+							weight = (double) e.getAttribute(weightMarker)
 									+ (Double) e2.getAttribute(weightMarker);
 						else
 							weight = (Double) e.getAttribute(weightMarker);
