@@ -60,7 +60,7 @@ public class URLGenerator extends BaseGenerator {
 		HOST, PATH, FULL
 	}
 
-	private static String REGEX = "href=\"([^\"]*)\"";
+	private String REGEX = "href=\"([^\"]*)\"";
 
 	protected HashSet<String> urls;
 	protected LinkedList<String> stepUrls;

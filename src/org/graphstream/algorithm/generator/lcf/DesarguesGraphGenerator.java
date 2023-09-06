@@ -49,9 +49,7 @@ public class DesarguesGraphGenerator extends LCFGenerator {
 	/**
 	 * LCF notation of a Desargues graph.
 	 */
-	public static final LCF DESARGUES_GRAPH_LCF = new LCF(5, 5, -5, 9, -9);
-
 	public DesarguesGraphGenerator() {
-		super(DESARGUES_GRAPH_LCF, 20, false);
+		super(new LCF(5, 5, -5, 9, -9), 20, false);
 	}
 }

@@ -46,13 +46,9 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class DodecahedralGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a dodecahedral graph.
-	 */
-	public static final LCF DODECAHEDRAL_GRAPH_LCF = new LCF(2, 10, 7, 4, -4,
-			-7, 10, -4, 7, -7, 4);
 
 	public DodecahedralGraphGenerator() {
-		super(DODECAHEDRAL_GRAPH_LCF, 20, false);
+		super(new LCF(2, 10, 7, 4, -4,
+				-7, 10, -4, 7, -7, 4), 20, false);
 	}
 }

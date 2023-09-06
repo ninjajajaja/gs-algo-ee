@@ -46,13 +46,9 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class TutteCoxeterGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Tutte-Coxeter graph.
-	 */
-	public static final LCF TUTTE_COXETER_GRAPH_LCF = new LCF(5, -13, -9, 7,
-			-7, 9, 13);
 
 	public TutteCoxeterGraphGenerator() {
-		super(TUTTE_COXETER_GRAPH_LCF, 30, false);
+		super(new LCF(5, -13, -9, 7,
+				-7, 9, 13), 30, false);
 	}
 }

@@ -44,12 +44,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class BidiakisCubeGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Bidiakis cube.
-	 */
-	public static final LCF BIDIAKIS_CUBE_LCF = new LCF(4, 6, 4, -4);
 
 	public BidiakisCubeGenerator() {
-		super(BIDIAKIS_CUBE_LCF, 12, false);
+		super(new LCF(4, 6, 4, -4), 12, false);
 	}
 }

@@ -47,13 +47,9 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class TruncatedCubicalGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a truncated cubical graph.
-	 */
-	public static final LCF TRUNCATED_CUBICAL_GRAPH_LCF = new LCF(4, 2, 9, -2,
-			2, -9, -2);
 
 	public TruncatedCubicalGraphGenerator() {
-		super(TRUNCATED_CUBICAL_GRAPH_LCF, 24, false);
+		super(new LCF(4, 2, 9, -2,
+				2, -9, -2), 24, false);
 	}
 }

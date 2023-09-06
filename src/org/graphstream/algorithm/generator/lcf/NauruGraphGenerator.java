@@ -46,12 +46,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class NauruGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Nauru graph.
-	 */
-	public static final LCF NAURU_GRAPH_LCF = new LCF(4, 5, -9, 7, -7, 9, -5);
 
 	public NauruGraphGenerator() {
-		super(NAURU_GRAPH_LCF, 24, false);
+		super(new LCF(4, 5, -9, 7, -7, 9, -5), 24, false);
 	}
 }

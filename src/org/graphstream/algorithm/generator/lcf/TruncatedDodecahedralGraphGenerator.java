@@ -48,14 +48,10 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class TruncatedDodecahedralGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a truncated dodecahedral graph.
-	 */
-	public static final LCF TRUNCATED_DODECAHEDRAL_GRAPH_LCF = new LCF(2, 30,
-			-2, 2, 21, -2, 2, 12, -2, 2, -12, -2, 2, -21, -2, 2, 30, -2, 2,
-			-12, -2, 2, 21, -2, 2, -21, -2, 2, 12, -2, 2);
 
 	public TruncatedDodecahedralGraphGenerator() {
-		super(TRUNCATED_DODECAHEDRAL_GRAPH_LCF, 60, false);
+		super(new LCF(2, 30,
+				-2, 2, 21, -2, 2, 12, -2, 2, -12, -2, 2, -21, -2, 2, 30, -2, 2,
+				-12, -2, 2, 21, -2, 2, -21, -2, 2, 12, -2, 2), 60, false);
 	}
 }

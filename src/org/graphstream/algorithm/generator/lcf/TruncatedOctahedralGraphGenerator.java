@@ -47,13 +47,9 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class TruncatedOctahedralGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a truncated octahedral graph.
-	 */
-	public static final LCF TRUNCATED_OCTAHEDRAL_GRAPH_LCF = new LCF(6, 3, -7,
-			7, -3);
 
 	public TruncatedOctahedralGraphGenerator() {
-		super(TRUNCATED_OCTAHEDRAL_GRAPH_LCF, 24, false);
+		super(new LCF(6, 3, -7,
+				7, -3), 24, false);
 	}
 }

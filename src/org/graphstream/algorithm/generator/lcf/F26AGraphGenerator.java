@@ -42,12 +42,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * </dl>
  */
 public class F26AGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a F26A graph.
-	 */
-	public static final LCF F26A_GRAPH_LCF = new LCF(13, -7, 7);
 
 	public F26AGraphGenerator() {
-		super(F26A_GRAPH_LCF, 26, false);
+		super(new LCF(13, -7, 7), 26, false);
 	}
 }

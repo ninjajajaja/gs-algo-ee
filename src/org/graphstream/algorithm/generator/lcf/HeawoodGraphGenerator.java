@@ -46,12 +46,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class HeawoodGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Headwood graph.
-	 */
-	public static final LCF HEAWOOD_GRAPH_LCF = new LCF(7, 5, -5);
 
 	public HeawoodGraphGenerator() {
-		super(HEAWOOD_GRAPH_LCF, 14, false);
+		super(new LCF(7, 5, -5), 14, false);
 	}
 }

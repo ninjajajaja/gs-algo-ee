@@ -46,12 +46,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class FranklinGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Franklin graph.
-	 */
-	public static final LCF FRANKLIN_GRAPH_LCF = new LCF(6, 5, -5);
 
 	public FranklinGraphGenerator() {
-		super(FRANKLIN_GRAPH_LCF, 12, false);
+		super(new LCF(6, 5, -5), 12, false);
 	}
 }

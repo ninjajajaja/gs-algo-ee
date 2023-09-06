@@ -48,12 +48,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class GrayGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Gray graph.
-	 */
-	public static final LCF GRAY_GRAPH_LCF = new LCF(9, -25, 7, -7, 13, -13, 25);
 
 	public GrayGraphGenerator() {
-		super(GRAY_GRAPH_LCF, 54, false);
+		super(new LCF(9, -25, 7, -7, 13, -13, 25), 54, false);
 	}
 }

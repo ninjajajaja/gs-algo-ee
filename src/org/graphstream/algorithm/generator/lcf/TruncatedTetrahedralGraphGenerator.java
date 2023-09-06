@@ -50,10 +50,7 @@ public class TruncatedTetrahedralGraphGenerator extends LCFGenerator {
 	/**
 	 * LCF notation of a truncated tetrahedral graph.
 	 */
-	public static final LCF TRUNCATED_TETRAHEDRAL_GRAPH_LCF = new LCF(4, 2, 6,
-			-2);
-
 	public TruncatedTetrahedralGraphGenerator() {
-		super(TRUNCATED_TETRAHEDRAL_GRAPH_LCF, 12, false);
+		super(new LCF(4, 2, 6, -2), 12, false);
 	}
 }
