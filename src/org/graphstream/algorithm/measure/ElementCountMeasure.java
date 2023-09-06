@@ -52,7 +52,7 @@ public abstract class ElementCountMeasure extends ChartSeries2DMeasure
 	 * 
 	 * @return amount of elements
 	 */
-	public abstract double getElementCount();
+	public abstract int getElementCount();
 
 	/*
 	 * (non-Javadoc)
@@ -103,7 +103,7 @@ public abstract class ElementCountMeasure extends ChartSeries2DMeasure
 		 * org.graphstream.algorithm.measure.ElementCountMeasure#getElementCount
 		 * ()
 		 */
-		public double getElementCount() {
+		public int getElementCount() {
 			return g.getNodeCount();
 		}
 	}
@@ -127,7 +127,7 @@ public abstract class ElementCountMeasure extends ChartSeries2DMeasure
 		 * org.graphstream.algorithm.measure.ElementCountMeasure#getElementCount
 		 * ()
 		 */
-		public double getElementCount() {
+		public int getElementCount() {
 			return g.getEdgeCount();
 		}
 	}

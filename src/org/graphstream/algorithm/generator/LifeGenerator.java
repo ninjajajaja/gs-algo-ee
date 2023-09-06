@@ -48,7 +48,7 @@ public class LifeGenerator extends BaseGenerator {
 	boolean[] swap;
 	boolean tore;
 	boolean pushCoords;
-	double step;
+	int step;
 
 	public LifeGenerator(int width, int height, boolean[] data) {
 		this.width = width;

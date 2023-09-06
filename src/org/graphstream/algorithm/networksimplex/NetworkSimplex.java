@@ -515,8 +515,8 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * Selects the leaving arc, that is the arc belonging to the cycle with
 	 * minimum allowed flow change. Maintains strongly feasible basis: if there
 	 * are more than one candidates, selects the last visited when traversing
-	 * the cycle in its direction starting from {@link join}. Sets up
-	 * {@link #first}, {@link second}, {@link #cycleFlowChange},
+	 * the cycle in its direction starting from join. Sets up
+	 * {@link #first}, second, {@link #cycleFlowChange},
 	 * {@link #oldSubtreeRoot}, {@link #newSubtreeRoot} and {@link #leavingArc}.
 	 */
 	protected void selectLeavingArc() {
@@ -1028,28 +1028,28 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	public void edgeAttributeAdded(String sourceId, long timeId, String edgeId,
 			String attribute, Object value) {
 		if (attribute.equals(costName)) {
-			double v = objectToDouble(value);
-			if (Double.isNaN(v))
+			int v = objectToInt(value);
+			if (Integer.MAX_VALUE == v)
 				v = 1;
 
 			NSArc arc = arcs.get(edgeId);
-			work1.set((int) v);
+			work1.set(v);
 			changeCost(arc, work1);
 
 			arc = arcs.get(PREFIX + "REVERSE_" + edgeId);
 			if (arc != null) {
-				work1.set((int) v);
+				work1.set(v);
 				changeCost(arc, work1);
 			}
 		} else if (attribute.equals(capacityName)) {
-			double v = objectToDouble(value);
-			if (Double.isNaN(v) || v < 0)
+			int v = objectToInt(value);
+			if (v == Integer.MAX_VALUE || v < 0)
 				v = INFINITE_CAPACITY;
 			NSArc arc = arcs.get(edgeId);
-			changeCapacity(arc, (int) v);
+			changeCapacity(arc, v);
 			arc = arcs.get(PREFIX + "REVERSE_" + edgeId);
 			if (arc != null)
-				changeCapacity(arc, (int) v);
+				changeCapacity(arc, v);
 		}
 	}
 
@@ -1069,12 +1069,12 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	public void nodeAttributeAdded(String sourceId, long timeId, String nodeId,
 			String attribute, Object value) {
 		if (attribute.equals(supplyName)) {
-			double v = objectToDouble(value);
-			if (Double.isNaN(v))
+			int v = objectToInt(value);
+			if (v == Integer.MAX_VALUE)
 				v = 0;
 
 			NSNode node = nodes.get(nodeId);
-			changeSupply(node, (int) v);
+			changeSupply(node, v);
 		}
 	}
 
@@ -1134,21 +1134,21 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * 
 	 * @param o
 	 *            The object to be converted
-	 * @return The numeric value of the object or NaN
+	 * @return The numeric value of the object or Integer.MAX_VALUE
 	 */
-	protected static double objectToDouble(Object o) {
+	protected static int objectToInt(Object o) {
 		if (o != null) {
 			if (o instanceof Number)
-				return ((Number) o).doubleValue();
+				return ((Number) o).intValue();
 
 			if (o instanceof String) {
 				try {
-					return Double.parseDouble((String) o);
+					return Integer.parseInt((String) o);
 				} catch (NumberFormatException e) {
 				}
 			}
 		}
-		return Double.NaN;
+		return Integer.MAX_VALUE;
 	}
 
 	/**
