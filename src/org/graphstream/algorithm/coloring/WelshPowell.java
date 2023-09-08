@@ -167,7 +167,7 @@ public class WelshPowell implements Algorithm {
 	/**
 	 * Name of the attributes added to the graph.
 	 */
-	protected String attrName = "WelshPowell.color";
+	public String attrName = "WelshPowell.color";
 
 	/**
 	 * The graph.
@@ -202,16 +202,6 @@ public class WelshPowell implements Algorithm {
 
 	// Commands
 
-	/**
-	 * Set the name of the attribute to put in the graph if it is modified.
-	 * 
-	 * @param attrName
-	 *            An attribute name.
-	 */
-	@Parameter
-	public void setAttributeName(String attrName) {
-		this.attrName = attrName;
-	}
 
 	/*
 	 * (non-Javadoc)
