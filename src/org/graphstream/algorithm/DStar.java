@@ -487,7 +487,7 @@ public class DStar implements DynamicAlgorithm, Sink {
 		Generator gen = new DorogovtsevMendesGenerator();
 		AdjacencyListGraph g = new AdjacencyListGraph("g");
 		DStar dstar = new DStar();
-		Random r = new Random();
+		Random r = new Random(100);
 		boolean alive = true;
 
 		g

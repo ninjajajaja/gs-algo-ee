@@ -53,7 +53,7 @@ public class TestRandomGenerator {
 	/**
 	 * Average degree
 	 */
-	public static final double K = 49.8765;
+	public static final double K = 100;
 	
 	@Test
 	public void test() {
