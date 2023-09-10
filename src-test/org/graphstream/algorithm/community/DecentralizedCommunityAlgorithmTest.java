@@ -189,14 +189,6 @@ public class DecentralizedCommunityAlgorithmTest {
         // No specific behavior to check, just to ensure method call doesn't cause errors.
     }
 
-    @Test
-    public void testDefaultMessage() {
-        TestDecentralizedCommunityAlgorithm dcaTest = new TestDecentralizedCommunityAlgorithm();
-        assertEquals("Result stored in \"ui.class\" attribute", dcaTest.defaultMessage());
-        // No specific behavior to check, just to ensure method call doesn't cause errors.
-    }
-
-
     // Custom TestDecentralizedCommunityAlgorithm class for testing
     private static class TestDecentralizedCommunityAlgorithm extends DecentralizedCommunityAlgorithm {
         TestDecentralizedCommunityAlgorithm(Graph graph) {

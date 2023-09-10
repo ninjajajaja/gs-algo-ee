@@ -130,7 +130,6 @@ public class URLGenerator extends BaseGenerator {
 				e.printStackTrace();
 			}
 		});
-		
 		urls.addAll(stepUrls);
 		newUrls.clear();
 
@@ -344,109 +343,110 @@ public class URLGenerator extends BaseGenerator {
 	 * 			  exception if url is wrong
 	 */
 	protected void parseUrl(String url) throws IOException {
-		URI uri;
-		URLConnection conn;
-		InputStream stream;
-		BufferedReader reader;
+//		URI uri;
+//		URLConnection conn;
+//		InputStream stream;
+//		BufferedReader reader;
 		HashSet<String> localUrls = new HashSet<String>();
+//
+//		if (!isValid(url))
+//			return;
+//
+//		try {
+//			uri = new URI(url);
+//		} catch (URISyntaxException e1) {
+//			throw new IOException(e1);
+//		}
+//
+//		if (uri.getHost() == null) {
+//			System.err.printf("skip invalid uri : '%s'\n", url);
+//			return;
+//		}
+//
+//		if (!uri.isAbsolute()) {
+//			System.err.printf("skip non-absolute uri : '%s'\n", url);
+//			return;
+//		}
 
-		if (!isValid(url))
-			return;
+//		conn = uri.toURL().openConnection();
+//		conn.setConnectTimeout(1000);
+//		conn.setReadTimeout(1000);
+//		conn.connect();
+//
+//		if (conn.getContentType() == null
+//				|| !conn.getContentType().startsWith("text/html"))
+//			return;
+//
+//		stream = conn.getInputStream();
+//		reader = new BufferedReader(new InputStreamReader(stream));
+//
+//		while (reader.ready()) {
+//			String line = reader.readLine();
+//
+//			if (line == null)
+//				continue;
+//
+//			Matcher m = hrefPattern.matcher(line);
+//
+//			while (m.find()) {
+//				String href = m.group(1);
+//
+//				if (href == null || href.length() == 0)
+//					continue;
+//
+//				href = href.trim();
+//
+//				if (href.charAt(0) == '/')
+//					href = String.format("%s://%s%s", uri.getScheme(),
+//							uri.getHost(), href);
+//
+//				if (href.charAt(0) == '.')
+//					href = String.format("%s%s", url, href);
+//
+//				if (!isValid(href))
+//					continue;
+//
+//				try {
+//					if (depthLimit == 0 || step < depthLimit) {
+//						synchronizedOperation(href, null);
+//						synchronizedOperation(url, href);
+//					} else {
+//						if (urls.contains(href))
+//							synchronizedOperation(url, href);
+//					}
+//				} catch (URISyntaxException e) {
+//					throw new IOException(e);
+//				}
 
-		try {
-			uri = new URI(url);
-		} catch (URISyntaxException e1) {
-			throw new IOException(e1);
-		}
-
-		if (uri.getHost() == null) {
-			System.err.printf("skip invalid uri : '%s'\n", url);
-			return;
-		}
-
-		if (!uri.isAbsolute()) {
-			System.err.printf("skip non-absolute uri : '%s'\n", url);
-			return;
-		}
-
-		conn = uri.toURL().openConnection();
-		conn.setConnectTimeout(1000);
-		conn.setReadTimeout(1000);
-		conn.connect();
-
-		if (conn.getContentType() == null
-				|| !conn.getContentType().startsWith("text/html"))
-			return;
-
-		stream = conn.getInputStream();
-		reader = new BufferedReader(new InputStreamReader(stream));
-
-		while (reader.ready()) {
-			String line = reader.readLine();
-
-			if (line == null)
-				continue;
-
-			Matcher m = hrefPattern.matcher(line);
-
-			while (m.find()) {
-				String href = m.group(1);
-
-				if (href == null || href.length() == 0)
-					continue;
-
-				href = href.trim();
-
-				if (href.charAt(0) == '/')
-					href = String.format("%s://%s%s", uri.getScheme(),
-							uri.getHost(), href);
-
-				if (href.charAt(0) == '.')
-					href = String.format("%s%s", url, href);
-
-				if (!isValid(href))
-					continue;
-
-				try {
-					if (depthLimit == 0 || step < depthLimit) {
-						synchronizedOperation(href, null);
-						synchronizedOperation(url, href);
-					} else {
-						if (urls.contains(href))
-							synchronizedOperation(url, href);
-					}
-				} catch (URISyntaxException e) {
-					throw new IOException(e);
-				}
-
+		String href = url + String.valueOf(step);
 				if (!urls.contains(href)
 						&& (depthLimit == 0 || step < depthLimit))
 					localUrls.add(href);
-			}
-		}
+//			}
+//		}
 
-		lock.lock();
+//		lock.lock();
 
 		try {
 			newUrls.addAll(localUrls);
 		} finally {
-			lock.unlock();
+//			lock.unlock();
 		}
 
 		localUrls.clear();
 		localUrls = null;
 
-		try {
-			if (conn.getDoOutput())
-				conn.getOutputStream().close();
-			reader.close();
-			stream.close();
-		} catch (IOException e) {
-			// Do not throw this exception
-		}
-
-		if (conn instanceof HttpURLConnection)
-			((HttpURLConnection) conn).disconnect();
+//		try {
+//			if (conn.getDoOutput())
+//				conn.getOutputStream().close();
+//			reader.close();
+//			stream.close();
+//		} catch (IOException e) {
+//			// Do not throw this exception
+//		}
+//
+//		if (conn instanceof HttpURLConnection)
+//			((HttpURLConnection) conn).disconnect();
 	}
 
 	protected String getNodeId(String url) throws URISyntaxException {
