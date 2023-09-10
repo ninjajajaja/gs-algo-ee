@@ -15,7 +15,7 @@ public class LifeGeneratorTest extends TestCase {
         LifeGenerator gen = new LifeGenerator(10, 10, data);
         gen.addSink(graph);
         gen.begin();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 500; i++)
             gen.nextEvents();
         gen.end();
         gen.setTore(true);

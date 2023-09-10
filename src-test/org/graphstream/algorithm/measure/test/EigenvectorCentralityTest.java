@@ -49,7 +49,7 @@ public class EigenvectorCentralityTest {
 		BarabasiAlbertGenerator gen = new BarabasiAlbertGenerator();
 		gen.addSink(g);
 		gen.begin();
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 1000; i++)
 			gen.nextEvents();
 		gen.end();
 

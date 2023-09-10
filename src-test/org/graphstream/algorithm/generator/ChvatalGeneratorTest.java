@@ -13,7 +13,7 @@ public class ChvatalGeneratorTest extends TestCase {
         Generator gen = new ChvatalGenerator();
         gen.addSink(graph);
         gen.begin();
-        for(int i = 0; i < 100; i++)
+        for(int i = 0; i < 1000; i++)
             gen.nextEvents();
         gen.end();
     }

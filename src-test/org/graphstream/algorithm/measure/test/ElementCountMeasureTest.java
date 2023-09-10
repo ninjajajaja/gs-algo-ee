@@ -16,7 +16,7 @@ public class ElementCountMeasureTest extends TestCase {
         LifeGenerator gen = new LifeGenerator(20, 5, data);
         gen.addSink(graph);
         gen.begin();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 1000; i++)
             gen.nextEvents();
         gen.end();
 

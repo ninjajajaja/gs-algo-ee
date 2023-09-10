@@ -21,7 +21,7 @@ public class EpidemicCommunityAlgorithmTest {
         Generator gen = new LobsterGenerator();
         gen.addSink(graph);
         gen.begin();
-        for(int i = 0; i < 100; i++)
+        for(int i = 0; i < 1000; i++)
             gen.nextEvents();
         gen.end();
         // Initialize the algorithm with the test graph
