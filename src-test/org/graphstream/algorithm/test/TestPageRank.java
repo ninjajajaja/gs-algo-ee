@@ -66,5 +66,19 @@ public class TestPageRank {
 		assertEquals(1.6, 100 * pr.getRank(g.getNode("J")), 1.0e-1);
 		assertEquals(1.6, 100 * pr.getRank(g.getNode("K")), 1.0e-1);
 
+		pr.defaultResult();
+		pr.nodeAdded("", 0, "A");
+		pr.nodeAdded("", 0, "B");
+		pr.nodeAdded("", 0, "C");
+		pr.nodeRemoved("", 0, "A");
+		pr.nodeRemoved("", 0, "B");
+		pr.nodeRemoved("", 0, "C");
+
+		pr.setVerbose(true);
+		assertEquals(0.85, pr.getDampingFactor(), 0.01);
+		assertEquals(0.0, pr.getPrecision(), 0.01);
+		assertEquals(67, pr.getIterationCount());
+		assertEquals("PageRank", pr.getRankAttribute());
+
 	}
 }

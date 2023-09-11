@@ -482,55 +482,6 @@ public class DStar implements DynamicAlgorithm, Sink {
 	public void stepBegins(String sourceId, long timeId, double step) {
 		// Nothing to do
 	}
-
-	public static void main(String... args) {
-		Generator gen = new DorogovtsevMendesGenerator();
-		AdjacencyListGraph g = new AdjacencyListGraph("g");
-		DStar dstar = new DStar();
-		Random r = new Random(100);
-		boolean alive = true;
-
-		g
-				.setAttribute(
-						"ui.stylesheet",
-						"node.on { fill-color: red; } node.off { fill-color: black; } edge.on { fill-color: red; } edge.off { fill-color: black; }");
-
-		gen.addSink(g);
-		g.display(true);
-
-		gen.begin();
-		for (int i = 0; i < 150; i++)
-			gen.nextEvents();
-
-		dstar.init(Toolkit.randomNode(g), Toolkit.randomNode(g), g);
-
-		do {
-			dstar.compute();
-			dstar.markPath("ui.class", "on", "off");
-
-			try {
-				Thread.sleep(2000);
-			} catch (Exception e) {
-			}
-
-			State s = dstar.position;
-
-			while (s.b != dstar.g && s.b != null && r.nextBoolean())
-				s = s.b;
-
-			if (r.nextBoolean() && s != dstar.position && s.b != dstar.g) {
-				g.removeNode(s.node);
-			} else {
-				g.removeEdge(s.node.getEdgeBetween(s.b.node));
-			}
-			
-			gen.nextEvents();
-		} while (alive);
-
-		gen.end();
-		dstar.terminate();
-
-	}
 	
 	@Result
 	public String defaultResult() {

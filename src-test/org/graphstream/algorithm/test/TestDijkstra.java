@@ -197,5 +197,8 @@ public class TestDijkstra {
 		
 		// and don't forget the special case G
 		assertFalse(d.getAllPathsStream(g.getNode("G")).iterator().hasNext());
+
+		d.setSource(g.getNode("E"));
+		d.setTarget("t");
 	}
 }

@@ -29,6 +29,7 @@
  */
 package org.graphstream.algorithm.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Iterator;
@@ -73,6 +74,13 @@ public class TestBellmanFord
 		
 		bellman = new BellmanFord("weight");
 	}
+
+	private void setterAndGetter(BellmanFord bf) {
+		bf.setTarget("t");
+		bf.setWeightAttribute("wa");
+		bf.setIdentifier("i");
+		assertEquals("i",bf.getIdentifier());
+	}
 	
 	@Test
 	public void testShortedPath() {		
@@ -104,7 +112,8 @@ public class TestBellmanFord
 		assertTrue(e.getId().equals("EF"));
 		System.out.println(e);
 		assertTrue(!i.hasNext());
-		
+
+		setterAndGetter(bellman);
 	}
 	
 	@Test
@@ -117,5 +126,7 @@ public class TestBellmanFord
 		double v = bellman.getShortestPathValue(a);
 		
 		assertTrue(v == 5);
+
+		setterAndGetter(bellman);
 	}
 }
