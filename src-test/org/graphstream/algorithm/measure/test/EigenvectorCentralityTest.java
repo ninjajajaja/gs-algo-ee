@@ -28,45 +28,42 @@
  * @author Guilhelm Savin <guilhelm.savin@graphstream-project.org>
  * @author Hicham Brahimi <hicham.brahimi@graphstream-project.org>
  */
-package org.graphstream.algorithm.measure.demo;
+package org.graphstream.algorithm.measure.test;
+
+import static org.junit.Assert.assertEquals;
 
 import org.graphstream.algorithm.generator.BarabasiAlbertGenerator;
 import org.graphstream.algorithm.measure.AbstractCentrality.NormalizationMode;
 import org.graphstream.algorithm.measure.EigenvectorCentrality;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.AdjacencyListGraph;
+import org.junit.Test;
 
-public class EigenvectorCentralityDemo {
-	public static final String STYLE = "node {" + "fill-mode: dyn-plain;"
-			+ "fill-color: blue,yellow;" + "size-mode: dyn-size;"
-			+ "stroke-color: black;" + "stroke-width: 1px;"
-			+ "stroke-mode: plain;" + "}";
+public class EigenvectorCentralityTest {
 
-	public static void main(String... args) {
-		System.setProperty("org.graphstream.ui", "org.graphstream.ui.swing.util.Display");
+	@Test
+	public void testGeneration() {
 
 		Graph g = new AdjacencyListGraph("g");
-
-		g.setAttribute("ui.quality");
-		g.setAttribute("ui.antialias");
-		g.setAttribute("ui.stylesheet", STYLE);
 
 		BarabasiAlbertGenerator gen = new BarabasiAlbertGenerator();
 		gen.addSink(g);
 		gen.begin();
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 1000; i++)
 			gen.nextEvents();
 		gen.end();
 
-		EigenvectorCentrality dc = new EigenvectorCentrality("ui.color", NormalizationMode.MAX_1_MIN_0);
-		dc.init(g);
-		dc.compute();
+		EigenvectorCentrality eigenvectorCentrality = new EigenvectorCentrality("ui.color", NormalizationMode.MAX_1_MIN_0);
+		eigenvectorCentrality.init(g);
+		eigenvectorCentrality.compute();
 
-		for (int i = 0; i < g.getNodeCount(); i++)
-			g.getNode(i).setAttribute("ui.size",
-					g.getNode(i).getNumber("ui.color") * 25 + 5);
+		eigenvectorCentrality.setNormalizationMode(NormalizationMode.SUM_IS_1);
+		assertEquals(NormalizationMode.SUM_IS_1, eigenvectorCentrality.getNormalizationMode());
+		eigenvectorCentrality.init(g);
+		eigenvectorCentrality.compute();
 
-		g.display();
+		eigenvectorCentrality.setCentralityAttribute("ca");
+		assertEquals("ca", eigenvectorCentrality.getCentralityAttribute());
 	}
 
 }
