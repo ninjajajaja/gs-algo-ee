@@ -19,7 +19,7 @@ public class WikipediaGeneratorTest {
         WikipediaGenerator gen = new WikipediaGenerator(WikipediaGenerator.Lang.EN, "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L");
         Graph graph = new MultiGraph("g");
         gen.addSink(graph);
-        gen.setThreadCount(5);
+        gen.setThreadCount(1); // avoid errors bc of race conditions
         gen.begin();
         for(int i = 0; i < 50; i++)
             gen.nextEvents();

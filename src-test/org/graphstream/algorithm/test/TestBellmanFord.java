@@ -90,7 +90,7 @@ public class TestBellmanFord
 
 		Node a = graph.getNode("A") ;
 		Path p = bellman.getShortestPath(a);
-		System.out.println(p);
+		// System.out.println(p);
 		
 		List<Edge> edges = p.getEdgePath();
 		Iterator<? extends Edge> i = edges.iterator();
@@ -99,18 +99,18 @@ public class TestBellmanFord
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("CA"));
 		e = i.next();
-		System.out.println(e);
+		// System.out.println(e);
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("BC"));
 		e = i.next();
-		System.out.println(e);
+		// System.out.println(e);
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("BF"));
 		e = i.next();
-		System.out.println(e);
+		// System.out.println(e);
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("EF"));
-		System.out.println(e);
+		// System.out.println(e);
 		assertTrue(!i.hasNext());
 
 		setterAndGetter(bellman);
