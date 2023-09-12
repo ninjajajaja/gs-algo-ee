@@ -32,6 +32,7 @@ package org.graphstream.algorithm.test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 
@@ -156,6 +157,17 @@ public class TestAPSP {
 		assertEquals(1.0, info.getLengthTo("B"), 0);
 		assertEquals(1.5, info.getLengthTo("C"), 0);
 		assertEquals(0.5, info.getLengthTo("D"), 0);
+
+		settersAndGetters(apsp);
+	}
+
+	private void settersAndGetters(APSP apsp) {
+		apsp.setDirected(true);
+		apsp.setSource("s");
+		apsp.setTarget("t");
+		apsp.setWeightAttributeName("wa");
+		assertNotNull(apsp.getGraph());
+		assertEquals("wa", apsp.getWeightAttributeName());
 	}
 
 	@Test
@@ -196,6 +208,8 @@ public class TestAPSP {
 		assertEquals(1.0, info.getLengthTo("A"), 0);
 		assertEquals(3.0, info.getLengthTo("C"), 0);
 		assertEquals(2.0, info.getLengthTo("D"), 0);
+
+		settersAndGetters(apsp);
 	}
 
 	@Test
@@ -234,6 +248,7 @@ public class TestAPSP {
 
 		assertEquals(2, path.getNodeCount(), 0);
 		assertArrayEquals(npath, npath2);
+		settersAndGetters(apsp);
 	}
 
 	protected void buildGraph1(Graph G) {

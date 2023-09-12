@@ -81,7 +81,7 @@ public class Eades84Layout extends PipeBase implements Layout {
 
 		springs = new Hashtable<String, Spring>();
 		particles = new Hashtable<String, EadesParticle>();
-		random = new Random();
+		random = new Random(100);
 //		listeners = new LinkedList<LayoutListener>();
 
 		high = new Point3(1, 1, 1);

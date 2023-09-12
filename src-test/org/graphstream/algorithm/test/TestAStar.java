@@ -134,6 +134,11 @@ public class TestAStar {
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("BF"));
 		assertTrue(!i.hasNext());
+		setter(astar);
+	}
+
+	private void setter(AStar a) {
+		a.setCosts(null);
 	}
 
 	@Test
@@ -171,6 +176,7 @@ public class TestAStar {
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("BF"));
 		assertTrue(!i.hasNext());
+		setter(astar);
 	}
 
 	@Test
@@ -215,6 +221,7 @@ public class TestAStar {
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("EF"));
 		assertTrue(!i.hasNext());
+		setter(astar);
 	}
 
 	@Test
@@ -257,6 +264,7 @@ public class TestAStar {
 		assertNotNull(e);
 		assertTrue(e.getId().equals("BF"));
 		assertTrue(!i.hasNext());
+		setter(astar);
 	}
 
 	@Test
@@ -311,6 +319,7 @@ public class TestAStar {
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("EF"));
 		assertTrue(!i.hasNext());
+		setter(astar);
 	}
 
 	@Test
@@ -360,5 +369,6 @@ public class TestAStar {
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("BF3"));
 		assertTrue(!i.hasNext());
+		setter(astar);
 	}
 }

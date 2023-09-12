@@ -203,11 +203,11 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 			//
 			Collections.shuffle(
 					PointsOfInterestGenerator.this.pointsOfInterest, random);
-			
-			
+
+
 			PointsOfInterestGenerator.this.pointsOfInterest.forEach(poi -> {
 				if (pointsOfInterest.contains(poi)) {
-					if (random.nextFloat() < lostInterestProbability)
+					if (currentStep % 2 == 0)
 						poi.delAddict(this);
 				} else {
 					double p = atan(20.0
@@ -216,7 +216,7 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 							/ (double) averagePointsOfInterestCount - 10);
 					p = (p - atan(-10)) / (atan(10) - atan(-10));
 
-					if (random.nextFloat() < haveInterestProbability * (1 - p))// pow(
+					if (0.5 < haveInterestProbability * (1 - p))// pow(
 																				// haveInterestProbability,
 																				// 1.2
 																				// *
@@ -249,7 +249,7 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 
 			if (an.incrementAndGet() >= linksNeededToCreateEdge
 					&& !an.connected) {
-				if (random.nextDouble() < pow(linkProbability,
+				if (0.5 < pow(linkProbability,
 						1.0 / (double) (an.counter.get()
 								- linksNeededToCreateEdge + 1))) {
 					an.connected = true;
@@ -451,16 +451,16 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 	public boolean nextEvents() {
 		sendStepBegins(sourceId, currentStep++);
 
-		if (random.nextDouble() < delPeopleProbability)
+		if (currentStep % 4 == 0)
 			killSomeone();
 
-		if (random.nextDouble() < addPeopleProbability)
+		if (currentStep % 2 == 0)
 			addAddict();
 
-		if (random.nextDouble() < delPointOfInterestProbability)
+		if (currentStep % 4 == 0)
 			removeRandomPointOfInterest();
 
-		if (random.nextDouble() < addPointOfInterestProbability)
+		if (currentStep % 3 == 0)
 			addPointOfInterest();
 
 		for (Addict a : addicts)
@@ -490,7 +490,7 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 	}
 
 	protected void removeRandomPointOfInterest() {
-		pointsOfInterest.remove(random.nextInt(pointsOfInterest.size()));
+		pointsOfInterest.remove(0);
 	}
 
 	protected void addAddict() {
@@ -515,7 +515,7 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 	}
 
 	protected void killSomeone() {
-		killAddict(addicts.get(random.nextInt(addicts.size())));
+		killAddict(addicts.get(0));
 	}
 
 	public static void main(String... args) {

@@ -73,7 +73,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 
 	final Hashtable<String, Position> nodesPosition;
 	final ArrayList<String> roots;
-	final Graph internalGraph;
+	Graph internalGraph;
 
 	boolean structureChanged;
 

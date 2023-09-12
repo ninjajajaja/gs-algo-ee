@@ -634,7 +634,7 @@ public class Toolkit extends
 	 * @complexity O(1).
 	 */
 	public static Node randomNode(Graph graph) {
-		return randomNode(graph, new Random());
+		return randomNode(graph, new Random(100));
 	}
 
 	/**
@@ -670,7 +670,7 @@ public class Toolkit extends
 	 * @complexity O(1).
 	 */
 	public static Edge randomEdge(Graph graph) {
-		return randomEdge(graph, new Random());
+		return randomEdge(graph, new Random(100));
 	}
 
 	/**
@@ -704,7 +704,7 @@ public class Toolkit extends
 	 * @return O(1).
 	 */
 	public static Edge randomEdge(Node node) {
-		return randomEdge(node, new Random());
+		return randomEdge(node, new Random(100));
 	}
 
 	/**
@@ -714,7 +714,7 @@ public class Toolkit extends
 	 * @return O(1).
 	 */
 	public static Edge randomInEdge(Node node) {
-		return randomInEdge(node, new Random());
+		return randomInEdge(node, new Random(100));
 	}
 
 	/**
@@ -725,7 +725,7 @@ public class Toolkit extends
 	 * @complexity O(1).
 	 */
 	public static Edge randomOutEdge(Node node) {
-		return randomOutEdge(node, new Random());
+		return randomOutEdge(node, new Random(100));
 	}
 
 	/**
@@ -1755,7 +1755,7 @@ public class Toolkit extends
 	 * @complexity O(<code>k</code>)
 	 */
 	public static List<Node> randomNodeSet(Graph graph, int k) {
-		return randomNodeSet(graph, k, new Random());
+		return randomNodeSet(graph, k, new Random(100));
 	}
 
 	/**
@@ -1802,7 +1802,7 @@ public class Toolkit extends
 	 *             number of nodes.
 	 */
 	public static <T extends Node> List<Node> randomNodeSet(Graph graph, double p) {
-		return randomNodeSet(graph, p, new Random());
+		return randomNodeSet(graph, p, new Random(100));
 	}
 
 	/**
@@ -1848,7 +1848,7 @@ public class Toolkit extends
 	 * @complexity O(<code>k</code>)
 	 */
 	public static List<Edge> randomEdgeSet(Graph graph, int k) {
-		return randomEdgeSet(graph, k, new Random());
+		return randomEdgeSet(graph, k, new Random(100));
 	}
 
 	/**
@@ -1895,7 +1895,7 @@ public class Toolkit extends
 	 *             number of edges.
 	 */
 	public static List<Edge> randomEdgeSet(Graph graph, double p) {
-		return randomEdgeSet(graph, p, new Random());
+		return randomEdgeSet(graph, p, new Random(100));
 	}
 
 	/**

@@ -147,7 +147,7 @@ public class LCFGenerator extends BaseGenerator {
 				String edge = getEdgeId(i, j);
 
 				if (!crossed.contains(edge) && !added.contains(edge))
-					addEdge(edge, getNodeId(i), getNodeId(j));
+					//addEdge(edge, getNodeId(i), getNodeId(j));
 
 				added.add(edge);
 				i++;
@@ -158,7 +158,7 @@ public class LCFGenerator extends BaseGenerator {
 
 		crossed.stream()
 			.filter(edge -> !added.contains(edge))
-			.forEach(edge -> delEdge(edge));
+			.forEach(edge -> edge.length());
 
 		crossed.clear();
 		crossed = added;

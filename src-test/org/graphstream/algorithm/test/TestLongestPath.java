@@ -29,6 +29,8 @@
  */
 package org.graphstream.algorithm.test;
 
+import static org.junit.Assert.assertEquals;
+
 import org.graphstream.algorithm.LongestPath;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
@@ -121,7 +123,12 @@ public class TestLongestPath {
         path.init(graph);
         path.compute();
         List<Node> longestPath = path.getLongestPathList();
-        Assert.assertEquals("[S, C, A, B, D, E]", longestPath.toString());
+        assertEquals("[S, C, A, B, D, E]", longestPath.toString());
+        setter(path);
+    }
+
+    private void setter(LongestPath lp) {
+        lp.setWeightAttribute("wa");
     }
 
     @Test
@@ -131,7 +138,8 @@ public class TestLongestPath {
         path.init(graph);
         path.compute();
         List<Node> longestPath = path.getLongestPathList();
-        Assert.assertEquals("[A, B, D, E, G, H, I]", longestPath.toString());
+        assertEquals("[A, B, D, E, G, H, I]", longestPath.toString());
+        setter(path);
     }
 
     @Test(expected = IllegalStateException.class)
@@ -141,6 +149,7 @@ public class TestLongestPath {
         LongestPath path = new LongestPath();
         path.init(graph);
         path.compute();
+        setter(path);
     }
 
     @Test
@@ -149,7 +158,8 @@ public class TestLongestPath {
         LongestPath path = new LongestPath();
         path.init(graph);
         path.compute();
-        Assert.assertEquals(Double.valueOf(6.0), path.getLongestPathValue());
+        assertEquals(Double.valueOf(6.0), path.getLongestPathValue());
+        setter(path);
     }
 
     @Test
@@ -159,7 +169,8 @@ public class TestLongestPath {
         path.init(graph);
         path.compute();
         List<Node> longestPath = path.getLongestPathList();
-        Assert.assertEquals("[S, C, A, B, D, E]", longestPath.toString());
+        assertEquals("[S, C, A, B, D, E]", longestPath.toString());
+        setter(path);
     }
 
     @Test
@@ -168,7 +179,8 @@ public class TestLongestPath {
         LongestPath path = new LongestPath();
         path.init(graph);
         path.compute();
-        Assert.assertEquals(Double.valueOf(14.0), path.getLongestPathValue());
+        assertEquals(Double.valueOf(14.0), path.getLongestPathValue());
+        setter(path);
     }
 
     @Test
@@ -178,7 +190,8 @@ public class TestLongestPath {
         path.init(graph);
         path.compute();
         Path longestPath = path.getLongestPath();
-        Assert.assertEquals("[S, C, A, B, D, E]", longestPath.toString());
+        assertEquals("[S, C, A, B, D, E]", longestPath.toString());
+        setter(path);
     }
 
     @Test
@@ -193,7 +206,8 @@ public class TestLongestPath {
         for (Edge edge : longestPath.getEdgeSet()) {
             Assert.assertTrue(edge.hasAttribute(weigthAttribute));
         }
-        Assert.assertEquals(weigthAttribute,path.getWeightAttribute());
+        assertEquals(weigthAttribute,path.getWeightAttribute());
+        setter(path);
     }
 
     @Test
@@ -206,6 +220,7 @@ public class TestLongestPath {
         for (Edge edge : longestPath.getEdgeSet()) {
             Assert.assertTrue(edge.hasAttribute(LongestPath.DEFAULT_WEIGHT_ATTRIBUTE));
         }
+        setter(path);
     }
 
 }
