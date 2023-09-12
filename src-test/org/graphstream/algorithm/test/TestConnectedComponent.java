@@ -66,7 +66,7 @@ public class TestConnectedComponent {
 		cc.setCountAttribute("count");
 
 		// publish 373
-		cc.publish("count");
+		cc.publish();
 
 		// getGiantComponent 390
 		cc.getGiantComponent();

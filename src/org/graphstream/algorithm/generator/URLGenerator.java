@@ -30,20 +30,13 @@
  */
 package org.graphstream.algorithm.generator;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URLConnection;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
 
@@ -137,12 +130,7 @@ public class URLGenerator extends BaseGenerator {
 			nextEventsThreaded();
 		else {
 			stepUrls.forEach(url -> {
-				try {
-					parseUrl(url);
-				} catch (IOException e) {
-					System.err.printf("Failed to parse \"%s\" : %s\n", url,
-							e.getMessage());
-				}
+				parseUrl(url);
 			});
 		}
 
@@ -341,7 +329,7 @@ public class URLGenerator extends BaseGenerator {
 	 * @throws IOException
 	 * 			  exception if url is wrong
 	 */
-	protected void parseUrl(String url) throws IOException {
+	protected void parseUrl(String url) {
 //		URI uri;
 //		URLConnection conn;
 //		InputStream stream;
@@ -470,7 +458,7 @@ public class URLGenerator extends BaseGenerator {
 		return nodeId;
 	}
 
-	protected String getNodeLabel(String url) throws URISyntaxException {
+	protected String getNodeLabel(String url) {
 		return url;
 	}
 
@@ -563,12 +551,7 @@ public class URLGenerator extends BaseGenerator {
 
 		public void run() {
 			for (int i = start; i < stop; i++) {
-				try {
-					parseUrl(urls.get(i));
-				} catch (IOException e) {
-					System.err.printf("Failed to parse \"%s\" : %s\n",
-							urls.get(i), e.getMessage());
-				}
+				parseUrl(urls.get(i));
 			}
 		}
 	}

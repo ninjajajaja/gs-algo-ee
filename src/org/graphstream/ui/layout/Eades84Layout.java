@@ -31,11 +31,9 @@
  */
 package org.graphstream.ui.layout;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
-
 import org.graphstream.algorithm.generator.BarabasiAlbertGenerator;
 import org.graphstream.graph.implementations.DefaultGraph;
 import org.graphstream.stream.PipeBase;
