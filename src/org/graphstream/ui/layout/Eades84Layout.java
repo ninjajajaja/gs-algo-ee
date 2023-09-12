@@ -31,11 +31,9 @@
  */
 package org.graphstream.ui.layout;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
-
 import org.graphstream.algorithm.generator.BarabasiAlbertGenerator;
 import org.graphstream.graph.implementations.DefaultGraph;
 import org.graphstream.stream.PipeBase;
@@ -256,14 +254,6 @@ public class Eades84Layout extends PipeBase implements Layout {
 
 			stabilization = 0;
 		}
-	}
-
-	public static void inputPos(String filename) throws IOException {
-		throw new RuntimeException("unhandle feature");
-	}
-
-	public static void outputPos(String filename) throws IOException {
-		throw new RuntimeException("unhandle feature");
 	}
 
 	public void particleMoved(Object id, double x, double y, double z) {

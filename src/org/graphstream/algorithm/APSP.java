@@ -249,7 +249,7 @@ public class APSP extends SinkAdapter implements Algorithm {
 	/**
 	 * If false, do not take edge orientation into account.
 	 */
-	protected boolean directed = true;
+	protected boolean directed;
 
 	/**
 	 * Default weight attribute
@@ -309,14 +309,6 @@ public class APSP extends SinkAdapter implements Algorithm {
 
 	// Access
 
-	/**
-	 * True if the algorithm must take edge orientation into account.
-	 * 
-	 * @return True if directed.
-	 */
-	public boolean isDirected() {
-		return directed;
-	}
 
 	/**
 	 * The name of the attribute to use for retrieving edge weights.
@@ -347,15 +339,6 @@ public class APSP extends SinkAdapter implements Algorithm {
 	@Parameter
 	public void setDirected(boolean on) {
 		directed = on;
-	}
-
-	/**
-	 * Specify an interface to call in order to indicate the algorithm progress.
-	 * Pass null to remove the progress indicator. The progress indicator will
-	 * be called regularly to indicate the computation progress.
-	 */
-	public void registerProgressIndicator(Progress progress) {
-		this.progress = progress;
 	}
 
 	/**

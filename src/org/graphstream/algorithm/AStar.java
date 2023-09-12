@@ -477,7 +477,7 @@ public class AStar implements Algorithm {
 		// The problem is that we use open has a hash to ensure
 		// a node we will add to to open is not yet in it.
 
-		AStarNode theChosenOne = null;
+		AStarNode theChosenOne;
 		
 		theChosenOne = open.values().stream()
 				.min((n,m) -> Double.compare(n.rank, m.rank))

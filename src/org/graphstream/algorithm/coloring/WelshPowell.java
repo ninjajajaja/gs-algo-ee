@@ -192,14 +192,6 @@ public class WelshPowell implements Algorithm {
 		this.attrName = attrName;
 	}
 
-	/**
-	 * New Welsh and Powell coloring algorithm, using "WelshPowell.color" as the
-	 * attribute name.
-	 * 
-	 */
-	public WelshPowell() {
-	}
-
 	// Accessors
 
 	/**

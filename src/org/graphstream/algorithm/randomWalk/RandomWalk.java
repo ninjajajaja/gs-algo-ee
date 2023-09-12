@@ -276,16 +276,6 @@ public class RandomWalk extends SinkAdapter implements DynamicAlgorithm {
 	 */
 	protected double evaporation = 1;
 
-	/**
-	 * Compute counts on nodes.
-	 */
-	protected boolean doNodes = true;
-
-	/**
-	 * Compute counts on edges.
-	 */
-	protected boolean doEdges = true;
-
 	// Constructor
 
 	/**
@@ -481,22 +471,6 @@ public class RandomWalk extends SinkAdapter implements DynamicAlgorithm {
 	@Parameter
 	public void setEntityCount(int entityCount) {
 		this.entityCount = entityCount;
-	}
-
-	/**
-	 * Activate or not the counts on edges when entities cross thems.
-	 * @param on If true (the default) the edges passes are counted.
-	 */
-	public void computeEdgesPasses(boolean on) {
-		doEdges = on;
-	}
-
-	/**
-	 * Activate or not the counts on nodes when entities cross thems.
-	 * @param on If true (the default) the nodes passes are counted.
-	 */
-	public void computeNodePasses(boolean on) {
-		doNodes = on;
 	}
 	
 	/**

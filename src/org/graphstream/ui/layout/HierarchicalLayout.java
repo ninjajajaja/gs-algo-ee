@@ -37,7 +37,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
-
 import org.graphstream.algorithm.Prim;
 import org.graphstream.algorithm.SpanningTree;
 import org.graphstream.algorithm.generator.BarabasiAlbertGenerator;
@@ -55,21 +54,6 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 		VERTICAL, HORIZONTAL, DISK
 	}
 
-	static class Position {
-		int level;
-		int order;
-		String parent;
-		boolean changed;
-		double x, y;
-
-		Position(int level, int order) {
-			this.level = level;
-			this.order = order;
-			this.changed = true;
-		}
-	}
-
-	final HashMap<String, Position> nodesPosition;
 	final LinkedList<String> roots;
 	Graph internalGraph;
 
@@ -83,13 +67,9 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 
 	int nodeMoved;
 
-	double distanceBetweenLevels = 1;
-	double levelWidth = 1, levelHeight = 1;
-
 	public HierarchicalLayout() {
 		roots = new LinkedList<String>();
 		// listeners = new LinkedList<LayoutListener>();
-		nodesPosition = new HashMap<String, Position>();
 		internalGraph = new AdjacencyListGraph("hierarchical_layout-intern");
 		hi = new Point3();
 		lo = new Point3();
@@ -328,11 +308,6 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 		box.translate(dx, dy);
 	}
 
-	protected void explore(Node parent, Node who, SpanningTree tree,
-			int[] levels) {
-
-	}
-
 	protected void publishPositions() {
 		
 		internalGraph.nodes()
@@ -446,7 +421,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.graphstream.ui.layout.Layout#inputPos(java.lang.String)
 	 */
 	public static void inputPos(String filename) throws IOException {
@@ -466,7 +441,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.graphstream.ui.layout.Layout#outputPos(java.lang.String)
 	 */
 	public static void outputPos(String filename) throws IOException {
@@ -487,7 +462,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.graphstream.ui.layout.Layout#setForce(double)
 	 */
 	public void setForce(double value) {
@@ -511,7 +486,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.graphstream.ui.layout.Layout#setStabilizationLimit(double)
 	 */
 	public void setStabilizationLimit(double value) {
@@ -600,8 +575,6 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 			this.width = 5;
 			this.height = 1;
 			this.order = 0;
-			this.x = 0;
-			this.y = 0;
 		}
 
 		void scale(double sx, double sy) {

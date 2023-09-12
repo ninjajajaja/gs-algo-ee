@@ -29,8 +29,6 @@
  */
 package org.graphstream.algorithm.generator;
 
-import java.net.URISyntaxException;
-
 public class WikipediaGenerator extends URLGenerator {
 	public static final String SPECIAL_URLS = "^https://%s[.]wikipedia[.]org/wiki/(Wikipedia|File|Special|Category|Talk|Portal|Help|Template|Template_talk):.*$";
 
@@ -83,7 +81,7 @@ public class WikipediaGenerator extends URLGenerator {
 	}
 
 	@Override
-	protected String getNodeLabel(String url) throws URISyntaxException {
+	protected String getNodeLabel(String url) {
 		return url.substring(url.indexOf("/wiki/") + 6);
 	}
 }

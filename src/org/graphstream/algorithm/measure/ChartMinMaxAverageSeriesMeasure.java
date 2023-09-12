@@ -128,7 +128,7 @@ public class ChartMinMaxAverageSeriesMeasure extends ChartSeries2DMeasure {
 	 * org.graphstream.algorithm.measure.ChartSeriesMeasure#getChart(org.graphstream
 	 * .algorithm.measure.ChartMeasure.PlotParameters)
 	 */
-	public JFreeChart createChart(PlotParameters params) throws PlotException {
+	public JFreeChart createChart(PlotParameters params) {
 		XYSeriesCollection minMax = new XYSeriesCollection();
 		XYSeriesCollection avgCol = new XYSeriesCollection();
 		XYPlot plot;
