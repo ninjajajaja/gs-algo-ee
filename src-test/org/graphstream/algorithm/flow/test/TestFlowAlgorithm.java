@@ -64,7 +64,6 @@ public abstract class TestFlowAlgorithm {
 		double maximumFlow;
 
 		flowAlgo.setCapacityAttribute("cap");
-		flowAlgo.getCapacityAttribute();
 
 		while (dgs.nextStep()) {
 			flowAlgo.init(g, "s", "t");

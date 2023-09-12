@@ -32,6 +32,7 @@ package org.graphstream.algorithm.test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 
@@ -161,12 +162,12 @@ public class TestAPSP {
 	}
 
 	private void settersAndGetters(APSP apsp) {
-		apsp.setDirected(true);
-		apsp.setSource("s");
-		apsp.setTarget("t");
-		apsp.setWeightAttributeName("wa");
-		apsp.getGraph();
-		apsp.getWeightAttributeName();
+		apsp.directed = true;
+		apsp.source = "s";
+		apsp.target = "t";
+		apsp.weightAttributeName = "wa";
+		assertNotNull(apsp.graph);
+		assertEquals("wa", apsp.weightAttributeName);
 	}
 
 	@Test

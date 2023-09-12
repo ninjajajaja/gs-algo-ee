@@ -27,11 +27,11 @@ public class WelshPowellTest {
     public void testGraphWithOneNode() {
         graph.addNode("A");
         wp.compute();
-        int chromaticNumber = wp.getChromaticNumber();
+        int chromaticNumber = wp.chromaticNumber;
         assertEquals(1, chromaticNumber);
         Node nodeA = graph.getNode("A");
         int color = (int) nodeA.getAttribute("color");
-        wp.setAttributeName("a");
+        wp.attrName = "a";
         assertEquals(0, color);
     }
 
@@ -40,13 +40,13 @@ public class WelshPowellTest {
         graph.addNode("A");
         graph.addNode("B");
         wp.compute();
-        int chromaticNumber = wp.getChromaticNumber();
+        int chromaticNumber = wp.chromaticNumber;
         assertEquals(1, chromaticNumber);
         Node nodeA = graph.getNode("A");
         Node nodeB = graph.getNode("B");
         int colorA = (int) nodeA.getAttribute("color");
         int colorB = (int) nodeB.getAttribute("color");
-        wp.setAttributeName("a");
+        wp.attrName = "a";
         assertEquals(0, colorA);
         assertEquals(0, colorB);
     }
@@ -57,13 +57,13 @@ public class WelshPowellTest {
         graph.addNode("B");
         graph.addEdge("AB", "A", "B");
         wp.compute();
-        int chromaticNumber = wp.getChromaticNumber();
+        int chromaticNumber = wp.chromaticNumber;
         assertEquals(2, chromaticNumber);
         Node nodeA = graph.getNode("A");
         Node nodeB = graph.getNode("B");
         int colorA = (int) nodeA.getAttribute("color");
         int colorB = (int) nodeB.getAttribute("color");
-        wp.setAttributeName("a");
+        wp.attrName = "a";
         assertEquals(1, colorA);
         assertEquals(0, colorB); // Connected nodes should have the same color.
     }

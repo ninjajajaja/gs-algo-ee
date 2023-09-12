@@ -103,7 +103,7 @@ public class TestAStar {
 
 		astar = new AStar(graph);
 		astar.init(graph);
-		astar.setCosts(new AStar.DefaultCosts("weight"));
+		astar.costs = new AStar.DefaultCosts("weight");
 
 		// With this default costs object, the A* algorithm works like the
 		// Dijkstra algorithm.
@@ -138,7 +138,7 @@ public class TestAStar {
 	}
 
 	private void setter(AStar a) {
-		a.setCosts(null);
+		a.costs = null;
 	}
 
 	@Test
@@ -246,7 +246,7 @@ public class TestAStar {
 		// \ |
 		// -1 F --- E
 
-		astar.setCosts(new AStar.DistanceCosts());
+		astar.costs = new AStar.DistanceCosts();
 		astar.compute("A", "F");
 
 		Path path = astar.getShortestPath();
@@ -292,7 +292,7 @@ public class TestAStar {
 		// / \
 		// 0 A---B------------G
 
-		astar.setCosts(new AStar.DistanceCosts());
+		astar.costs = new AStar.DistanceCosts();
 		astar.compute("A", "F");
 
 		Path path = astar.getShortestPath();

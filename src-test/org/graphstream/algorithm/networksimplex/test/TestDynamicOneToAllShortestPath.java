@@ -172,7 +172,7 @@ public class TestDynamicOneToAllShortestPath {
 		dsp.compute();
 		
 		Dijkstra d = new Dijkstra(Dijkstra.Element.EDGE, null, "length");
-		d.setSource(source);
+		d.source = source;
 		d.init(g);
 		d.compute();
 		

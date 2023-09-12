@@ -18,7 +18,7 @@ public class LifeGeneratorTest extends TestCase {
         for (int i = 0; i < 500; i++)
             gen.nextEvents();
         gen.end();
-        gen.setTore(true);
-        gen.setPushCoords(true);
+        gen.tore = true;
+        gen.pushCoords = true;
     }
 }

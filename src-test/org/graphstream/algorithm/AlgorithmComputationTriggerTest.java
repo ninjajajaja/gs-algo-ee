@@ -9,8 +9,8 @@ public class AlgorithmComputationTriggerTest extends TestCase {
     @Test
     public void testSetterAndGetter() {
         AlgorithmComputationTrigger act = new AlgorithmComputationTrigger(AlgorithmComputationTrigger.Mode.BY_STEP, null);
-        act.setMode(AlgorithmComputationTrigger.Mode.BY_STEP);
-        assertEquals(AlgorithmComputationTrigger.Mode.BY_STEP, act.getMode());
+        act.mode = AlgorithmComputationTrigger.Mode.BY_STEP;
+        assertEquals(AlgorithmComputationTrigger.Mode.BY_STEP, act.mode);
     }
 
 }

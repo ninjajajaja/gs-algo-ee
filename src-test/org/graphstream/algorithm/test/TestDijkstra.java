@@ -97,7 +97,7 @@ public class TestDijkstra {
 		Dijkstra d = new Dijkstra(Dijkstra.Element.EDGE, "result", "length");
 		d.init(g);
 		Node source = g.getNode("A");
-		d.setSource(source);
+		d.source = source;
 		
 		// check the source node
 		assertEquals(d.getSource(), source);
@@ -160,7 +160,7 @@ public class TestDijkstra {
 		// Test unweighted case with nodes
 		d = new Dijkstra(Dijkstra.Element.NODE, "result", null);
 		d.init(g);
-		d.setSource(source);
+		d.source = source;
 		d.compute();
 		
 		// check path lengths
@@ -198,7 +198,7 @@ public class TestDijkstra {
 		// and don't forget the special case G
 		assertFalse(d.getAllPathsStream(g.getNode("G")).iterator().hasNext());
 
-		d.setSource(g.getNode("E"));
-		d.setTarget("t");
+		d.source = g.getNode("E");
+		d.target = "t";
 	}
 }

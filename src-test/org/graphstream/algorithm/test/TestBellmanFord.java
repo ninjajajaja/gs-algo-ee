@@ -76,10 +76,10 @@ public class TestBellmanFord
 	}
 
 	private void setterAndGetter(BellmanFord bf) {
-		bf.setTarget("t");
-		bf.setWeightAttribute("wa");
-		bf.setIdentifier("i");
-		assertEquals("i",bf.getIdentifier());
+		bf.target = "t";
+		bf.weightAttribute = "wa";
+		bf.identifier = "i";
+		assertEquals("i",bf.identifier);
 	}
 	
 	@Test

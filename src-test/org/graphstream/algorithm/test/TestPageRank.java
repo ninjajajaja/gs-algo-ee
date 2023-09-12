@@ -74,11 +74,11 @@ public class TestPageRank {
 		pr.nodeRemoved("", 0, "B");
 		pr.nodeRemoved("", 0, "C");
 
-		pr.setVerbose(true);
-		assertEquals(0.85, pr.getDampingFactor(), 0.01);
-		assertEquals(0.0, pr.getPrecision(), 0.01);
-		assertEquals(67, pr.getIterationCount());
-		assertEquals("PageRank", pr.getRankAttribute());
+		pr.verbose = true;
+		assertEquals(0.85, pr.dampingFactor, 0.01);
+		assertEquals(0.0, pr.precision, 0.01);
+		assertEquals(67, pr.iterationCount);
+		assertEquals("PageRank", pr.rankAttribute);
 
 	}
 }

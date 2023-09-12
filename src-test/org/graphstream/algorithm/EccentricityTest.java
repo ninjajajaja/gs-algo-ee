@@ -57,13 +57,13 @@ public class EccentricityTest {
  		// F is not in the eccentricity
  		// G is not in the eccentricity
 
-		eccentricity.setEccentricityAttribute("ea");
-		assertEquals("ea", eccentricity.getEccentricityAttribute());
-		eccentricity.setIsInEccentricityValue(null);
-		assertNull(eccentricity.getIsInEccentricityValue());
-		eccentricity.setIsNotInEccentricityValue(null);
-		assertNull(eccentricity.getIsNotInEccentricityValue());
-		eccentricity.setAPSPInfoAttribute("a");
-		assertEquals("a", eccentricity.getAPSPInfoAttribute());
+		eccentricity.eccentricityAttribute = "ea";
+		assertEquals("ea", eccentricity.eccentricityAttribute);
+		eccentricity.isInEccentricity = null;
+		assertNull(eccentricity.isInEccentricity);
+		eccentricity.isNotInEccentricity = null;
+		assertNull(eccentricity.isNotInEccentricity);
+		eccentricity.apspInfoAttribute = "a";
+		assertEquals("a", eccentricity.apspInfoAttribute);
  	}
 }

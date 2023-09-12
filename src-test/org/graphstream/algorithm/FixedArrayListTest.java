@@ -35,8 +35,8 @@ public class FixedArrayListTest {
         // Check that the empty list is not equal to the non-empty list
         assertFalse(list1.equals(list3));
 
-        assertEquals(99, list1.getLastIndex());
-        assertEquals(99, list2.getLastIndex());
-        assertEquals(-1, list3.getLastIndex());
+        assertEquals(99, list1.lastIndex);
+        assertEquals(99, list2.lastIndex);
+        assertEquals(-1, list3.lastIndex);
     }
 }

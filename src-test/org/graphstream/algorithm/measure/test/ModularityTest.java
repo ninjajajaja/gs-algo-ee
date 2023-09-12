@@ -36,7 +36,7 @@ public class ModularityTest extends TestCase {
         mod.compute();
         assertEquals(0.2655875000000001, mod.getMeasure());
 
-        mod.setWeightMarker("wm");
+        mod.weightMarker = "wm";
 
     }
 }
