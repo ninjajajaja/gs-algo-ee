@@ -729,7 +729,7 @@ public class ConnectedComponents extends SinkAdapter
 		}
 	}
 
-	public HashSet<ConnectedComponent> getComponents() {
+	public THashSet<ConnectedComponent> getComponents() {
 		return components;
 	}
 

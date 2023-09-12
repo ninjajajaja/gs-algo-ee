@@ -77,7 +77,7 @@ public class DynamicOneToAllShortestPath extends NetworkSimplex {
 	 */
 	protected void bfsFromDijkstra() {
 		// first check if we can apply Dijkstra
-		if (nodes.get(sourceId) == null)
+		if (sourceId == null)
 			return;
 		for (NSArc arc : arcs.values())
 			if (arc.cost.isNegative())

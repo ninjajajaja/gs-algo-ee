@@ -32,10 +32,12 @@ package org.graphstream.algorithm.test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import gnu.trove.set.hash.THashSet;
 import java.io.IOException;
 import java.io.InputStream;
 
 import java.util.HashSet;
+import java.util.function.Consumer;
 import org.graphstream.algorithm.ConnectedComponents;
 import org.graphstream.algorithm.ConnectedComponents.ConnectedComponent;
 import org.graphstream.graph.Graph;
@@ -74,19 +76,19 @@ public class TestConnectedComponent {
 		// getConnectedComponentsCount 454
 		cc.getConnectedComponentsCount(10, 10);
 
-		HashSet<ConnectedComponent> ccSet = cc.getComponents();
+		THashSet<ConnectedComponent> ccSet = cc.getComponents();
 
 		// nodes 787
-		ccSet.forEach(c -> assertNotNull(c.nodes()));
+		ccSet.forEach((Consumer<? super ConnectedComponent>) c -> assertNotNull(c.nodes()));
 
 		// getNodeSet 802
-		ccSet.forEach(c -> assertNotNull(c.getNodeSet()));
+		ccSet.forEach((Consumer<? super ConnectedComponent>) c -> assertNotNull(c.getNodeSet()));
 
 		// edges 818, 819
-		ccSet.forEach(c -> assertNotNull(c.edges()));
+		ccSet.forEach((Consumer<? super ConnectedComponent>) c -> assertNotNull(c.edges()));
 
 		// contains 832
-		ccSet.forEach(c -> assertTrue(c.contains(c.nodes().findFirst().get())));
+		ccSet.forEach((Consumer<? super ConnectedComponent>) c -> assertTrue(c.contains(c.nodes().findFirst().get())));
 
 	}
 

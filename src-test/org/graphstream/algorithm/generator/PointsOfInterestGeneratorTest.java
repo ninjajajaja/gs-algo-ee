@@ -20,7 +20,7 @@ public class PointsOfInterestGeneratorTest extends TestCase {
             poiGen.nextEvents();
         poiGen.end();
 
-        poiGen.removePointOfInterest(poiGen.pointsOfInterest.getLast());
+        poiGen.removePointOfInterest(poiGen.pointsOfInterest.get(3));
         poiGen.addicts.get(0).link(poiGen.addicts.get(1));
     }
 }

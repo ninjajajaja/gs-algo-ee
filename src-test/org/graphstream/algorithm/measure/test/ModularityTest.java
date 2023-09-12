@@ -34,7 +34,7 @@ public class ModularityTest extends TestCase {
             mod.nodeAttributeChanged("g", 0, String.valueOf(i), "marker", "aaa", "ccc");
         }
         mod.compute();
-        assertEquals(0.2655875000000001, mod.getMeasure());
+        assertEquals(0.2655875, mod.getMeasure());
 
         mod.setWeightMarker("wm");
 
