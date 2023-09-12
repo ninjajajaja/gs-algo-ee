@@ -29,6 +29,7 @@
  */
 package org.graphstream.algorithm.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Iterator;
@@ -73,6 +74,13 @@ public class TestBellmanFord
 		
 		bellman = new BellmanFord("weight");
 	}
+
+	private void setterAndGetter(BellmanFord bf) {
+		bf.setTarget("t");
+		bf.setWeightAttribute("wa");
+		bf.setIdentifier("i");
+		assertEquals("i",bf.getIdentifier());
+	}
 	
 	@Test
 	public void testShortedPath() {		
@@ -82,7 +90,7 @@ public class TestBellmanFord
 
 		Node a = graph.getNode("A") ;
 		Path p = bellman.getShortestPath(a);
-		System.out.println(p);
+		// System.out.println(p);
 		
 		List<Edge> edges = p.getEdgePath();
 		Iterator<? extends Edge> i = edges.iterator();
@@ -91,20 +99,21 @@ public class TestBellmanFord
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("CA"));
 		e = i.next();
-		System.out.println(e);
+		// System.out.println(e);
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("BC"));
 		e = i.next();
-		System.out.println(e);
+		// System.out.println(e);
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("BF"));
 		e = i.next();
-		System.out.println(e);
+		// System.out.println(e);
 		assertTrue(e != null);
 		assertTrue(e.getId().equals("EF"));
-		System.out.println(e);
+		// System.out.println(e);
 		assertTrue(!i.hasNext());
-		
+
+		setterAndGetter(bellman);
 	}
 	
 	@Test
@@ -117,5 +126,7 @@ public class TestBellmanFord
 		double v = bellman.getShortestPathValue(a);
 		
 		assertTrue(v == 5);
+
+		setterAndGetter(bellman);
 	}
 }

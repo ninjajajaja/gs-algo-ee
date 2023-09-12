@@ -66,7 +66,7 @@ public class VariationOfInformation extends NormalizedMutualInformation {
 			int ttl = 0;
 			for (int i = 0; i < n_aLength; i++)
 				ttl += N[i][j];
-			N_A[j] = ttl;
+			N_B[j] = ttl;
 		}
 
 		// Get the total nodes number

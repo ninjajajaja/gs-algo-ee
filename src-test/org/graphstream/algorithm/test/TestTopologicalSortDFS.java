@@ -29,6 +29,9 @@
  */
 package org.graphstream.algorithm.test;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.graphstream.algorithm.TopologicalSortDFS;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.SingleGraph;
@@ -61,6 +64,11 @@ public class TestTopologicalSortDFS {
         graph.addEdge("2-3", "2", "3", true);
     }
 
+    private void getters(TopologicalSortDFS tsDFS) {
+        assertTrue(tsDFS.getSortedNodes().size() > 0);
+        assertNotNull(tsDFS.defaultResult());
+    }
+
     @Test
     public void testTopologicalSortSmallGraph() {
         List<String> allPossibleTopologicalSort = new ArrayList<>();
@@ -86,7 +94,8 @@ public class TestTopologicalSortDFS {
         sort.compute();
 
         //check if algorithm gets one of the possible ordering
-        Assert.assertTrue(allPossibleTopologicalSort.contains(Arrays.toString(sort.getSortedNodes().toArray())));
+        assertTrue(allPossibleTopologicalSort.contains(Arrays.toString(sort.getSortedNodes().toArray())));
+        getters(sort);
     }
 
     @Test(expected = IllegalStateException.class)
@@ -95,6 +104,7 @@ public class TestTopologicalSortDFS {
         TopologicalSortDFS sort = new TopologicalSortDFS();
         sort.init(graph);
         sort.compute();
+        getters(sort);
     }
 
     @Test(expected = IllegalStateException.class)
@@ -103,5 +113,6 @@ public class TestTopologicalSortDFS {
         TopologicalSortDFS sort = new TopologicalSortDFS();
         sort.init(graph);
         sort.compute();
+        getters(sort);
     }
 }

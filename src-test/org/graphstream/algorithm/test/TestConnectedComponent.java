@@ -29,9 +29,13 @@
  */
 package org.graphstream.algorithm.test;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.io.InputStream;
 
+import java.util.HashSet;
 import org.graphstream.algorithm.ConnectedComponents;
 import org.graphstream.algorithm.ConnectedComponents.ConnectedComponent;
 import org.graphstream.graph.Graph;
@@ -53,6 +57,37 @@ public class TestConnectedComponent {
 		cc.compute();
 
 		check(cc, createCC("A", "B", "C"), createCC("D", "E", "F"));
+
+		moreTests(cc);
+	}
+
+	public void moreTests(ConnectedComponents cc) {
+
+		cc.setCountAttribute("count");
+
+		// publish 373
+		cc.publish("count");
+
+		// getGiantComponent 390
+		cc.getGiantComponent();
+
+		// getConnectedComponentsCount 454
+		cc.getConnectedComponentsCount(10, 10);
+
+		HashSet<ConnectedComponent> ccSet = cc.getComponents();
+
+		// nodes 787
+		ccSet.forEach(c -> assertNotNull(c.nodes()));
+
+		// getNodeSet 802
+		ccSet.forEach(c -> assertNotNull(c.getNodeSet()));
+
+		// edges 818, 819
+		ccSet.forEach(c -> assertNotNull(c.edges()));
+
+		// contains 832
+		ccSet.forEach(c -> assertTrue(c.contains(c.nodes().findFirst().get())));
+
 	}
 
 	@Test
@@ -89,6 +124,8 @@ public class TestConnectedComponent {
 		}
 
 		check(cc, createCC("A", "D", "C"), createCC("E", "F"), createCC("B"));
+
+		moreTests(cc);
 	}
 
 	@Test
@@ -136,6 +173,8 @@ public class TestConnectedComponent {
 		}
 
 		check(cc, createCC("B", "C"), createCC("D", "E", "F"), createCC("G"));
+
+		moreTests(cc);
 	}
 
 	@Test
@@ -151,6 +190,8 @@ public class TestConnectedComponent {
 		cc.compute();
 
 		check(cc, createCC("A", "B", "C"), createCC("D", "E", "F"));
+
+		moreTests(cc);
 	}
 	
 	@Test
@@ -188,6 +229,8 @@ public class TestConnectedComponent {
 		}
 
 		check(cc, createCC("A", "B", "C"), createCC("D", "E", "F"));
+
+		moreTests(cc);
 	}
 
 	static FileSourceDGS load(Graph g, String dgsPath, boolean all) {

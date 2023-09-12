@@ -33,6 +33,7 @@ package org.graphstream.algorithm.test;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.concurrent.atomic.DoubleAccumulator;
@@ -98,6 +99,10 @@ public class TestKruskalPrim {
 		helper(k, g, 36.0, 7);
 		p.compute();
 		helper(p, g, 36.0, 7);
+
+		k.setWeightAttribute("wa");
+		assertEquals("wa", k.getWeightAttribute());
+		assertNotNull(k.getTreeWeight());
 	}
 	
 	public void helper(Kruskal k, Graph g, double expectedWeight, int expectedCount) {

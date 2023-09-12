@@ -100,8 +100,7 @@ public abstract class BaseGenerator extends SourceBase implements Generator {
 	/**
 	 * The random number generator.
 	 */
-	protected Random random = new Random();
-
+	protected Random random = new Random(100);
 	/**
 	 * Set the node label attribute using the identifier?.
 	 */
@@ -199,7 +198,7 @@ public abstract class BaseGenerator extends SourceBase implements Generator {
 	 *            The seed.
 	 */
 	public void setRandomSeed(long seed) {
-		random.setSeed(seed);
+		random.setSeed(100);
 	}
 
 	/**

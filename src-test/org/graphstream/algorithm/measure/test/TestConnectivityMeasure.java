@@ -29,7 +29,10 @@
  */
 package org.graphstream.algorithm.measure.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
@@ -141,5 +144,13 @@ public class TestConnectivityMeasure {
 		assertTrue(ConnectivityMeasure.getEdgeConnectivity(g) == 2);
 
 		end();
+	}
+
+	@Test
+	public void getters() {
+		ConnectivityMeasure.VertexConnectivityMeasure cm = new ConnectivityMeasure.VertexConnectivityMeasure();
+		assertEquals(-1, cm.getVertexConnectivity());
+		ConnectivityMeasure.EdgeConnectivityMeasure em = new ConnectivityMeasure.EdgeConnectivityMeasure();
+		assertEquals(-1, em.getEdgeConnectivity());
 	}
 }

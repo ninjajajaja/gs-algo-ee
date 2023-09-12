@@ -727,6 +727,10 @@ public class ConnectedComponents extends SinkAdapter
 		}
 	}
 
+	public HashSet<ConnectedComponent> getComponents() {
+		return components;
+	}
+
 	/**
 	 * A representation of a connected component. These objects are used to
 	 * store informations about components and to allow to iterate over all
