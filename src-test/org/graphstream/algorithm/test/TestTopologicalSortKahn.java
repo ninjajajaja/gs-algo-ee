@@ -29,6 +29,10 @@
  */
 package org.graphstream.algorithm.test;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import org.graphstream.algorithm.TopologicalSortDFS;
 import org.graphstream.algorithm.TopologicalSortKahn;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.SingleGraph;
@@ -61,6 +65,11 @@ public class TestTopologicalSortKahn {
         graph.addEdge("2-3", "2", "3", true);
     }
 
+    private void getters(TopologicalSortKahn tsDFS) {
+        assertTrue(tsDFS.getSortedNodes().size() > 0);
+        assertNotNull(tsDFS.defaultResult());
+    }
+
     @Test
     public void testTopologicalSortSmallGraph() {
         List<String> allPossibleTopologicalSort = new ArrayList<>();
@@ -87,6 +96,7 @@ public class TestTopologicalSortKahn {
 
         //check if algorithm gets one of the possible ordering
         Assert.assertTrue(allPossibleTopologicalSort.contains(Arrays.toString(sort.getSortedNodes().toArray())));
+        getters(sort);
     }
 
     @Test(expected = IllegalStateException.class)
@@ -95,6 +105,7 @@ public class TestTopologicalSortKahn {
         TopologicalSortKahn sort = new TopologicalSortKahn();
         sort.init(graph);
         sort.compute();
+        getters(sort);
     }
 
     @Test(expected = IllegalStateException.class)
@@ -103,5 +114,6 @@ public class TestTopologicalSortKahn {
         TopologicalSortKahn sort = new TopologicalSortKahn();
         sort.init(graph);
         sort.compute();
+        getters(sort);
     }
 }

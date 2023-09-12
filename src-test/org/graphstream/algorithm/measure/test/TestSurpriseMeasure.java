@@ -96,4 +96,10 @@ public class TestSurpriseMeasure {
 		Assert.assertEquals(g.getNumber("expectedvalue"),
 				g.getNumber(SurpriseMeasure.ATTRIBUTE), DELTA);
 	}
+
+	@Test
+	public void testSetter() {
+		SurpriseMeasure sm = new SurpriseMeasure();
+		sm.setCommunityAttributeKey("cak");
+	}
 }

@@ -307,6 +307,15 @@ public class TestNetworkSimplex {
 		g.getEdge("CF").setAttribute("capacity", 5);
 		ns.compute();
 		checkReferenceSolution(ns);
+
+		assertEquals("supply", ns.getSupplyName());
+		assertEquals("capacity", ns.getCapacityName());
+		assertEquals("cost", ns.getCostName());
+		ns.setPricingStrategy(PricingStrategy.FIRST_NEGATIVE);
+		assertEquals(PricingStrategy.FIRST_NEGATIVE, ns.getPricingStrategy());
+		assertNotNull(ns.getGraph());
+		assertEquals(NetworkSimplex.SolutionStatus.OPTIMAL, ns.getSolutionStatus());
+		ns.setAnimationDelay(100);
 	}
 
 	@Test
@@ -338,6 +347,15 @@ public class TestNetworkSimplex {
 		g.removeEdge("BC");
 		ns.compute();
 		compareWithNew(ns);
+
+		assertEquals("supply", ns.getSupplyName());
+		assertEquals("capacity", ns.getCapacityName());
+		assertEquals("cost", ns.getCostName());
+		ns.setPricingStrategy(PricingStrategy.FIRST_NEGATIVE);
+		assertEquals(PricingStrategy.FIRST_NEGATIVE, ns.getPricingStrategy());
+		assertNotNull(ns.getGraph());
+		assertEquals(NetworkSimplex.SolutionStatus.OPTIMAL, ns.getSolutionStatus());
+		ns.setAnimationDelay(100);
 	}
 
 	@Test
@@ -358,6 +376,15 @@ public class TestNetworkSimplex {
 		g.addEdge("EF", "E", "F").setAttribute("cost", 6);
 		ns.compute();
 		compareWithNew(ns);
+
+		assertEquals("supply", ns.getSupplyName());
+		assertEquals("capacity", ns.getCapacityName());
+		assertEquals("cost", ns.getCostName());
+		ns.setPricingStrategy(PricingStrategy.FIRST_NEGATIVE);
+		assertEquals(PricingStrategy.FIRST_NEGATIVE, ns.getPricingStrategy());
+		assertNotNull(ns.getGraph());
+		assertEquals(NetworkSimplex.SolutionStatus.OPTIMAL, ns.getSolutionStatus());
+		ns.setAnimationDelay(100);
 	}
 
 	@Test
@@ -370,5 +397,14 @@ public class TestNetworkSimplex {
 		g.clear();
 		ns.compute();
 		compareWithNew(ns);
+
+		assertEquals("supply", ns.getSupplyName());
+		assertEquals("capacity", ns.getCapacityName());
+		assertEquals("cost", ns.getCostName());
+		ns.setPricingStrategy(PricingStrategy.FIRST_NEGATIVE);
+		assertEquals(PricingStrategy.FIRST_NEGATIVE, ns.getPricingStrategy());
+		assertNotNull(ns.getGraph());
+		assertEquals(NetworkSimplex.SolutionStatus.OPTIMAL, ns.getSolutionStatus());
+		ns.setAnimationDelay(100);
 	}
 }

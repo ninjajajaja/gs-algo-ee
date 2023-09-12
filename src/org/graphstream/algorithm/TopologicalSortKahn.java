@@ -107,7 +107,7 @@ public class TopologicalSortKahn implements Algorithm {
         if(hasCycle()){
     	    throwException();
         }
-        System.out.println("TopologicalSortedNodes:" + Arrays.toString(sortedNodes.toArray()));
+        // System.out.println("TopologicalSortedNodes:" + Arrays.toString(sortedNodes.toArray()));
     }
 
     /**

@@ -32,8 +32,13 @@ package org.graphstream.algorithm.flow.test;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.graphstream.algorithm.BetweennessCentrality;
 import org.graphstream.algorithm.flow.FlowAlgorithm;
 import org.graphstream.algorithm.flow.FordFulkersonAlgorithm;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.junit.Test;
 
 public class TestFordFulkersonAlgorithm extends TestFlowAlgorithm {
 	/*
@@ -55,5 +60,48 @@ public class TestFordFulkersonAlgorithm extends TestFlowAlgorithm {
 	 */
 	public FlowAlgorithm getFlowAlgorithm() {
 		return new FordFulkersonAlgorithm();
+	}
+
+	@Test
+	public void testFindPath() {
+		Graph g = new SingleGraph("g");
+		FordFulkersonAlgorithm ffa = new FordFulkersonAlgorithm();
+		buildGraph(g, ffa);
+		ffa.compute();
+	}
+	protected static void buildGraph(Graph graph, FordFulkersonAlgorithm ffa) {
+
+		//    E----D  AB=1, BC=5, CD=3, DE=2, BE=6, EA=4
+		//   /|    |  Cb(A)=4 (NetworkX finds 3.5, by hand I find 4).
+		//  / |    |  Cb(B)=2
+		// A  |    |  Cb(C)=0
+		//  \ |    |  Cb(D)=2
+		//   \|    |  Cb(E)=4 (NetworkX finds 3.5, by hand I find 4).
+		//    B----C
+
+		Node A = graph.addNode("A");
+		Node B = graph.addNode("B");
+		Node E = graph.addNode("E");
+		Node C = graph.addNode("C");
+		Node D = graph.addNode("D");
+
+		graph.addEdge("AB", "A", "B");
+		graph.addEdge("BE", "B", "E");
+		graph.addEdge("BC", "B", "C");
+		graph.addEdge("ED", "E", "D");
+		graph.addEdge("CD", "C", "D");
+		graph.addEdge("AE", "A", "E");
+
+		ffa.init(graph);
+
+		ffa.setCapacity(A, B, 1);
+		ffa.setCapacity(B, E, 6);
+		ffa.setCapacity(B, C, 5);
+		ffa.setCapacity(E, D, 2);
+		ffa.setCapacity(C, D, 3);
+		ffa.setCapacity(A, E, 4);
+
+		ffa.setSourceId("A");
+		ffa.setSinkId("C");
 	}
 }

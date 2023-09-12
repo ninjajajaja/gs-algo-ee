@@ -278,7 +278,7 @@ public class RandomWalk extends SinkAdapter implements DynamicAlgorithm {
 	 * named "passes" and no weight attribute.
 	 */
 	public RandomWalk() {
-		this(System.currentTimeMillis());
+		this(100);
 	}
 
 	/**

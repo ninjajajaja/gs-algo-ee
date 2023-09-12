@@ -49,7 +49,7 @@ public class TestSimultaneousElementCount {
 		for (int i = 0; i < 100; i++)
 			g.addNode(String.format("n%03x", id++));
 		
-		System.out.printf("max node : %d\n", count.getMaxSimultaneousNodeCount());
+		//System.out.printf("max node : %d\n", count.getMaxSimultaneousNodeCount());
 		
 		assertTrue(count.getMaxSimultaneousNodeCount() == 100);
 		
