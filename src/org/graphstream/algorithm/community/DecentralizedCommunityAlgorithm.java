@@ -156,7 +156,7 @@ public abstract class DecentralizedCommunityAlgorithm implements
 		 * Initiate an uncontrolled random network generator
 		 */
 		if (this.rng == null)
-			rng = new Random();
+			rng = new Random(100);
 	}
 
 //	@Override

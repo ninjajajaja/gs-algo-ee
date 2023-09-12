@@ -46,9 +46,9 @@ public abstract class TestFlowAlgorithm {
 	FileSourceDGS dgs;
 
 	public abstract InputStream getGraphStream() throws IOException;
-	
+
 	public abstract FlowAlgorithm getFlowAlgorithm();
-	
+
 	@Before
 	public void load() throws IOException {
 		dgs = new FileSourceDGS();
@@ -62,8 +62,9 @@ public abstract class TestFlowAlgorithm {
 	public void testFlowAlgorithm() throws IOException {
 		FlowAlgorithm flowAlgo = getFlowAlgorithm();
 		double maximumFlow;
-		
+
 		flowAlgo.setCapacityAttribute("cap");
+		flowAlgo.getCapacityAttribute();
 
 		while (dgs.nextStep()) {
 			flowAlgo.init(g, "s", "t");
@@ -72,5 +73,6 @@ public abstract class TestFlowAlgorithm {
 			maximumFlow = flowAlgo.getMaximumFlow();
 			assertTrue(maximumFlow == g.getNumber("expected maximum flow"));
 		}
+
 	}
 }

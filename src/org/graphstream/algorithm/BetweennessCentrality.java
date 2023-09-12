@@ -713,7 +713,7 @@ public class BetweennessCentrality implements Algorithm {
 	 * @param predecessor
 	 *            The predecessor to add.
 	 */
-	protected void replacePredecessorsOf(Node node, Node predecessor) {
+	public void replacePredecessorsOf(Node node, Node predecessor) {
 		HashSet<Node> set = new HashSet<Node>();
 
 		set.add(predecessor);

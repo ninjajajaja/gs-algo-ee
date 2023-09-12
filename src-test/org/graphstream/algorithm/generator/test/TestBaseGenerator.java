@@ -81,6 +81,8 @@ public class TestBaseGenerator {
 
 			Assert.assertTrue(Stream.of(strings).anyMatch(str -> str.equals(s)));
 		});
+
+		gen.setDirectedEdges(true, true);
 	}
 
 	@Test
@@ -118,6 +120,9 @@ public class TestBaseGenerator {
 
 		Assert.assertTrue(g.nodes().map(node -> (Double) node.getAttribute("real"))
 				.anyMatch(value -> value != max && value != min));
+
+		gen.setDirectedEdges(true, true);
+		gen.removeNodeAttribute("real");
 	}
 
 	@Test
@@ -154,5 +159,8 @@ public class TestBaseGenerator {
 
 		Assert.assertTrue(
 				g.nodes().map(node -> (Double) node.getAttribute("real")).anyMatch(value -> value != 1 && value != 0));
+
+		gen.setDirectedEdges(true, true);
+		gen.removeNodeAttribute("real");
 	}
 }

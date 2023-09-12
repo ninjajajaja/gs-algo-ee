@@ -127,8 +127,7 @@ public class DorogovtsevMendesGenerator extends BaseGenerator {
 	 * @see org.graphstream.algorithm.generator.Generator#begin()
 	 */
 	public void begin() {
-		this.random = this.random == null ? new Random(
-				System.currentTimeMillis()) : this.random;
+		this.random = this.random == null ? new Random(100) : this.random;
 
 		addNode("0");
 		addNode("1");

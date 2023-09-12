@@ -103,8 +103,8 @@ public class Spectrum implements Algorithm {
 		return decomposition.getEigenvector(i).toArray();
 	}
 
-	public double getLargestEigenvalue() {
-		double[] values = decomposition.getRealEigenvalues();
+	public double getLargestEigenvalue(double[] values) {
+		//double[] values = decomposition.getRealEigenvalues();
 		double max = Double.MIN_VALUE;
 
 		if (values != null)
