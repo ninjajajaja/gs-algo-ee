@@ -21,10 +21,10 @@ public class ElementCountMeasureTest extends TestCase {
 
         ElementCountMeasure.EdgeCountMeasure ecm = new ElementCountMeasure.EdgeCountMeasure();
         ecm.init(graph);
-        assertEquals(201.0, ecm.getElementCount());
+        assertEquals(201, ecm.getElementCount());
 
         ElementCountMeasure.NodeCountMeasure ncm = new ElementCountMeasure.NodeCountMeasure();
         ncm.init(graph);
-        assertEquals(202.0, ncm.getElementCount());
+        assertEquals(202, ncm.getElementCount());
     }
 }

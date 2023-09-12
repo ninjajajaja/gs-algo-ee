@@ -182,7 +182,7 @@ public class Leung extends EpidemicCommunityAlgorithm {
 		 * Recall and update the node current community and previous score
 		 */
 		Object previousCommunity = node.getAttribute(marker);
-		double previousScore = (double) node.getAttribute(marker + ".score");
+		Double previousScore = (Double) node.getAttribute(marker + ".score");
 		super.computeNode(node);
 
 		/*
@@ -192,7 +192,7 @@ public class Leung extends EpidemicCommunityAlgorithm {
 		// Handle first iteration
 		if (previousCommunity == null) {
 			previousCommunity = node.getAttribute(marker);
-			previousScore = (double) node.getAttribute(marker + ".score");
+			previousScore = (Double) node.getAttribute(marker + ".score");
 		}
 
 		/*
