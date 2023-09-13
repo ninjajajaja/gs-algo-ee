@@ -46,12 +46,12 @@ public class Community implements Comparable<Community> {
 	 * Counter of the generated communities. Ensure the uniqueness of the
 	 * identifiers of the generated communities.
 	 */
-	protected static Integer NEXT_COMMUNITY_ID = 0;
+	protected static int NEXT_COMMUNITY_ID = 0;
 
 	/**
 	 * Id of the current community as an Integer.
 	 */
-	protected Integer id;
+	protected int id;
 
 	/**
 	 * New community instance with unique identifier.
@@ -66,7 +66,7 @@ public class Community implements Comparable<Community> {
 	 * 
 	 * @return community identifier as an Integer
 	 */
-	public Integer id() {
+	public int id() {
 		return this.id;
 	}
 
@@ -76,7 +76,7 @@ public class Community implements Comparable<Community> {
 	 * @return community identifier as a String
 	 */
 	public String getId() {
-		return this.id.toString();
+		return String.valueOf(this.id);
 	}
 
 	/**
@@ -87,7 +87,7 @@ public class Community implements Comparable<Community> {
 	 * @return True if the two communities are equal, false otherwise.
 	 */
 	public boolean equals(Community c) {
-		return Objects.equals(this.id, c.id());
+		return this.id == c.id();
 	}
 
 	/**
@@ -104,6 +104,6 @@ public class Community implements Comparable<Community> {
 	 */
 //	@Override
 	public int compareTo(Community o) {
-		return this.id.compareTo(o.id());
+		return Integer.compare(this.id, o.id());
 	}
 }

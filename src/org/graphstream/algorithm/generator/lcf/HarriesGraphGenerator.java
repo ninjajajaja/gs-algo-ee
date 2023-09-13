@@ -46,13 +46,9 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class HarriesGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Harries graph.
-	 */
-	public static final LCF HARRIES_GRAPH_LCF = new LCF(5, -29, -19, -13, 13,
-			21, -27, 27, 33, -13, 13, 19, -21, -33, 29);
 
 	public HarriesGraphGenerator() {
-		super(HARRIES_GRAPH_LCF, 70, false);
+		super(new LCF(5, -29, -19, -13, 13,
+				21, -27, 27, 33, -13, 13, 19, -21, -33, 29), 70, false);
 	}
 }

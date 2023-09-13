@@ -1016,21 +1016,6 @@ public class Toolkit extends
 	}
 
 	/**
-	 * Count the number of edges between the two communities (works if the two
-	 * communities are the same).
-	 * 
-	 * @param community
-	 *            The first community.
-	 * @param otherCommunity
-	 *            The second community.
-	 * @return The number of edges between the two communities.
-	 */
-	protected static double modularityCountEdges(THashSet<Node> community,
-			THashSet<Node> otherCommunity) {
-		return modularityCountEdges(community, otherCommunity, null);
-	}
-
-	/**
 	 * Count the total weight of edges between the two communities (works if the
 	 * two communities are the same).
 	 * 

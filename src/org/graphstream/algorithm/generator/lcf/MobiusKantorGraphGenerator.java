@@ -50,9 +50,7 @@ public class MobiusKantorGraphGenerator extends LCFGenerator {
 	/**
 	 * LCF notation of a Mobius-Kantor graph.
 	 */
-	public static final LCF MOBIUS_KANTOR_GRAPH_LCF = new LCF(8, 5, -5);
-
 	public MobiusKantorGraphGenerator() {
-		super(MOBIUS_KANTOR_GRAPH_LCF, 16, false);
+		super(new LCF(8, 5, -5), 16, false);
 	}
 }

@@ -298,21 +298,6 @@ public class DStar implements DynamicAlgorithm, Sink {
 		x.t = Tag.CLOSED;
 	}
 
-	protected boolean isMonotonic(State xn, int n) {
-		State xi1 = xn;
-		State xi = xi1.b;
-
-		for (int i = n; i > 0; i--) {
-			if (!((xi.t == Tag.CLOSED && xi.h < xi1.h) || (xi.t == Tag.OPEN && xi.p < xi1.h)))
-				return false;
-
-			xi1 = xi;
-			xi = xi1.b;
-		}
-
-		return true;
-	}
-
 	public void markPath(String attribute, Object on, Object off) {
 		env.nodes().forEach(n -> n.setAttribute(attribute, off));
 		env.edges().forEach(e -> e.setAttribute(attribute, off));
@@ -385,8 +370,6 @@ public class DStar implements DynamicAlgorithm, Sink {
 			return getState(it.next().getOpposite(source));
 		}
 
-		public void remove() {
-		}
 	}
 
 	public void edgeAttributeAdded(String sourceId, long timeId, String edgeId,

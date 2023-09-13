@@ -49,16 +49,12 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class LjubljanaGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Ljubljana graph.
-	 */
-	public static final LCF LJUBLJANA_GRAPH_LCF = new LCF(2, 47, -23, -31, 39,
-			25, -21, -31, -41, 25, 15, 29, -41, -19, 15, -49, 33, 39, -35, -21,
-			17, -33, 49, 41, 31, -15, -29, 41, 31, -15, -25, 21, 31, -51, -25,
-			23, 9, -17, 51, 35, -29, 21, -51, -39, 33, -9, -51, 51, -47, -33,
-			19, 51, -21, 29, 21, -31, -39);
 
 	public LjubljanaGraphGenerator() {
-		super(LJUBLJANA_GRAPH_LCF, 112, false);
+		super(new LCF(2, 47, -23, -31, 39,
+				25, -21, -31, -41, 25, 15, 29, -41, -19, 15, -49, 33, 39, -35, -21,
+				17, -33, 49, 41, 31, -15, -29, 41, 31, -15, -25, 21, 31, -51, -25,
+				23, 9, -17, 51, 35, -29, 21, -51, -39, 33, -9, -51, 51, -47, -33,
+				19, 51, -21, 29, 21, -31, -39), 112, false);
 	}
 }

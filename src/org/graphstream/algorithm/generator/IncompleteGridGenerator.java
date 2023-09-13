@@ -327,16 +327,18 @@ public class IncompleteGridGenerator extends BaseGenerator {
 				int sizeX, sizeY;
 
 				t = 0;
-
+				String nodeId;
+				int internalGraphNodeCount = internalGraph.getNodeCount();
 				do {
 					x1 = random.nextInt(currentWidth);
 					y1 = random.nextInt(currentHeight);
 					t++;
-				} while ((internalGraph.getNode(getNodeId(x1, y1)) == null || unbreakable
-						.contains(getNodeId(x1, y1)))
-						&& t < internalGraph.getNodeCount());
+					nodeId = getNodeId(x1, y1);
+				} while ((internalGraph.getNode(nodeId) == null || unbreakable
+						.contains(nodeId))
+						&& t < internalGraphNodeCount);
 
-				if (t >= internalGraph.getNodeCount())
+				if (t >= internalGraphNodeCount)
 					continue;
 
 				sizeX = random.nextInt(holeMaxSize);
@@ -348,7 +350,7 @@ public class IncompleteGridGenerator extends BaseGenerator {
 						if (internalGraph.getNode(id) != null
 								&& !unbreakable.contains(id)) {
 							disconnectNode(x1 + i, y1 + j);
-							delNode(getNodeId(x1 + i, y1 + j));
+							delNode(id);
 
 							if (j == 0 && y1 > 0)
 								unbreakable.add(getNodeId(x1 + i, y1 - 1));

@@ -45,9 +45,7 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  */
 public class CubicalGraphGenerator extends LCFGenerator {
 
-	public static final LCF CUBICAL_LCF = new LCF(4, 3, -3);
-
 	public CubicalGraphGenerator() {
-		super(CUBICAL_LCF, 8, false);
+		super(new LCF(4, 3, -3), 8, false);
 	}
 }

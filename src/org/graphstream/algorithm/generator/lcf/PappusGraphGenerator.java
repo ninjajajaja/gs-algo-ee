@@ -46,12 +46,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class PappusGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Pappus graph.
-	 */
-	public static final LCF PAPPUS_GRAPH_LCF = new LCF(3, 5, 7, -7, 7, -7, -5);
 
 	public PappusGraphGenerator() {
-		super(PAPPUS_GRAPH_LCF, 18, false);
+		super(new LCF(3, 5, 7, -7, 7, -7, -5), 18, false);
 	}
 }

@@ -49,17 +49,13 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class HarriesWongGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Harries-Wong graph.
-	 */
-	public static final LCF HARRIES_WONG_GRAPH_LCF = new LCF(1, 9, 25, 31, -17,
-			17, 33, 9, -29, -15, -9, 9, 25, -25, 29, 17, -9, 9, -27, 35, -9, 9,
-			-17, 21, 27, -29, -9, -25, 13, 19, -9, -33, -17, 19, -31, 27, 11,
-			-25, 29, -33, 13, -13, 21, -29, -21, 25, 9, -11, -19, 29, 9, -27,
-			-19, -13, -35, -9, 9, 17, 25, -9, 9, 27, -27, -21, 15, -9, 29, -29,
-			33, -9, -25);
 
 	public HarriesWongGraphGenerator() {
-		super(HARRIES_WONG_GRAPH_LCF, 70, false);
+		super(new LCF(1, 9, 25, 31, -17,
+				17, 33, 9, -29, -15, -9, 9, 25, -25, 29, 17, -9, 9, -27, 35, -9, 9,
+				-17, 21, 27, -29, -9, -25, 13, 19, -9, -33, -17, 19, -31, 27, 11,
+				-25, 29, -33, 13, -13, 21, -29, -21, 25, 9, -11, -19, 29, 9, -27,
+				-19, -13, -35, -9, 9, 17, 25, -9, 9, 27, -27, -21, 15, -9, 29, -29,
+				33, -9, -25), 70, false);
 	}
 }

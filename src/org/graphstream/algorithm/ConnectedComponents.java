@@ -366,7 +366,7 @@ public class ConnectedComponents extends SinkAdapter
 	 *            id of the attribute where the index of the connected component
 	 *            will be stored.
 	 */
-	public void publish(String nodeAttribute) {
+	public void publish() {
 		if (graph == null) {
 			return;
 		}
@@ -532,7 +532,7 @@ public class ConnectedComponents extends SinkAdapter
 
 		this.countAttribute = countAttribute;
 
-		publish(countAttribute);
+		publish();
 	}
 
 	protected boolean isCutEdge(Edge e) {
@@ -643,7 +643,7 @@ public class ConnectedComponents extends SinkAdapter
 				ConnectedComponent cc = componentsMap.remove(node);
 
 				if (cc != null) {
-					cc.unregisterNode(node);
+					cc.unregisterNode();
 				}
 			}
 		}
@@ -770,12 +770,12 @@ public class ConnectedComponents extends SinkAdapter
 				size++;
 
 				if (old != null) {
-					old.unregisterNode(n);
+					old.unregisterNode();
 				}
 			}
 		}
 
-		void unregisterNode(Node n) {
+		void unregisterNode() {
 			size--;
 
 			if (size == 0) {

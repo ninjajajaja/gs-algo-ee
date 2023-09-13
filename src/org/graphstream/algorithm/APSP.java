@@ -250,7 +250,7 @@ public class APSP extends SinkAdapter implements Algorithm {
 	/**
 	 * If false, do not take edge orientation into account.
 	 */
-	public boolean directed = true;
+	public boolean directed;
 
 	/**
 	 * Default weight attribute
@@ -344,7 +344,7 @@ public class APSP extends SinkAdapter implements Algorithm {
 			this.graph.addSink(this);
 		}
 	}
-	
+
 	@Result
 	public String defaultResult() {
 		APSPInfo info = (APSPInfo) graph.getNode(source).getAttribute(APSPInfo.ATTRIBUTE_NAME);
@@ -559,10 +559,10 @@ public class APSP extends SinkAdapter implements Algorithm {
 				int nodePathSizeMinusOne = nodePath.size() - 1;
 				for (int i = 0; i < nodePathSizeMinusOne; ++i) {
 					// XXX XXX complicated ?
-
+					Node nodeI = nodePath.get(i);
 					path.add(
-							nodePath.get(i),
-							nodePath.get(i).getEdgeToward(
+							nodeI,
+							nodeI.getEdgeToward(
 									nodePath.get(i + 1).getId()));
 				}
 

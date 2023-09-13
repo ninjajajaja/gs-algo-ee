@@ -60,10 +60,6 @@ public class TestAPSP {
 		}
 	}
 
-	public TestAPSP() {
-
-	}
-
 	public void init(String args[]) throws IOException, GraphParseException {
 		String filename = null;
 

@@ -47,13 +47,9 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class Tutte12CageGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Tutte 12-cage graph.
-	 */
-	public static final LCF TUTTE_12CAGE_GRAPH_LCF = new LCF(7, 17, 27, -13,
-			-59, -35, 35, -11, 13, -53, 53, -27, 21, 57, 11, -21, -57, 59, -17);
 
 	public Tutte12CageGraphGenerator() {
-		super(TUTTE_12CAGE_GRAPH_LCF, 126, false);
+		super(new LCF(7, 17, 27, -13,
+				-59, -35, 35, -11, 13, -53, 53, -27, 21, 57, 11, -21, -57, 59, -17), 126, false);
 	}
 }

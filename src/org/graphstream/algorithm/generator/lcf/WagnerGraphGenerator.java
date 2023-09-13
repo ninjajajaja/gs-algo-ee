@@ -46,12 +46,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class WagnerGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Wagner graph.
-	 */
-	public static final LCF WAGNER_LCF = new LCF(8, 4);
 
 	public WagnerGraphGenerator() {
-		super(WAGNER_LCF, 8, false);
+		super(new LCF(8, 4), 8, false);
 	}
 }

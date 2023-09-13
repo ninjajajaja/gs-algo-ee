@@ -31,12 +31,10 @@
  */
 package org.graphstream.ui.layout;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Random;
-
 import org.graphstream.algorithm.generator.BarabasiAlbertGenerator;
 import org.graphstream.graph.implementations.DefaultGraph;
 import org.graphstream.stream.PipeBase;
@@ -259,11 +257,11 @@ public class Eades84Layout extends PipeBase implements Layout {
 		}
 	}
 
-	public void inputPos(String filename) throws IOException {
+	public void inputPos(String filename) {
 		throw new RuntimeException("unhandle feature");
 	}
 
-	public void outputPos(String filename) throws IOException {
+	public void outputPos(String filename) {
 		throw new RuntimeException("unhandle feature");
 	}
 

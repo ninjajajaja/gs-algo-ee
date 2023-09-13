@@ -33,9 +33,6 @@ package org.graphstream.algorithm.generator;
 import gnu.trove.set.hash.THashSet;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLConnection;
@@ -43,9 +40,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Node;
 
@@ -62,7 +57,7 @@ public class URLGenerator extends BaseGenerator {
 		HOST, PATH, FULL
 	}
 
-	private static String REGEX = "href=\"([^\"]*)\"";
+	private String REGEX = "href=\"([^\"]*)\"";
 
 	protected THashSet<String> urls;
 	protected ArrayList<String> stepUrls;
@@ -137,12 +132,7 @@ public class URLGenerator extends BaseGenerator {
 			nextEventsThreaded();
 		else {
 			stepUrls.forEach(url -> {
-				try {
-					parseUrl(url);
-				} catch (IOException e) {
-					System.err.printf("Failed to parse \"%s\" : %s\n", url,
-							e.getMessage());
-				}
+				parseUrl(url);
 			});
 		}
 
@@ -257,22 +247,21 @@ public class URLGenerator extends BaseGenerator {
 	 */
 	public void addHostFilter(String... hosts) {
 		if (hosts != null) {
-			StringBuilder b = new StringBuilder(
-					"^(\\w+:)?(//)?([\\w-\\d]+[.])?(");
-			b.append(hosts[0]);
+			String filter = "^(\\w+:)?(//)?([\\w-\\d]+[.])?(" + hosts[0];
 
 			for (int i = 1; i < hosts.length; i++)
-				b.append("|").append(hosts[i]);
+				filter += ("|" + hosts[i]);
 
-			b.append(").*");
+			filter += ").*";
 
-			acceptOnlyMatchingURL(b.toString());
+			acceptOnlyMatchingURL(filter);
 		}
 	}
 
 	protected void nextEventsThreaded() {
-		int t = Math.min(threads, stepUrls.size());
-		int byThreads = stepUrls.size() / t;
+		int stepUrlsSize = stepUrls.size();
+		int t = Math.min(threads, stepUrlsSize);
+		int byThreads = stepUrlsSize / t;
 
 		ArrayList<Worker> workers = new ArrayList<Worker>();
 		ArrayList<Thread> workersThreads = new ArrayList<Thread>();
@@ -282,7 +271,7 @@ public class URLGenerator extends BaseGenerator {
 			int stop = (i + 1) * byThreads;
 
 			if (i == t - 1)
-				stop += stepUrls.size() % t;
+				stop += stepUrlsSize % t;
 
 			Worker w = new Worker(start, stop, stepUrls);
 			Thread u = new Thread(w);
@@ -319,7 +308,7 @@ public class URLGenerator extends BaseGenerator {
 	 * @throws IOException
 	 * 			  exception if url is wrong
 	 */
-	protected void parseUrl(String url) throws IOException {
+	protected void parseUrl(String url) {
 //		URI uri;
 //		URLConnection conn;
 //		InputStream stream;
@@ -448,7 +437,7 @@ public class URLGenerator extends BaseGenerator {
 		return nodeId;
 	}
 
-	protected String getNodeLabel(String url) throws URISyntaxException {
+	protected String getNodeLabel(String url) {
 		return url;
 	}
 
@@ -541,12 +530,7 @@ public class URLGenerator extends BaseGenerator {
 
 		public void run() {
 			for (int i = start; i < stop; i++) {
-				try {
-					parseUrl(urls.get(i));
-				} catch (IOException e) {
-					System.err.printf("Failed to parse \"%s\" : %s\n",
-							urls.get(i), e.getMessage());
-				}
+				parseUrl(urls.get(i));
 			}
 		}
 	}

@@ -47,7 +47,6 @@ public class Spectrum implements Algorithm {
 		POWER_ITERATION, INVERSE_ITERATION
 	}
 
-	protected EigenValuesAlgorithm mode;
 	protected Graph graph;
 	protected EigenDecomposition decomposition;
 

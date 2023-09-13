@@ -44,12 +44,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class UtilityGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a utility graph. [3]^6
-	 */
-	public static final LCF UTILITY_LCF = new LCF(6, 3);
 
 	public UtilityGraphGenerator() {
-		super(UTILITY_LCF, 6, false);
+		super(new LCF(6, 3), 6, false);
 	}
 }

@@ -47,13 +47,9 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class FruchtGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Frucht graph.
-	 */
-	public static final LCF FRUCHT_GRAPH_LCF = new LCF(1, -5, -2, -4, 2, 5, -2,
-			2, 5, -2, -5, 4, 2);
 
 	public FruchtGraphGenerator() {
-		super(FRUCHT_GRAPH_LCF, 12, false);
+		super(new LCF(1, -5, -2, -4, 2, 5, -2,
+				2, 5, -2, -5, 4, 2), 12, false);
 	}
 }

@@ -46,13 +46,9 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class FosterGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a Foster graph.
-	 */
-	public static final LCF FOSTER_GRAPH_LCF = new LCF(15, 17, -9, 37, -37, 9,
-			-17);
 
 	public FosterGraphGenerator() {
-		super(FOSTER_GRAPH_LCF, 90, false);
+		super(new LCF(15, 17, -9, 37, -37, 9,
+				-17), 90, false);
 	}
 }

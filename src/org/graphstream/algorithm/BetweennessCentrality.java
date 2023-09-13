@@ -395,69 +395,6 @@ public class BetweennessCentrality implements Algorithm {
 	}
 
 	/**
-	 * Compute single-source multiple-targets paths on a weighted graph.
-	 * 
-	 * @param source
-	 *            The source node.
-	 * @param graph
-	 *            The graph.
-	 * @return A priority queue of explored nodes with sigma values usable to
-	 *         compute the centrality.
-	 */
-	protected PriorityQueue<Node> dijkstraExplore(Node source, Graph graph) {
-		PriorityQueue<Node> S = new PriorityQueue<Node>(graph.getNodeCount(),
-				new BrandesNodeComparatorLargerFirst());
-		PriorityQueue<Node> Q = new PriorityQueue<Node>(graph.getNodeCount(),
-				new BrandesNodeComparatorSmallerFirst());
-
-		setupAllNodes(graph);
-		setDistance(source, 0.0);
-		setSigma(source, 1.0);
-
-		Q.add(source);
-
-		while (!Q.isEmpty()) {
-			Node u = Q.poll();
-
-			if (distance(u) < 0.0) { // XXX Can happen ??? XXX
-				Q.clear();
-				throw new RuntimeException("negative distance ??");
-			} else {
-				S.add(u);
-				
-				u.leavingEdges().forEach(l -> {
-					Node v = l.getOpposite(u);
-					
-					double alt = distance(u) + weight(u, v);
-
-					if (alt < distance(v)) {
-						if (distance(v) == INFINITY) {
-							setDistance(v, alt);
-							updatePriority(S, v);
-							updatePriority(Q, v);
-							Q.add(v);
-							setSigma(v, sigma(v) + sigma(u)); // XXX
-																// sigma(v)==0,
-																// always ?? XXX
-						} else {
-							setDistance(v, alt);
-							updatePriority(S, v);
-							updatePriority(Q, v);
-							setSigma(v, sigma(u));
-						}
-						replacePredecessorsOf(v, u);
-					} else if (alt == distance(v)) {
-						setSigma(v, sigma(v) + sigma(u));
-						addToPredecessorsOf(v, u);
-					}
-				});
-			}
-		}
-
-		return S;
-	}
-
-	/**
 	 * The implementation of the Brandes paper.
 	 * 
 	 * <ul>

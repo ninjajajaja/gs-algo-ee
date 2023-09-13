@@ -44,12 +44,8 @@ import org.graphstream.algorithm.generator.LCFGenerator;
  * 
  */
 public class TetrahedralGraphGenerator extends LCFGenerator {
-	/**
-	 * LCF notation of a tetrahedral graph. [2, -2]^2
-	 */
-	public static final LCF TETRAHEDRAL_LCF = new LCF(2, 2, -2);
 
 	public TetrahedralGraphGenerator() {
-		super(TETRAHEDRAL_LCF, 4, false);
+		super(new LCF(2, 2, -2), 4, false);
 	}
 }
