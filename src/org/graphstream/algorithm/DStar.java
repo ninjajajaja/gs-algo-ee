@@ -391,15 +391,13 @@ public class DStar implements DynamicAlgorithm, Sink {
 
 	public void edgeAttributeAdded(String sourceId, long timeId, String edgeId,
 			String attribute, Object value) {
-		if (attribute.equals(edgeWeightAttribute) && value != null
-				&& value instanceof Number)
+		if (attribute.equals(edgeWeightAttribute) && value instanceof Number)
 			modifyCost(edgeId, ((Number) value).doubleValue());
 	}
 
 	public void edgeAttributeChanged(String sourceId, long timeId,
 			String edgeId, String attribute, Object oldValue, Object newValue) {
-		if (attribute.equals(edgeWeightAttribute) && newValue != null
-				&& newValue instanceof Number)
+		if (attribute.equals(edgeWeightAttribute) && newValue instanceof Number)
 			modifyCost(edgeId, ((Number) newValue).doubleValue());
 	}
 

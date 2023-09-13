@@ -354,10 +354,12 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 		double dampingTerm = (1 - dampingFactor) / graph.getNodeCount();
 		newRanks.clear();
 		double danglingRank = 0;
-		for (int i = 0; i < graph.getNodeCount(); i++) {
+		int nodeCount = graph.getNodeCount();
+		for (int i = 0; i < nodeCount; i++) {
 			Node node = graph.getNode(i);
 			double sum = 0;
-			for (int j = 0; j < node.getInDegree(); j++) {
+			int inDegree = node.getInDegree();
+			for (int j = 0; j < inDegree; j++) {
 				Node other = node.getEnteringEdge(j).getOpposite(node);
 				sum += other.getNumber(rankAttribute) / other.getOutDegree();
 			}

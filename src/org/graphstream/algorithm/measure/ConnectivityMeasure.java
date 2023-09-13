@@ -208,7 +208,8 @@ public class ConnectivityMeasure {
 				
 			}
 
-			for (int i = 0; i < visited.length; i++)
+			int visitedLength = visited.length;
+			for (int i = 0; i < visitedLength; i++)
 				if (!visited[i] && !removed.contains(i)) {
 					Node[] tuple = new Node[k];
 
@@ -287,8 +288,8 @@ public class ConnectivityMeasure {
 				});
 			}
 
-			for (int i = 0; i < visited.length; i++)
-				if (!visited[i]) {
+			for (boolean visitedBool : visited) {
+				if (!visitedBool) {
 					Edge[] tuple = new Edge[k];
 
 					for (int j = 0; j < k; j++)
@@ -296,6 +297,7 @@ public class ConnectivityMeasure {
 
 					return tuple;
 				}
+			}
 		} while (karray.next());
 
 		return null;

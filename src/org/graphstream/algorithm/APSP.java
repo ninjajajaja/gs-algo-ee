@@ -555,7 +555,8 @@ public class APSP extends SinkAdapter implements Algorithm {
 
 				// Build a Path object.
 
-				for (int i = 0; i < nodePath.size() - 1; ++i) {
+				int nodePathSizeMinusOne = nodePath.size() - 1;
+				for (int i = 0; i < nodePathSizeMinusOne; ++i) {
 					// XXX XXX complicated ?
 
 					path.add(

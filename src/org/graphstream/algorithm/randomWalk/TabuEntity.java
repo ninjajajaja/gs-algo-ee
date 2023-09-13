@@ -103,8 +103,7 @@ public class TabuEntity extends Entity {
 			jump();
 		} else {
 			if (context.weightAttribute != null) {
-				if (weights == null || n > weights.length)
-					weights = new double[n];
+				weights = new double[n];
 
 				double sum = 0.0;
 
@@ -188,11 +187,8 @@ public class TabuEntity extends Entity {
 			if (memory == null)
 				memory = new LinkedList<Node>();
 
-			int n = memory.size();
-
-			for (int i = 0; i < n; i++) {
-				if (node == memory.get(i))
-					return true;
+			for (Node memoryNode : memory) {
+				if (node == memoryNode) return true;
 			}
 		}
 

@@ -108,8 +108,9 @@ public class Spectrum implements Algorithm {
 		double max = Double.MIN_VALUE;
 
 		if (values != null)
-			for (int i = 0; i < values.length; i++)
-				max = Math.max(max, values[i]);
+			for (double val : values) {
+				max = Math.max(max, val);
+			}
 
 		return max;
 	}

@@ -235,9 +235,7 @@ public abstract class BaseGenerator extends SourceBase implements Generator {
 	 */
 	public void setDirectedEdges(boolean directed, boolean randomly) {
 		this.directed = directed;
-
-		if (directed && randomly)
-			randomlyDirected = randomly;
+		randomlyDirected = directed && randomly;
 	}
 
 	/**

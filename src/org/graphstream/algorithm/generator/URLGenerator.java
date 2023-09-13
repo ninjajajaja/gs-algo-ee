@@ -38,6 +38,7 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLConnection;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.concurrent.locks.ReentrantLock;
@@ -95,9 +96,7 @@ public class URLGenerator extends BaseGenerator {
 		setUseInternalGraph(true);
 
 		if (startFrom != null) {
-			for (int i = 0; i < startFrom.length; i++) {
-				stepUrls.add(startFrom[i]);
-			}
+			stepUrls.addAll(Arrays.asList(startFrom));
 		}
 	}
 
@@ -303,8 +302,8 @@ public class URLGenerator extends BaseGenerator {
 	}
 
 	protected boolean isValid(String url) {
-		for (int i = 0; i < filters.size(); i++) {
-			if (!filters.get(i).accept(url))
+		for (URLFilter filter : filters) {
+			if (!filter.accept(url))
 				return false;
 		}
 

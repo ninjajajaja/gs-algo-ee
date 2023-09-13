@@ -357,7 +357,8 @@ public abstract class FlowAlgorithmBase implements FlowAlgorithm {
 
 	@Parameter
 	public void setAllCapacities(double value) {
-		for (int i = 0; i < 2 * n; i++)
+		int twoTimesN = 2*n;
+		for (int i = 0; i < twoTimesN; i++)
 			capacities[i] = value;
 	}
 

@@ -475,7 +475,8 @@ public class Dijkstra extends AbstractSpanningTree {
 			}
 			nextPath = new Path();
 			nextPath.setRoot(source);
-			for (int i = nodes.size() - 1; i > 0; i--)
+			int nodesSizeMinusOne = nodes.size() - 1;
+			for (int i = nodesSizeMinusOne; i > 0; i--)
 				nextPath.add(nodes.get(i).getEdgeToward(
 						nodes.get(i - 1).getId()));
 		}
