@@ -181,11 +181,6 @@ public class WattsStrogatzGenerator extends BaseGenerator {
 		}
 	}
 
-	@Override
-	public void end() {
-		super.end();
-	}
-
 	protected String nodeId(int id) {
 		return String.format("%d", id);
 	}
