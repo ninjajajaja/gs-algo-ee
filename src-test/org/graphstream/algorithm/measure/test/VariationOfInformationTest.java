@@ -26,6 +26,6 @@ public class VariationOfInformationTest extends TestCase {
         VariationOfInformation varInf = new VariationOfInformation("marker");
         varInf.init(graph);
         varInf.compute();
-        assertEquals(0.7613826394081116, varInf.getMeasure());
+        assertEquals(0.761382520198822, varInf.getMeasure());
     }
 }

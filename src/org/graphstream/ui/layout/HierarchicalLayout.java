@@ -32,10 +32,12 @@
 package org.graphstream.ui.layout;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.LinkedList;
 
 import org.graphstream.algorithm.Prim;
@@ -69,8 +71,8 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 		}
 	}
 
-	final HashMap<String, Position> nodesPosition;
-	final LinkedList<String> roots;
+	final Hashtable<String, Position> nodesPosition;
+	final ArrayList<String> roots;
 	Graph internalGraph;
 
 	boolean structureChanged;
@@ -87,9 +89,9 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 	double levelWidth = 1, levelHeight = 1;
 
 	public HierarchicalLayout() {
-		roots = new LinkedList<String>();
+		roots = new ArrayList<String>();
 		// listeners = new LinkedList<LayoutListener>();
-		nodesPosition = new HashMap<String, Position>();
+		nodesPosition = new Hashtable<String, Position>();
 		internalGraph = new AdjacencyListGraph("hierarchical_layout-intern");
 		hi = new Point3();
 		lo = new Point3();
@@ -159,7 +161,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 
 		Box rootBox = new Box();
 		LevelBox rootLevelBox = new LevelBox(0);
-		LinkedList<LevelBox> levelBoxes = new LinkedList<LevelBox>();
+		ArrayList<LevelBox> levelBoxes = new ArrayList<LevelBox>();
 
 		rootLevelBox.add(rootBox);
 		levelBoxes.add(rootLevelBox);

@@ -31,7 +31,7 @@
  */
 package org.graphstream.algorithm.generator;
 
-import java.util.ArrayList;
+import gnu.trove.list.array.TIntArrayList;
 
 /**
  * Scale-free tree generator using the preferential attachment rule as
@@ -64,7 +64,7 @@ public class PreferentialAttachmentGenerator extends BaseGenerator {
 	/**
 	 * Degree of each node.
 	 */
-	protected ArrayList<Integer> degrees;
+	protected TIntArrayList degrees;
 
 	/**
 	 * Maximal degree at time t.
@@ -89,7 +89,7 @@ public class PreferentialAttachmentGenerator extends BaseGenerator {
 	 * @see org.graphstream.algorithm.generator.Generator#begin()
 	 */
 	public void begin() {
-		this.degrees = new ArrayList<Integer>();
+		this.degrees = new TIntArrayList();
 		this.degreeMax = 0;
 
 		addNode("0");

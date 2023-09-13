@@ -34,6 +34,7 @@ package org.graphstream.algorithm;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.concurrent.atomic.DoubleAccumulator;
 import java.util.stream.Stream;
 
@@ -453,7 +454,7 @@ public class APSP extends SinkAdapter implements Algorithm {
 		/**
 		 * Shortest paths toward all other accessible nodes.
 		 */
-		public HashMap<String, TargetPath> targets = new HashMap<String, TargetPath>();
+		public Hashtable<String, TargetPath> targets = new Hashtable<String, TargetPath>();
 
 		/**
 		 * Create the new information and put in it all the paths between this

@@ -31,9 +31,12 @@
  */
 package org.graphstream.algorithm.generator;
 
+import gnu.trove.set.hash.THashSet;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
@@ -83,7 +86,7 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 		Set<Addict> addict;
 
 		PointOfInterest() {
-			addict = new HashSet<Addict>();
+			addict = new THashSet<Addict>();
 		}
 
 		/**
@@ -182,7 +185,7 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 		Addict(String id) {
 			this.id = id;
 			pointsOfInterest = new LinkedList<PointOfInterest>();
-			neighbor = new HashMap<Addict, AddictNeighbor>();
+			neighbor = new Hashtable<Addict, AddictNeighbor>();
 		}
 
 		/**
@@ -349,11 +352,11 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 	/**
 	 * List of addicts.
 	 */
-	protected LinkedList<Addict> addicts;
+	protected ArrayList<Addict> addicts;
 	/**
 	 * List of point-of-interest.
 	 */
-	protected LinkedList<PointOfInterest> pointsOfInterest;
+	protected ArrayList<PointOfInterest> pointsOfInterest;
 
 	private long currentId;
 
@@ -375,8 +378,8 @@ public class PointsOfInterestGenerator extends BaseGenerator {
 		averagePointsOfInterestCount = 3;
 		linksNeededToCreateEdge = 2;
 
-		addicts = new LinkedList<Addict>();
-		pointsOfInterest = new LinkedList<PointOfInterest>();
+		addicts = new ArrayList<Addict>();
+		pointsOfInterest = new ArrayList<PointOfInterest>();
 
 		currentStep = 0;
 	}

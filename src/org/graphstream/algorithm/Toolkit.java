@@ -34,6 +34,7 @@
  */
 package org.graphstream.algorithm;
 
+import gnu.trove.set.hash.THashSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -41,6 +42,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -823,9 +825,9 @@ public class Toolkit extends
 	 * @return The communities indexed by the value of the marker.
 	 * @complexity O(n) with n the number of nodes.
 	 */
-	public static HashMap<Object, HashSet<Node>> communities(Graph graph,
+	public static Hashtable<Object, THashSet<Node>> communities(Graph graph,
 			String marker) {
-		HashMap<Object, HashSet<Node>> communities = new HashMap<Object, HashSet<Node>>();
+		Hashtable<Object, THashSet<Node>> communities = new Hashtable<Object, THashSet<Node>>();
 
 		graph.nodes().forEach(node -> {
 			Object communityMarker = node.getAttribute(marker);
@@ -833,10 +835,10 @@ public class Toolkit extends
 			if (communityMarker == null)
 				communityMarker = "NULL_COMMUNITY";
 
-			HashSet<Node> community = communities.get(communityMarker);
+			THashSet<Node> community = communities.get(communityMarker);
 
 			if (community == null) {
-				community = new HashSet<Node>();
+				community = new THashSet<Node>();
 				communities.put(communityMarker, community);
 			}
 
@@ -860,7 +862,7 @@ public class Toolkit extends
 	 *             number of nodes per community.
 	 */
 	public static double[][] modularityMatrix(Graph graph,
-			HashMap<Object, HashSet<Node>> communities) {
+			Hashtable<Object, THashSet<Node>> communities) {
 		return modularityMatrix(graph, communities, null);
 	}
 
@@ -880,7 +882,7 @@ public class Toolkit extends
 	 *             number of nodes per community.
 	 */
 	public static double[][] modularityMatrix(Graph graph,
-		HashMap<Object, HashSet<Node>> communities, String weightMarker) {
+			Hashtable<Object, THashSet<Node>> communities, String weightMarker) {
 
 		DoubleAccumulator edgeCount = new DoubleAccumulator((x, y) -> x + y, 0);
 		
@@ -1023,8 +1025,8 @@ public class Toolkit extends
 	 *            The second community.
 	 * @return The number of edges between the two communities.
 	 */
-	protected static double modularityCountEdges(HashSet<Node> community,
-			HashSet<Node> otherCommunity) {
+	protected static double modularityCountEdges(THashSet<Node> community,
+			THashSet<Node> otherCommunity) {
 		return modularityCountEdges(community, otherCommunity, null);
 	}
 
@@ -1040,9 +1042,9 @@ public class Toolkit extends
 	 *            The marker used to store the weight of each edge
 	 * @return The number of edges between the two communities.
 	 */
-	protected static double modularityCountEdges(HashSet<Node> community,
-			HashSet<Node> otherCommunity, String weightMarker) {
-		HashSet<Edge> marked = new HashSet<Edge>();
+	protected static double modularityCountEdges(THashSet<Node> community,
+			THashSet<Node> otherCommunity, String weightMarker) {
+		THashSet<Edge> marked = new THashSet<Edge>();
 
 		DoubleAccumulator edgeCount = new DoubleAccumulator((x, y) -> x + y, 0);
 
@@ -1487,7 +1489,7 @@ public class Toolkit extends
 		for (int d = 0; d <= maxDeg; d++)
 			heads.add(null);
 
-		Map<Node, DegenEntry> map = new HashMap<Node, DegenEntry>(
+		Map<Node, DegenEntry> map = new Hashtable<Node, DegenEntry>(
 				4 * (n + 2) / 3);
 		for (Node x : graph) {
 			DegenEntry entry = new DegenEntry();

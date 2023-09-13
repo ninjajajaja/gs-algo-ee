@@ -30,6 +30,7 @@
  */
 package org.graphstream.algorithm.generator;
 
+import gnu.trove.set.hash.THashSet;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,9 +39,9 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -63,27 +64,27 @@ public class URLGenerator extends BaseGenerator {
 
 	private static String REGEX = "href=\"([^\"]*)\"";
 
-	protected HashSet<String> urls;
-	protected LinkedList<String> stepUrls;
-	protected HashSet<String> newUrls;
+	protected THashSet<String> urls;
+	protected ArrayList<String> stepUrls;
+	protected THashSet<String> newUrls;
 	protected Pattern hrefPattern;
 	public Mode mode;
 	protected int threads = 2;
 	protected String nodeWeight = "weight";
 	protected String edgeWeight = "weight";
-	protected LinkedList<URLFilter> filters;
+	protected ArrayList<URLFilter> filters;
 	protected double step;
 	protected boolean printProgress;
 	public int depthLimit;
 	protected final ReentrantLock lock;
 
 	public URLGenerator(String... startFrom) {
-		urls = new HashSet<String>();
-		stepUrls = new LinkedList<String>();
-		newUrls = new HashSet<String>();
+		urls = new THashSet<String>();
+		stepUrls = new ArrayList<String>();
+		newUrls = new THashSet<String>();
 		hrefPattern = Pattern.compile(REGEX);
 		mode = Mode.HOST;
-		filters = new LinkedList<URLFilter>();
+		filters = new ArrayList<URLFilter>();
 		directed = false;
 		step = 0;
 		printProgress = false;
@@ -273,8 +274,8 @@ public class URLGenerator extends BaseGenerator {
 		int t = Math.min(threads, stepUrls.size());
 		int byThreads = stepUrls.size() / t;
 
-		LinkedList<Worker> workers = new LinkedList<Worker>();
-		LinkedList<Thread> workersThreads = new LinkedList<Thread>();
+		ArrayList<Worker> workers = new ArrayList<Worker>();
+		ArrayList<Thread> workersThreads = new ArrayList<Thread>();
 
 		for (int i = 0; i < t; i++) {
 			int start = i * byThreads;
@@ -530,9 +531,9 @@ public class URLGenerator extends BaseGenerator {
 	 */
 	private class Worker implements Runnable {
 		int start, stop;
-		LinkedList<String> urls;
+		ArrayList<String> urls;
 
-		public Worker(int start, int stop, LinkedList<String> urls) {
+		public Worker(int start, int stop, ArrayList<String> urls) {
 			this.start = start;
 			this.stop = stop;
 			this.urls = urls;

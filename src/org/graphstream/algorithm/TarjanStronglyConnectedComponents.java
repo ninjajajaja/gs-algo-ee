@@ -31,6 +31,7 @@
 package org.graphstream.algorithm;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Stack;
 
 import org.graphstream.algorithm.util.Parameter;
@@ -94,7 +95,7 @@ public class TarjanStronglyConnectedComponents implements Algorithm {
 	 * Associate some data with each node. Each node has an index and a low
 	 * link.
 	 */
-	protected HashMap<Node, NodeData> data;
+	protected Hashtable<Node, NodeData> data;
 	/**
 	 * The current index.
 	 */
@@ -120,7 +121,7 @@ public class TarjanStronglyConnectedComponents implements Algorithm {
 	 * Build a new Tarjan algorithm.
 	 */
 	public TarjanStronglyConnectedComponents() {
-		this.data = new HashMap<Node, NodeData>();
+		this.data = new Hashtable<Node, NodeData>();
 		this.S = new Stack<Node>();
 		this.sccIndex = new IntegerIndexGenerator();
 		this.sccAttribute = "scc";

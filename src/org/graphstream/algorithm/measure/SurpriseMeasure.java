@@ -30,9 +30,10 @@
  */
 package org.graphstream.algorithm.measure;
 
-import java.util.ArrayList;
+import gnu.trove.list.array.TIntArrayList;
 import java.util.HashMap;
 
+import java.util.Hashtable;
 import org.graphstream.algorithm.Algorithm;
 import org.graphstream.algorithm.util.Parameter;
 import org.graphstream.algorithm.util.Result;
@@ -130,8 +131,8 @@ public class SurpriseMeasure implements Algorithm {
 	 * @see org.graphstream.algorithm.Algorithm#compute()
 	 */
 	public void compute() {
-		HashMap<Object, Integer> communities = new HashMap<Object, Integer>();
-		ArrayList<Integer> communitiesCount = new ArrayList<Integer>();
+		Hashtable<Object, Integer> communities = new Hashtable<Object, Integer>();
+		TIntArrayList communitiesCount = new TIntArrayList();
 
 		for (int i = 0; i < graph.getNodeCount(); i++) {
 			Object community = graph.getNode(i).getAttribute(

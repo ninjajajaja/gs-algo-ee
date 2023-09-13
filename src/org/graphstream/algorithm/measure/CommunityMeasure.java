@@ -31,9 +31,11 @@
  */
 package org.graphstream.algorithm.measure;
 
+import gnu.trove.set.hash.THashSet;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import java.util.Hashtable;
 import org.graphstream.algorithm.DynamicAlgorithm;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
@@ -67,7 +69,7 @@ public abstract class CommunityMeasure extends SinkAdapter implements
 	/**
 	 * All communities indexed by their marker value.
 	 */
-	protected HashMap<Object, HashSet<Node>> communities;
+	protected Hashtable<Object, THashSet<Node>> communities;
 
 	/**
 	 * Set to false after {@link #compute()}.
@@ -254,7 +256,7 @@ public abstract class CommunityMeasure extends SinkAdapter implements
 	 * @param assignment map of communities
 	 */
 	protected void assignNode(String nodeId, Object newValue,
-			HashMap<Object, HashSet<Node>> assignment) {
+			Hashtable<Object, THashSet<Node>> assignment) {
 		// A node added, put it in the communities.
 		Node node = graph.getNode(nodeId);
 		if (node != null) {
@@ -262,10 +264,10 @@ public abstract class CommunityMeasure extends SinkAdapter implements
 
 			if (communityKey == null)
 				communityKey = "NULL_COMMUNITY";
-			HashSet<Node> community = assignment.get(communityKey);
+			THashSet<Node> community = assignment.get(communityKey);
 
 			if (community == null) {
-				community = new HashSet<Node>();
+				community = new THashSet<Node>();
 				assignment.put(communityKey, community);
 			}
 			community.add(node);
@@ -283,14 +285,14 @@ public abstract class CommunityMeasure extends SinkAdapter implements
 	 * @param assignment map of communities
 	 */
 	protected void unassignNode(String nodeId, Object oldValue,
-			HashMap<Object, HashSet<Node>> assignment) {
+			Hashtable<Object, THashSet<Node>> assignment) {
 		Node node = graph.getNode(nodeId);
 		if (node != null) {
 			Object communityKey = oldValue;
 
 			if (communityKey == null)
 				communityKey = "NULL_COMMUNITY";
-			HashSet<Node> community = assignment.get(communityKey);
+			THashSet<Node> community = assignment.get(communityKey);
 
 			assert community != null : "Removing a node that was not placed in any community !!";
 

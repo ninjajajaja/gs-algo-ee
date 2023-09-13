@@ -31,6 +31,7 @@
  */
 package org.graphstream.algorithm.community;
 
+import java.util.Hashtable;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 
@@ -106,7 +107,7 @@ public class SyncEpidemicCommunityAlgorithm extends EpidemicCommunityAlgorithm {
 		/*
 		 * Reset the scores for each communities
 		 */
-		communityScores = new HashMap<Object, Double>();
+		communityScores = new Hashtable<Object, Double>();
 
 		/*
 		 * Iterate over the nodes that this node "hears"

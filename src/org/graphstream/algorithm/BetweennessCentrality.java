@@ -32,6 +32,7 @@
  */
 package org.graphstream.algorithm;
 
+import gnu.trove.set.hash.THashSet;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -586,7 +587,7 @@ public class BetweennessCentrality implements Algorithm {
 	 */
 	@SuppressWarnings("all")
 	protected Set<Node> predecessorsOf(Node node) {
-		return (HashSet<Node>) node.getAttribute(predAttributeName);
+		return (THashSet<Node>) node.getAttribute(predAttributeName);
 	}
 
 	/**
@@ -685,7 +686,7 @@ public class BetweennessCentrality implements Algorithm {
 	 *            The predecessor to add.
 	 */
 	public void replacePredecessorsOf(Node node, Node predecessor) {
-		HashSet<Node> set = new HashSet<Node>();
+		THashSet<Node> set = new THashSet<Node>();
 
 		set.add(predecessor);
 		node.setAttribute(predAttributeName, set);
@@ -701,7 +702,7 @@ public class BetweennessCentrality implements Algorithm {
 	 */
 	@SuppressWarnings("all")
 	protected void addToPredecessorsOf(Node node, Node predecessor) {
-		HashSet<Node> preds = (HashSet<Node>) node
+		THashSet<Node> preds = (THashSet<Node>) node
 				.getAttribute(predAttributeName);
 
 		preds.add(predecessor);
@@ -714,7 +715,7 @@ public class BetweennessCentrality implements Algorithm {
 	 *            Remove all predecessors of this node.
 	 */
 	protected void clearPredecessorsOf(Node node) {
-		HashSet<Node> set = new HashSet<Node>();
+		THashSet<Node> set = new THashSet<Node>();
 		node.setAttribute(predAttributeName, set);
 	}
 
