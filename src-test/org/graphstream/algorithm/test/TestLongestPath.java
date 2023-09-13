@@ -128,7 +128,7 @@ public class TestLongestPath {
     }
 
     private void setter(LongestPath lp) {
-        lp.setWeightAttribute("wa");
+        lp.weightAttribute = "wa";
     }
 
     @Test
@@ -199,7 +199,7 @@ public class TestLongestPath {
         String weigthAttribute = "test";
         Graph graph = getTestSmallDigraphWeighted(weigthAttribute);
         LongestPath path = new LongestPath();
-        path.setWeightAttribute(weigthAttribute);
+        path.weightAttribute = weigthAttribute;
         path.init(graph);
         path.compute();
         Path longestPath = path.getLongestPath();

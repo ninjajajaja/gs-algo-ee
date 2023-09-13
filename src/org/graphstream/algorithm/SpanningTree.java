@@ -42,13 +42,6 @@ import org.graphstream.graph.Graph;
  * <p> It defines methods related to tagging the edges of the spanning tree and for iterating on them.</p>
  */
 public interface SpanningTree extends Algorithm {
-	/**
-	 * Get key attribute which will be used to set if edges are in the spanning
-	 * tree, or not.
-	 * 
-	 * @return flag attribute
-	 */
-	String getFlagAttribute();
 	
 	/**
 	 * Set the flag attribute.
@@ -61,13 +54,6 @@ public interface SpanningTree extends Algorithm {
 	void setFlagAttribute(String flagAttribute);
 	
 	/**
-	 * Get value used to set that an edge is in the spanning tree.
-	 * 
-	 * @return on value
-	 */
-	Object getFlagOn();
-	
-	/**
 	 * Set value used to set that an edge is in the spanning tree.
 	 * 
 	 * @param flagOn
@@ -76,13 +62,6 @@ public interface SpanningTree extends Algorithm {
 	 *             if {@link #init(Graph)} is already called
 	 */
 	void setFlagOn(Object flagOn);
-	
-	/**
-	 * Get value used to set that an edge is not in the spanning tree.
-	 * 
-	 * @return off value
-	 */
-	Object getFlagOff();
 	
 	
 	/**

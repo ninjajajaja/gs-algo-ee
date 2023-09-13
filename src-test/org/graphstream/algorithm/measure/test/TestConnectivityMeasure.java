@@ -149,8 +149,8 @@ public class TestConnectivityMeasure {
 	@Test
 	public void getters() {
 		ConnectivityMeasure.VertexConnectivityMeasure cm = new ConnectivityMeasure.VertexConnectivityMeasure();
-		assertEquals(-1, cm.getVertexConnectivity());
+		assertEquals(-1, cm.vertexConnectivity);
 		ConnectivityMeasure.EdgeConnectivityMeasure em = new ConnectivityMeasure.EdgeConnectivityMeasure();
-		assertEquals(-1, em.getEdgeConnectivity());
+		assertEquals(-1, em.edgeConnectivity);
 	}
 }

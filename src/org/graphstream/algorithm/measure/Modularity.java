@@ -55,7 +55,7 @@ public class Modularity extends CommunityMeasure {
 	/**
 	 * Possible weighted extension for the modularity computation
 	 */
-	protected String weightMarker = null;
+	public String weightMarker = null;
 
 	/**
 	 * New modularity algorithm using the default marker for communities and no
@@ -87,18 +87,6 @@ public class Modularity extends CommunityMeasure {
 	 */
 	public Modularity(String marker, String weightMarker) {
 		super(marker);
-		this.weightMarker = weightMarker;
-	}
-
-	/**
-	 * Enables weighted extension of the modularity using the given weightMarker
-	 * for edge weights.
-	 * 
-	 * @param weightMarker
-	 *            name of the attribute marking the weight of edges.
-	 */
-	@Parameter
-	public void setWeightMarker(String weightMarker) {
 		this.weightMarker = weightMarker;
 	}
 

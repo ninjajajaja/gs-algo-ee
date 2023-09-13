@@ -62,8 +62,8 @@ public class EigenvectorCentralityTest {
 		eigenvectorCentrality.init(g);
 		eigenvectorCentrality.compute();
 
-		eigenvectorCentrality.setCentralityAttribute("ca");
-		assertEquals("ca", eigenvectorCentrality.getCentralityAttribute());
+		eigenvectorCentrality.centralityAttribute = "ca";
+		assertEquals("ca", eigenvectorCentrality.centralityAttribute);
 	}
 
 }

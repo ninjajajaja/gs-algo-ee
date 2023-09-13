@@ -7,7 +7,7 @@ public class ChartMinMaxAverageSeriesMeasureTest extends TestCase {
 
     public void testSetterAndGetter() {
         ChartMinMaxAverageSeriesMeasure cmmasm = new ChartMinMaxAverageSeriesMeasure("name");
-        cmmasm.setSeparateMinMaxAxis(true);
+        cmmasm.separateMinMaxAxis = true;
         assertTrue(cmmasm.isSeparateMinMaxAxis());
     }
 

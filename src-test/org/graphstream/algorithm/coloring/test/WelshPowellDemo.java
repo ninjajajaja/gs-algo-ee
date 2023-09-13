@@ -70,7 +70,7 @@ public class WelshPowellDemo {
 		wp.compute();
 
 		System.out.println("The chromatic number of this graph is : "
-				+ wp.getChromaticNumber());
+				+ wp.chromaticNumber);
 		for (Node n : graph) {
 			System.out.println("Node " + n.getId() + " : color "
 					+ n.getAttribute("color"));

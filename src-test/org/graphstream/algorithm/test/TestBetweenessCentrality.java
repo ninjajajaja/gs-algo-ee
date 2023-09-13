@@ -67,9 +67,9 @@ public class TestBetweenessCentrality {
 	}
 
 	private void settersAndGetters(BetweennessCentrality bc) {
-		bc.setCentralityAttributeName("can");
-		assertEquals("can", bc.getCentralityAttributeName());
-		assertNotNull(bc.getWeightAttributeName());
+		bc.centralityAttributeName = "can";
+		assertEquals("can", bc.centralityAttributeName);
+		assertNotNull(bc.weightAttributeName);
 	}
 
 	@Test

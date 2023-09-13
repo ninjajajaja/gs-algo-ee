@@ -141,18 +141,18 @@ public class BellmanFord implements Algorithm {
 	protected Node source;
 	
 	// Used by default result
-	protected String target = "";
+	public String target = "";
 	
 	/**
 	 * object-level unique string that identifies tags of this instance on a
 	 * graph.
 	 */
-	protected String identifier;
+	public String identifier;
 	
 	/**
 	 * Name of attribute used to get weight of edges.
 	 */
-	protected String weightAttribute;
+	public String weightAttribute;
 	
 	/**
 	 * Default weight attribute
@@ -204,16 +204,6 @@ public class BellmanFord implements Algorithm {
 			source = graph.getNode(nodeId);
 		}
 		this.source_id = nodeId;	
-	}
-	
-	@Parameter(true)
-	public void setTarget(String target) {
-		this.target = target;
-	}
-	
-	@Parameter
-	public void setWeightAttribute(String weightAttribute) {
-		this.weightAttribute = weightAttribute;
 	}
 
 	/**
@@ -282,29 +272,6 @@ public class BellmanFord implements Algorithm {
 		if (getSource() != null){
 			source = graph.getNode(getSource());
 		}
-	}
-	
-	
-	
-	/**
-	 * Set the unique identifier for this instance.
-	 * 
-	 * @see #getIdentifier()
-	 * 
-	 * @param identifier
-	 *            the unique identifier to set
-	 */
-	@Parameter
-	public void setIdentifier(String identifier) {
-		this.identifier = identifier;
-	}
-	
-	/**
-	 * The unique identifier of this instance. Used to tag attributes in the graph.
-	 * @return the unique identifier of this graph.
-	 */
-	public String getIdentifier() {
-		return this.identifier; 
 	}
 
 	/**

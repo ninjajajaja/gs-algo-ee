@@ -100,6 +100,6 @@ public class TestSurpriseMeasure {
 	@Test
 	public void testSetter() {
 		SurpriseMeasure sm = new SurpriseMeasure();
-		sm.setCommunityAttributeKey("cak");
+		sm.communityAttributeKey = "cak";
 	}
 }

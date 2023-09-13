@@ -57,7 +57,7 @@ public class TopologicalSortDFS implements Algorithm{
     /**
      * collection containing sorted nodes after calculation
      */
-    private List<Node> sortedNodes;
+    public List<Node> sortedNodes;
 
     /**
      * collection to mark visited nodes
@@ -108,17 +108,9 @@ public class TopologicalSortDFS implements Algorithm{
     private void throwException() {
         throw new IllegalStateException("graph is no DAG");
     }
-
-    /**
-     * gets sorted list of the given graph
-     * @return topological sorted list of nodes
-     */
-    public List<Node> getSortedNodes() {
-        return sortedNodes;
-    }
     
     @Result
     public String defaultResult() {
-    	return getSortedNodes().toString() ;
+    	return sortedNodes.toString() ;
     }
 }

@@ -63,7 +63,7 @@ public class WikipediaGenerator extends URLGenerator {
 		this.lang = lang;
 
 		setDirected(true);
-		setMode(Mode.PATH);
+		mode = Mode.PATH;
 
 		addHostFilter(lang.host);
 

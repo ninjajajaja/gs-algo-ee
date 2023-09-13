@@ -12,8 +12,8 @@ public class ChartConnectivityMeasureTest extends TestCase {
                 new ChartConnectivityMeasure.ChartVertexConnectivityMeasure(),
                 new ChartConnectivityMeasure.ChartEdgeConnectivityMeasure()
         );
-        assertNotNull(ccm.getEdgeConnectivityMeasure());
-        assertNotNull(ccm.getVertexConnectivityMeasure());
+        assertNotNull(ccm.edgeConnectivity);
+        assertNotNull(ccm.vertexConnectivity);
     }
 
 }

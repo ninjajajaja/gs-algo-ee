@@ -160,14 +160,4 @@ public class DorogovtsevMendesGenerator extends BaseGenerator {
 
 		return true;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.graphstream.algorithm.generator.Generator#end()
-	 */
-	@Override
-	public void end() {
-		super.end();
-	}
 }

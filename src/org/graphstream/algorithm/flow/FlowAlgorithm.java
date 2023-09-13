@@ -46,6 +46,8 @@ public interface FlowAlgorithm extends Algorithm {
 	 */
 	double getFlow(Node u, Node v);
 
+	double getMaximumFlow();
+
 	/**
 	 * Set flow of edge (u,v).
 	 * 
@@ -82,28 +84,14 @@ public interface FlowAlgorithm extends Algorithm {
 	 * element is the value of the capacity of (u,v) and second the capacity of
 	 * (v,u). If there is only one value, the value of (v,u) will be zero. If no
 	 * value is available, both capacities will be zero.
-	 * 
+	 *
 	 * If capacity attribute is null, you have to set capacities before calling
 	 * {@link #compute()}.
-	 * 
+	 *
 	 * @param attribute attribute name
 	 */
 	void setCapacityAttribute(String attribute);
 
-	/**
-	 * Get the key attribute from which capacities are loaded.
-	 * 
-	 * @see #setCapacityAttribute(String)
-	 * @return key attribute of capacities
-	 */
-	String getCapacityAttribute();
-
-	/**
-	 * Get maximum flow compute by {@link #compute()}.
-	 * 
-	 * @return maximum flow
-	 */
-	double getMaximumFlow();
 
 	/**
 	 * Get id of the source.

@@ -65,7 +65,7 @@ public class TestTopologicalSortDFS {
     }
 
     private void getters(TopologicalSortDFS tsDFS) {
-        assertTrue(tsDFS.getSortedNodes().size() > 0);
+        assertTrue(tsDFS.sortedNodes.size() > 0);
         assertNotNull(tsDFS.defaultResult());
     }
 
@@ -94,7 +94,7 @@ public class TestTopologicalSortDFS {
         sort.compute();
 
         //check if algorithm gets one of the possible ordering
-        assertTrue(allPossibleTopologicalSort.contains(Arrays.toString(sort.getSortedNodes().toArray())));
+        assertTrue(allPossibleTopologicalSort.contains(Arrays.toString(sort.sortedNodes.toArray())));
         getters(sort);
     }
 

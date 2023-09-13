@@ -59,16 +59,16 @@ public class CentroidTest {
 	// F is not in the centroid
 	// G is not in the centroid
 
-		centroid.setCentroidAttribute("ca");
-		assertEquals("ca",centroid.getCentroidAttribute());
+		centroid.centroidAttribute = "ca";
+		assertEquals("ca",centroid.centroidAttribute);
 
-		centroid.setAPSPInfoAttribute(null);
-		assertNull(centroid.getAPSPInfoAttribute());
+		centroid.apspInfoAttribute = null;
+		assertNull(centroid.apspInfoAttribute);
 
-		centroid.setIsInCentroidValue(null);
-		assertNull(centroid.getIsInCentroidValue());
+		centroid.isInCentroid = null;
+		assertNull(centroid.isInCentroid);
 
-		centroid.setIsNotInCentroidValue(null);
-		assertNull(centroid.getIsNotInCentroidValue());
+		centroid.isNotInCentroid = null;
+		assertNull(centroid.isNotInCentroid);
 	}
 }

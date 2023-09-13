@@ -66,14 +66,14 @@ public class URLGenerator extends BaseGenerator {
 	protected LinkedList<String> stepUrls;
 	protected HashSet<String> newUrls;
 	protected Pattern hrefPattern;
-	protected Mode mode;
+	public Mode mode;
 	protected int threads = 2;
 	protected String nodeWeight = "weight";
 	protected String edgeWeight = "weight";
 	protected LinkedList<URLFilter> filters;
 	protected double step;
 	protected boolean printProgress;
-	protected int depthLimit;
+	public int depthLimit;
 	protected final ReentrantLock lock;
 
 	public URLGenerator(String... startFrom) {
@@ -196,20 +196,6 @@ public class URLGenerator extends BaseGenerator {
 	}
 
 	/**
-	 * Set the way that url are converted to node id. When mode is Mode.FULL,
-	 * then the id is the raw url. With Mode.PATH, the query of the url is
-	 * truncated so the url http://host/path?what=xxx will be converted as
-	 * http://host/path. With Mode.HOST, the url is converted to the host name
-	 * so the url http://host/path will be converted as http://host.
-	 * 
-	 * @param mode
-	 *            mode specifying how to convert url to have node id
-	 */
-	public void setMode(Mode mode) {
-		this.mode = mode;
-	}
-
-	/**
 	 * Set the amount of threads used to parse urls. Threads are created in the
 	 * {@link #nextEvents()} step. At the end of this method, all working thread
 	 * have stop.
@@ -219,15 +205,6 @@ public class URLGenerator extends BaseGenerator {
 	 */
 	public void setThreadCount(int count) {
 		this.threads = count;
-	}
-
-	/**
-	 * Set the maximum steps before stop. If 0 or less, limit is disabled.
-	 * 
-	 * @param depthLimit maximum steps before stop
-	 */
-	public void setDepthLimit(int depthLimit) {
-		this.depthLimit = depthLimit;
 	}
 
 	public void enableProgression(boolean on) {

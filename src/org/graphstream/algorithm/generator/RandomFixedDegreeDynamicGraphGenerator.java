@@ -238,14 +238,4 @@ public class RandomFixedDegreeDynamicGraphGenerator extends BaseGenerator {
 
 		return false;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.graphstream.algorithm.generator.Generator#end()
-	 */
-	@Override
-	public void end() {
-		super.end();
-	}
 }

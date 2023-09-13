@@ -78,7 +78,7 @@ public class LongestPath implements Algorithm {
     /**
      * Attribute where the weights of the edges are stored
      */
-    private String weightAttribute;
+    public String weightAttribute;
 
     public void init(Graph theGraph) {
         graph = theGraph;
@@ -91,7 +91,7 @@ public class LongestPath implements Algorithm {
         TopologicalSortDFS aTopoSortAlgorithm = new TopologicalSortDFS();
         aTopoSortAlgorithm.init(graph);
         aTopoSortAlgorithm.compute();
-        fillDistanceMap(aTopoSortAlgorithm.getSortedNodes());
+        fillDistanceMap(aTopoSortAlgorithm.sortedNodes);
         longestPathNode = distanceMap.entrySet().stream().max(Map.Entry.comparingByValue()).orElse(null);
         if(longestPathNode == null){
             throw new IllegalStateException("No max node found!");
@@ -177,10 +177,5 @@ public class LongestPath implements Algorithm {
 
     public String getWeightAttribute() {
         return weightAttribute == null ? DEFAULT_WEIGHT_ATTRIBUTE : weightAttribute;
-    }
-    
-    @Parameter
-    public void setWeightAttribute(String weightAttribute) {
-        this.weightAttribute = weightAttribute;
     }
 }

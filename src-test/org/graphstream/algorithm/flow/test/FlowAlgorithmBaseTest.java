@@ -11,6 +11,11 @@ public class FlowAlgorithmBaseTest extends TestCase {
         FlowAlgorithmBase fab = new FlowAlgorithmBase() {
 
             @Override
+            public double getMaximumFlow() {
+                return 0;
+            }
+
+            @Override
             public void compute() {
                 // nothing
             }
@@ -18,7 +23,7 @@ public class FlowAlgorithmBaseTest extends TestCase {
 
         fab.setCapacityAttribute("capAttr");
         assertNotNull(fab.getMaximumFlow());
-        assertEquals("capAttr", fab.getCapacityAttribute());
+        assertEquals("capAttr", fab.capacityAttribute);
 
     }
 

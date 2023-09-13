@@ -6,7 +6,7 @@ public class BarabasiAlbertGeneratorTest extends TestCase {
 
     public void testSetExactlyMaxLinksPerStep() {
         BarabasiAlbertGenerator bag = new BarabasiAlbertGenerator();
-        bag.setExactlyMaxLinksPerStep(false);
-        assertEquals(1, bag.getMaxLinksPerStep());
+        bag.exactlyMaxLinksPerStep = false;
+        assertEquals(1, bag.maxLinksPerStep);
     }
 }

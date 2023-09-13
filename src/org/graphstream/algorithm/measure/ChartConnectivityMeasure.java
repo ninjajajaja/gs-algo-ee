@@ -123,8 +123,8 @@ public class ChartConnectivityMeasure extends ChartMeasure implements
 		}
 	}
 
-	protected ChartVertexConnectivityMeasure vertexConnectivity;
-	protected ChartEdgeConnectivityMeasure edgeConnectivity;
+	public ChartVertexConnectivityMeasure vertexConnectivity;
+	public ChartEdgeConnectivityMeasure edgeConnectivity;
 
 	public ChartConnectivityMeasure() {
 		this(new ChartVertexConnectivityMeasure(),
@@ -140,13 +140,6 @@ public class ChartConnectivityMeasure extends ChartMeasure implements
 		this.edgeConnectivity = edgeConnectivity;
 	}
 
-	public ChartVertexConnectivityMeasure getVertexConnectivityMeasure() {
-		return vertexConnectivity;
-	}
-
-	public ChartEdgeConnectivityMeasure getEdgeConnectivityMeasure() {
-		return edgeConnectivity;
-	}
 
 	/*
 	 * (non-Javadoc)

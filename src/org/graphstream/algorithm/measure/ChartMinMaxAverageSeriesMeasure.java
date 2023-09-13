@@ -56,7 +56,7 @@ public class ChartMinMaxAverageSeriesMeasure extends ChartSeries2DMeasure {
 	 * Flag used to define if min and max are plotted to a different axis than
 	 * average. If true, a new axis is created on the right/bottom of the plot.
 	 */
-	protected boolean separateMinMaxAxis;
+	public boolean separateMinMaxAxis;
 
 	public ChartMinMaxAverageSeriesMeasure(String name) {
 		super("avg");
@@ -69,18 +69,6 @@ public class ChartMinMaxAverageSeriesMeasure extends ChartSeries2DMeasure {
 		max.setMaximumItemCount(DEFAULT_WINDOW_SIZE);
 
 		separateMinMaxAxis = true;
-	}
-
-	/**
-	 * Flag used to define if min and max are plotted to a different axis than
-	 * average.
-	 * 
-	 * @param on
-	 *            true if a new axis should be created on the right/bottom for
-	 *            min/max series
-	 */
-	public void setSeparateMinMaxAxis(boolean on) {
-		this.separateMinMaxAxis = on;
 	}
 
 	/**

@@ -51,14 +51,14 @@ public class LifeGeneratorDemo {
 
 		Graph g = new AdjacencyListGraph("g");
 		gen.addSink(g);
-		gen.setTore(false);
+		gen.tore = false;
 
 		g.setAttribute("ui.quality");
 		g.setAttribute("ui.antialias");
 
 		Viewer v = g.display(false);
 		Camera cam = v.getDefaultView().getCamera();
-		cam.setViewCenter(gen.getWidth() / 2.0, gen.getHeight() / 2.0, 0.0);
+		cam.setViewCenter(gen.width / 2.0, gen.height / 2.0, 0.0);
 		cam.setViewPercent(1.1);
 
 		gen.begin();

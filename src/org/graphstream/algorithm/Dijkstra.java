@@ -190,11 +190,11 @@ public class Dijkstra extends AbstractSpanningTree {
 	protected Element element;
 	protected String resultAttribute;
 	protected String lengthAttribute;
-	protected Node source;
+	public Node source;
 	
 	// Used by default result
 	private String sourceId = null;
-	private String target;
+	public String target;
 	// *** Helpers ***
 
 	protected double getLength(Edge edge, Node dest) {
@@ -289,33 +289,15 @@ public class Dijkstra extends AbstractSpanningTree {
 	 * all nodes in a graph. This method returns the source node.
 	 * 
 	 * @return the source node
-	 * @see #setSource(Node)
 	 */
 	@SuppressWarnings("unchecked")
 	public <T extends Node> T getSource() {
 		return (T) source;
 	}
 	
-	/**
-	 * Dijkstra's algorithm computes shortest paths from a given source node to
-	 * all nodes in a graph. This method sets the source node.
-	 * 
-	 * @param source
-	 *            The new source node.
-	 * @see #getSource()
-	 */
-	public void setSource(Node source) {
-		this.source = source;
-	}
-	
 	@Parameter(true)
 	public void setSource(String source) {
 		this.sourceId = source;
-	}
-	
-	@Parameter(true)
-	public void setTarget(String target) {
-		this.target = target;
 	}
 
 	/**
@@ -342,11 +324,7 @@ public class Dijkstra extends AbstractSpanningTree {
 	/**
 	 * Computes the shortest paths from the source node to all nodes in the
 	 * graph.
-	 * 
-	 * @throws IllegalStateException
-	 *             if {@link #init(Graph)} or {@link #setSource(Node)} have not
-	 *             been called before or if elements with negative lengths are
-	 *             discovered.
+	 *
 	 * @see org.graphstream.algorithm.Algorithm#compute()
 	 * @complexity O(<em>m</em> + <em>n</em>log<em>n</em>) where <em>m</em> is
 	 *             the number of edges and <em>n</em> is the number of nodes in
@@ -387,7 +365,7 @@ public class Dijkstra extends AbstractSpanningTree {
 		while (!heap.isEmpty()) {
 			Node u = heap.extractMin();
 			Data dataU = (Data) u.getAttribute(resultAttribute);
-			dataU.distance = dataU.fn.getKey();
+			dataU.distance = dataU.fn.key;
 			dataU.fn = null;
 			if (dataU.edgeFromParent != null)
 				edgeOn(dataU.edgeFromParent);
@@ -399,7 +377,7 @@ public class Dijkstra extends AbstractSpanningTree {
 				Data dataV = (Data) v.getAttribute(resultAttribute);
 			
 				double tryDist = dataU.distance + getLength(e, v);
-				if (tryDist < dataV.fn.getKey()) {
+				if (tryDist < dataV.fn.key) {
 					dataV.edgeFromParent = e;
 					heap.decreaseKey(dataV.fn, tryDist);
 				}

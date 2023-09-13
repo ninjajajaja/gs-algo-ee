@@ -6,6 +6,6 @@ public class BigMNumberTest extends TestCase {
 
     public void testGetSmall() {
         BigMNumber bn = new BigMNumber(5);
-        assertEquals(5, bn.getSmall());
+        assertEquals(5, bn.small);
     }
 }

@@ -21,7 +21,7 @@ public class TabuEntityTest extends TestCase {
         gen.end();
 
         RandomWalk rwalk = new RandomWalk();
-        rwalk.setEntityCount(graph.getNodeCount() / 2);
+        rwalk.entityCount = graph.getNodeCount() / 2;
         rwalk.setEntityMemory(5);
         rwalk.init(graph);
         for (int i = 0; i < 100; i++) {

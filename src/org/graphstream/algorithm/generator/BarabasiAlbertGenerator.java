@@ -56,10 +56,10 @@ import java.util.Set;
  * therefore generate graphs of any size. One node is generated at each call to
  * {@link #nextEvents()}. At each node added at least one new edge is added. The
  * number of edges added at each step is given by the
- * {@link #getMaxLinksPerStep()}. However by default the generator creates a
+ * {@link #maxLinksPerStep}. However by default the generator creates a
  * number of edges per new node chosen randomly between 1 and
- * {@link #getMaxLinksPerStep()}. To have exactly this number of edges at each
- * new node, use {@link #setExactlyMaxLinksPerStep(boolean)}.
+ * {@link #maxLinksPerStep}. To have exactly this number of edges at each
+ * new node, use {@link #exactlyMaxLinksPerStep}.
  * </p>
  * 
  * <h2>Complexity</h2>
@@ -97,12 +97,12 @@ public class BarabasiAlbertGenerator extends BaseGenerator {
 	/**
 	 * The maximum number of links created when a new node is added.
 	 */
-	protected int maxLinksPerStep;
+	public int maxLinksPerStep;
 
 	/**
 	 * Does the generator generates exactly {@link #maxLinksPerStep}.
 	 */
-	protected boolean exactlyMaxLinksPerStep = false;
+	public boolean exactlyMaxLinksPerStep = false;
 	
 	/**
 	 * The sum of degrees of all nodes
@@ -138,21 +138,12 @@ public class BarabasiAlbertGenerator extends BaseGenerator {
 	}
 
 	/**
-	 * Maximum number of edges created when a new node is added.
-	 * 
-	 * @return The maximum number of links per step.
-	 */
-	public int getMaxLinksPerStep() {
-		return maxLinksPerStep;
-	}
-
-	/**
-	 * True if the generator produce exactly {@link #getMaxLinksPerStep()}, else
+	 * True if the generator produce exactly {@link #maxLinksPerStep}, else
 	 * it produce a random number of links ranging between 1 and
-	 * {@link #getMaxLinksPerStep()}.
+	 * {@link #maxLinksPerStep}.
 	 * 
 	 * @return Does the generator generates exactly
-	 *         {@link #getMaxLinksPerStep()}.
+	 *         {@link #maxLinksPerStep}.
 	 */
 	public boolean produceExactlyMaxLinkPerStep() {
 		return exactlyMaxLinksPerStep;
@@ -166,19 +157,6 @@ public class BarabasiAlbertGenerator extends BaseGenerator {
 	 */
 	public void setMaxLinksPerStep(int max) {
 		maxLinksPerStep = max > 0 ? max : 1;
-	}
-
-	/**
-	 * Set if the generator produce exactly {@link #getMaxLinksPerStep()}
-	 * (true), else it produce a random number of links ranging between 1 and
-	 * {@link #getMaxLinksPerStep()} (false).
-	 * 
-	 * @param on
-	 *            Does the generator generates exactly
-	 *            {@link #getMaxLinksPerStep()}.
-	 */
-	public void setExactlyMaxLinksPerStep(boolean on) {
-		exactlyMaxLinksPerStep = on;
 	}
 
 	/**

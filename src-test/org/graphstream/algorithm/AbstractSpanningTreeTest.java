@@ -19,9 +19,9 @@ public class AbstractSpanningTreeTest extends TestCase {
             }
         };
 
-        assertNull(ast.getFlagAttribute());
-        assertNull(ast.getFlagOff());
-        assertNull(ast.getFlagOn());
+        assertNull(ast.flagAttribute);
+        assertNull(ast.flagOff);
+        assertNull(ast.flagOn);
     }
 
 }

@@ -46,7 +46,7 @@ public class AlgorithmComputationTrigger extends SinkAdapter {
 	/**
 	 * Mode of this trigger.
 	 */
-	protected Mode mode;
+	public Mode mode;
 
 	/**
 	 * Algorithm computed.
@@ -56,24 +56,6 @@ public class AlgorithmComputationTrigger extends SinkAdapter {
 	public AlgorithmComputationTrigger(Mode mode, Algorithm algo) {
 		this.mode = mode;
 		this.algo = algo;
-	}
-
-	/**
-	 * Set the trigger mode.
-	 * 
-	 * @param mode the trigger mode
-	 */
-	public void setMode(Mode mode) {
-		this.mode = mode;
-	}
-
-	/**
-	 * Get the trigger mode.
-	 * 
-	 * @return the trigger mode
-	 */
-	public Mode getMode() {
-		return mode;
 	}
 
 	/*

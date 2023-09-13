@@ -66,7 +66,7 @@ public class TestTopologicalSortKahn {
     }
 
     private void getters(TopologicalSortKahn tsDFS) {
-        assertTrue(tsDFS.getSortedNodes().size() > 0);
+        assertTrue(tsDFS.sortedNodes.size() > 0);
         assertNotNull(tsDFS.defaultResult());
     }
 
@@ -95,7 +95,7 @@ public class TestTopologicalSortKahn {
         sort.compute();
 
         //check if algorithm gets one of the possible ordering
-        Assert.assertTrue(allPossibleTopologicalSort.contains(Arrays.toString(sort.getSortedNodes().toArray())));
+        Assert.assertTrue(allPossibleTopologicalSort.contains(Arrays.toString(sort.sortedNodes.toArray())));
         getters(sort);
     }
 

@@ -192,27 +192,27 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	/**
 	 * Name of the attribute used to store the supply of each node
 	 */
-	protected String supplyName;
+	public String supplyName;
 
 	/**
 	 * Name of the attribute used to store the capacity of each arc
 	 */
-	protected String capacityName;
+	public String capacityName;
 
 	/**
 	 * Name of the attribute used to store the cost per unit flow of each arc
 	 */
-	protected String costName;
+	public String costName;
 
 	/**
 	 * Current pricing strategy
 	 */
-	protected PricingStrategy pricingStrategy = PricingStrategy.MOST_NEGATIVE;
+	public PricingStrategy pricingStrategy = PricingStrategy.MOST_NEGATIVE;
 
 	/**
 	 * A reference to the original graph
 	 */
-	protected Graph graph;
+	public Graph graph;
 
 	/**
 	 * Stores the nodes
@@ -242,7 +242,7 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	/**
 	 * The status of the current BFS
 	 */
-	protected SolutionStatus solutionStatus = SolutionStatus.UNDEFINED;
+	public SolutionStatus solutionStatus = SolutionStatus.UNDEFINED;
 
 	/**
 	 * Entering arc for the next pivot. Set to {@code null} if no candidates.
@@ -308,7 +308,7 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * If this delay is positive, sleeps at the end of each pivot and updates UI
 	 * classes
 	 */
-	protected long animationDelay = 0;
+	public long animationDelay = 0;
 
 	/**
 	 * True if pivot is called from sink method. In this case pivot does not
@@ -511,14 +511,6 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 		join = i;
 	}
 
-	/**
-	 * Selects the leaving arc, that is the arc belonging to the cycle with
-	 * minimum allowed flow change. Maintains strongly feasible basis: if there
-	 * are more than one candidates, selects the last visited when traversing
-	 * the cycle in its direction starting from {@link join}. Sets up
-	 * {@link #first}, {@link second}, {@link #cycleFlowChange},
-	 * {@link #oldSubtreeRoot}, {@link #newSubtreeRoot} and {@link #leavingArc}.
-	 */
 	protected void selectLeavingArc() {
 		findJoinNode();
 		if (enteringArc.status == ArcStatus.NONBASIC_LOWER) {
@@ -563,7 +555,7 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * objective value.
 	 */
 	protected void changeFlows() {
-		int delta = (int) cycleFlowChange.getSmall();
+		int delta = (int) cycleFlowChange.small;
 		if (delta == 0)
 			return;
 
@@ -677,83 +669,6 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	// access and modification of algorithm parameters
 
 	/**
-	 * Returns the name of the attribute used to store the supply of each node.
-	 * This name is given as constructor parameter and cannot be modified.
-	 * 
-	 * @return The name of the supply attribute.
-	 */
-	public String getSupplyName() {
-		return supplyName;
-	}
-
-	/**
-	 * Returns the name of the attribute used to store the capacity of each
-	 * edge. This name is given as constructor parameter and cannot be modified.
-	 * 
-	 * @return The name of the capacity attribute.
-	 */
-	public String getCapacityName() {
-		return capacityName;
-	}
-
-	/**
-	 * Returns the name of the attribute used to store the cost per unit flow of
-	 * each edge. This name is given as constructor parameter and cannot be
-	 * modified.
-	 * 
-	 * @return The name of the cost attribute.
-	 */
-	public String getCostName() {
-		return costName;
-	}
-
-	/**
-	 * Returns the currently used pricing strategy.
-	 * 
-	 * @return The pricing strategy
-	 */
-	public PricingStrategy getPricingStrategy() {
-		return pricingStrategy;
-	}
-
-	/**
-	 * Sets the pricing strategy
-	 * 
-	 * @param pricingStrategy
-	 *            The new pricing strategy
-	 */
-	public void setPricingStrategy(PricingStrategy pricingStrategy) {
-		this.pricingStrategy = pricingStrategy;
-	}
-
-	/**
-	 * When the animation delay is positive, the algorithm continuously updates
-	 * {@code "ui.class"} and {@code "label"} attributes of the edges and the
-	 * nodes of the graph and sleeps at the beginning of each simplex pivot.
-	 * This feature can be useful for visualizing the algorithm execution. The
-	 * user must provide a stylesheet defining the classes of the graph elements
-	 * as described in {@link #setUIClasses()}. This feature is disabled by
-	 * default.
-	 * 
-	 * @param millis
-	 *            The time in milliseconds to sleep between two simplex pivots.
-	 * @see #setUIClasses()
-	 */
-	public void setAnimationDelay(long millis) {
-		animationDelay = millis;
-	}
-
-	/**
-	 * Returns the graph on which the algorithm is applied. This is the graph
-	 * passed in parameter in {@link #init(Graph)}.
-	 * 
-	 * @return The graph on which the algorithm is applied.
-	 */
-	public Graph getGraph() {
-		return graph;
-	}
-
-	/**
 	 * Sets the log frequency.
 	 * 
 	 * If the parameter is positive, outputs information about the algorithm
@@ -799,24 +714,12 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	// solution access methods
 
 	/**
-	 * If the current solution is up to date, returns the status of the problem.
-	 * Otherwise returns {@link SolutionStatus#UNDEFINED}.
-	 * 
-	 * 
-	 * @return The status of the current solution.
-	 * @see SolutionStatus
-	 */
-	public SolutionStatus getSolutionStatus() {
-		return solutionStatus;
-	}
-
-	/**
 	 * Returns the total cost of the current network flow
 	 * 
 	 * @return The cost of the flow defined by the current solution
 	 */
 	public long getSolutionCost() {
-		return objectiveValue.getSmall();
+		return objectiveValue.small;
 	}
 
 	/**
@@ -976,13 +879,6 @@ public class NetworkSimplex extends SinkAdapter implements DynamicAlgorithm {
 	 * edges is set to one of {@code "basic"}, {@code "nonbasic_lower"} or
 	 * {@code "nonbasic_upper"} according to their status (see
 	 * {@link #getStatus(Edge)}.
-	 * </p>
-	 * <p>
-	 * The user must provide a stylesheet defining the visual appearance for
-	 * each of these node and edge classes. Note that if the animation delay is
-	 * positive (see {@link #setAnimationDelay(long)}), there is no need to call
-	 * this method, because in this case the labels and the UI classes of the
-	 * graph elements are set and updated during the algorithm execution.
 	 * </p>
 	 * <p>
 	 * Note that in the case of undirected edges the label and the UI class are

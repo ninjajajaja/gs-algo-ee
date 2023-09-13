@@ -81,12 +81,6 @@ import org.graphstream.graph.Node;
  * </p>
  * 
  * <p>
- * The result of the computation is stored on each node inside the "Cb"
- * attribute. You can change the name of this attribute using the dedicated
- * constructor or the {@link #setCentralityAttributeName(String)} method.
- * </p>
- * 
- * <p>
  * As the computing of centrality can take a lot of time, you can provide a
  * progress 'callback' to get notified each time the algorithm finished
  * processing a node (however the centrality values are usable only when the
@@ -170,7 +164,7 @@ public class BetweennessCentrality implements Algorithm {
 	protected static double INFINITY = 1000000.0;
 
 	/** Store the centrality value in this attribute on nodes and edges. */
-	protected String centralityAttributeName = "Cb";
+	public String centralityAttributeName = "Cb";
 
 	/** The predecessors. */
 	protected String predAttributeName = "brandes.P";
@@ -185,7 +179,7 @@ public class BetweennessCentrality implements Algorithm {
 	protected String deltaAttributeName = "brandes.delta";
 
 	/** Name of the attribute used to retrieve weights on edges. */
-	protected String weightAttributeName = "weight";
+	public String weightAttributeName = "weight";
 
 	/** Do not use weights ? */
 	protected boolean unweighted = true;
@@ -243,20 +237,6 @@ public class BetweennessCentrality implements Algorithm {
 	}
 
 	/**
-	 * Name of the attribute used to retrieve weights on edges.
-	 */
-	public String getWeightAttributeName() {
-		return weightAttributeName;
-	}
-
-	/**
-	 * Name of the attribute used to store centrality values on nodes.
-	 */
-	public String getCentralityAttributeName() {
-		return centralityAttributeName;
-	}
-
-	/**
 	 * Specify the name of the weight attribute to retrieve edge attributes.
 	 * This automatically set the algorithm to perform on the graph as if it was
 	 * weighted.
@@ -294,15 +274,6 @@ public class BetweennessCentrality implements Algorithm {
 	@Parameter
 	public void computeEdgeCentrality(boolean on) {
 		doEdges = on;
-	}
-
-	/**
-	 * Specify the name of the attribute used to store the computed centrality
-	 * values for each node.
-	 */
-	@Parameter
-	public void setCentralityAttributeName(String centralityAttributeName) {
-		this.centralityAttributeName = centralityAttributeName;
 	}
 
 	/**

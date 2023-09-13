@@ -144,17 +144,17 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	/**
 	 * Current damping factor
 	 */
-	protected double dampingFactor;
+	public double dampingFactor;
 
 	/**
 	 * Current numeric precision
 	 */
-	protected double precision;
+	public double precision;
 
 	/**
 	 * Current rank attribute
 	 */
-	protected String rankAttribute;
+	public String rankAttribute;
 
 	/**
 	 * Our graph
@@ -179,12 +179,12 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	/**
 	 * total iteration count
 	 */
-	protected int iterationCount;
+	public int iterationCount;
 
 	/**
 	 * Verbose mode
 	 */
-	protected boolean verbose;
+	public boolean verbose;
 
 	/**
 	 * Creates a new instance.
@@ -216,15 +216,6 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	// parameters
 
 	/**
-	 * Returns the current damping factor.
-	 * 
-	 * @return The current damping factor
-	 */
-	public double getDampingFactor() {
-		return dampingFactor;
-	}
-
-	/**
 	 * Sets the damping factor.
 	 * 
 	 * @param dampingFactor
@@ -240,15 +231,6 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 					"The damping factor must be between 0.01 and 0.99");
 		this.dampingFactor = dampingFactor;
 		upToDate = false;
-	}
-
-	/**
-	 * Returns the currently used numeric precision
-	 * 
-	 * @return The precision
-	 */
-	public double getPrecision() {
-		return precision;
 	}
 
 	/**
@@ -269,15 +251,6 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	}
 
 	/**
-	 * Returns the current rank attribute
-	 * 
-	 * @return The current rank attribute
-	 */
-	public String getRankAttribute() {
-		return rankAttribute;
-	}
-
-	/**
 	 * Sets the rank attribute.
 	 * 
 	 * The computed ranks of each node are stored as values of this attribute.
@@ -294,21 +267,6 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 			throw new IllegalStateException(
 					"this method can be called only before init");
 		this.rankAttribute = rankAttribute;
-	}
-
-	/**
-	 * Switches on or off the verbose mode.
-	 * 
-	 * In verbose mode the algorithm prints at each iteration the number of
-	 * iterations and the L1 norm of the difference between the current and the
-	 * previous rank vectors.
-	 * 
-	 * @param verbose
-	 *            Verbose mode
-	 */
-	@Parameter
-	public void setVerbose(boolean verbose) {
-		this.verbose = verbose;
 	}
 
 	// DynamicAlgorithm implementation
@@ -433,18 +391,5 @@ public class PageRank implements DynamicAlgorithm, ElementSink {
 	public double getRank(Node node) {
 		compute();
 		return node.getNumber(rankAttribute);
-	}
-
-	/**
-	 * Returns the total number of iterations.
-	 * 
-	 * This number accumulates the number of iterations performed by each call
-	 * to {@link #compute()}. It is reset to zero in the calls to
-	 * {@link #init(Graph)}.
-	 * 
-	 * @return The number of iterations
-	 */
-	public int getIterationCount() {
-		return iterationCount;
 	}
 }

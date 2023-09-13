@@ -139,7 +139,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 				roots.add(internalGraph.getNode(this.roots.get(i)));
 		}
 
-		SpanningTree tree = new Prim("weight", "inTree");
+		Prim tree = new Prim("weight", "inTree");
 		tree.init(internalGraph);
 		tree.compute();
 
@@ -177,7 +177,7 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 				Box box = getChildrenBox(root);
 				
 				root.edges()
-					.filter(e -> e.getAttribute(tree.getFlagAttribute()).equals(tree.getFlagOn()))
+					.filter(e -> e.getAttribute(tree.flagAttribute).equals(tree.flagOn))
 					.forEach(e -> {
 						Node op = e.getOpposite(root);
 

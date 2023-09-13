@@ -74,7 +74,7 @@ public class FixedArrayList<E>
 	/**
 	 * Last inserted element index.
 	 */
-	protected int lastIndex = -1;
+	public int lastIndex = -1;
 
 // Construction
 
@@ -209,14 +209,6 @@ public class FixedArrayList<E>
 	public java.util.Iterator<E> iterator() {
 		return new FixedArrayIterator();
 	}
-
-	/**
-	 * Last index used by the {@link #add(Object)} method.
-	 * @return The last insertion index.
-	 */
-	public int getLastIndex() {
-		return lastIndex;
-	}
 	
 	/**
 	 * The index that will be used in case of a next insertion in this array.
@@ -256,9 +248,9 @@ public class FixedArrayList<E>
 
 	/**
 	 * Add one <code>element</code> in the array. The index used for inserting
-	 * the element is then available using {@link #getLastIndex()}. This method
+	 * the element is then available using {@link #lastIndex}. This method
 	 * complexity is O(1).
-	 * @see #getLastIndex()
+	 * @see #lastIndex
 	 * @param element The element to add.
 	 * @return Always true.
 	 * @throws NullPointerException If a null value is inserted.
