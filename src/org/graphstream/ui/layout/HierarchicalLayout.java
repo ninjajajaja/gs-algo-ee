@@ -72,7 +72,6 @@ public class HierarchicalLayout extends PipeBase implements Layout {
 	public HierarchicalLayout() {
 		roots = new ArrayList<String>();
 		// listeners = new LinkedList<LayoutListener>();
-		nodesPosition = new Hashtable<String, Position>();
 		internalGraph = new AdjacencyListGraph("hierarchical_layout-intern");
 		hi = new Point3();
 		lo = new Point3();
