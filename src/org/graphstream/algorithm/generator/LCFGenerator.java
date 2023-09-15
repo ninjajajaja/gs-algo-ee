@@ -175,11 +175,11 @@ public class LCFGenerator extends BaseGenerator {
 		}
 	}
 
-	protected String getNodeId(int i) {
+	public static String getNodeId(int i) {
 		return String.format("%03d", i);
 	}
 
-	protected String getEdgeId(int i1, int i2) {
+	public static String getEdgeId(int i1, int i2) {
 		if (i1 > i2) {
 			int t = i1;
 			i1 = i2;

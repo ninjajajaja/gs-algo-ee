@@ -181,11 +181,11 @@ public class WattsStrogatzGenerator extends BaseGenerator {
 		}
 	}
 
-	protected String nodeId(int id) {
+	public static String nodeId(int id) {
 		return String.format("%d", id);
 	}
 
-	protected String edgeId(int from, int to) {
+	public static String edgeId(int from, int to) {
 		if (from > to) {
 			to += from;
 			from = to - from;

@@ -310,14 +310,6 @@ public class APSP extends SinkAdapter implements Algorithm {
 
 	// Access
 
-	/**
-	 * True if the algorithm must take edge orientation into account.
-	 * 
-	 * @return True if directed.
-	 */
-	public boolean isDirected() {
-		return directed;
-	}
 
 	// Commands
 
@@ -572,7 +564,7 @@ public class APSP extends SinkAdapter implements Algorithm {
 			return null;
 		}
 
-		protected int expandPath(int pos, APSPInfo source, TargetPath path,
+		public static int expandPath(int pos, APSPInfo source, TargetPath path,
 				ArrayList<Node> nodePath) {
 			// result = will contain the expanded path.
 			// source = A.

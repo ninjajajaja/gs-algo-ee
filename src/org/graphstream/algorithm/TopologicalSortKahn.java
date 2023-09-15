@@ -77,7 +77,7 @@ public class TopologicalSortKahn implements Algorithm {
      * @param theGraph graph to calculate topological ordering
      * @return copy of graph
      */
-    private Graph getCopyOfGraph(Graph theGraph) {
+    public static Graph getCopyOfGraph(Graph theGraph) {
         Graph aGraphCopy = new SingleGraph("TopoSortKahn");
         
         theGraph.nodes().forEach(aNode -> aGraphCopy.addNode(aNode.getId()));
@@ -152,7 +152,7 @@ public class TopologicalSortKahn implements Algorithm {
     /**
      * throws exception if given graph is no directed acyclic graph (DAG)
      */
-    private void throwException() {
+    public static void throwException() {
         throw new IllegalStateException("graph is no DAG");
     }
 

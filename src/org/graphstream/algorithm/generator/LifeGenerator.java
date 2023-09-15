@@ -152,11 +152,11 @@ public class LifeGenerator extends BaseGenerator {
 		delEdge(edgeId(x1, y1, x2, y2));
 	}
 
-	protected String nodeId(int x, int y) {
+	public static String nodeId(int x, int y) {
 		return String.format("%d_%d", x, y);
 	}
 
-	protected String edgeId(int x1, int y1, int x2, int y2) {
+	public static String edgeId(int x1, int y1, int x2, int y2) {
 		return String.format("%d_%d__%d_%d", x1, y1, x2, y2);
 	}
 

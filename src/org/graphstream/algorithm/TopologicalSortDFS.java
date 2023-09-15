@@ -106,7 +106,7 @@ public class TopologicalSortDFS implements Algorithm{
     /**
      * throws exception if given graph is no directed acyclic graph (DAG)
      */
-    private void throwException() {
+    public static void throwException() {
         throw new IllegalStateException("graph is no DAG");
     }
     

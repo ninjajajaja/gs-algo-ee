@@ -109,7 +109,7 @@ public class BananaTreeGenerator extends BaseGenerator {
 	 *            index of the node in the star
 	 * @return unique node id
 	 */
-	protected String getNodeId(int star, int index) {
+	public static String getNodeId(int star, int index) {
 		return String.format("S%02d_%02d", star, index);
 	}
 

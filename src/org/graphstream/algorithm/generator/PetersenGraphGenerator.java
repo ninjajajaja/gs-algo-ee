@@ -106,11 +106,11 @@ public class PetersenGraphGenerator extends BaseGenerator {
 		addEdge(getEdgeId(i, j), getNodeId(i), getNodeId(j));
 	}
 
-	protected String getNodeId(int i) {
+	public static String getNodeId(int i) {
 		return String.format("%02d", i);
 	}
 
-	protected String getEdgeId(int i, int j) {
+	public static String getEdgeId(int i, int j) {
 		if (i > j) {
 			j += i;
 			i = j - i;
